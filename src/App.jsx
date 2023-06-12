@@ -1,36 +1,35 @@
-import React from 'react';
 import styles from './style';
+import React from 'react';
 
+import ParticleBackground from './components/ParticleBackground';
 import { Navbar, Hero, Stats, Business, Billing, CardDeal, Testimonials, Clients, CTA, Footer } from './components';
 
 const App = () => {
   return (
     <div className="bg-primary w-full overflow-hidden">
+      <ParticleBackground id="particles-container"/>
       <div className={'${styles.paddingX} ${styles.flexCenter}'}>
         <div className={'${styles.boxWidth}'}>
-          {/* <Navbar/> */}
-          <h1>Hi</h1>
+          <Navbar/>
+          {/* <h1>Hi</h1> */}
         </div>
       </div>
-
-      <div className={'bg-primary ${styles.flexStart}'}>
+      
+      <div className={'${styles.flexStart}'}>
         <div className={'${styles.boxWidth}'}>
-          {/* <Hero/> */}
-          <h1>Hi</h1>
+          <Hero/>
         </div>
       </div>
 
       <div className={'bg-primary ${styles.paddingX} ${styles.flexStart}'}>
         <div className={'${styles.boxWidth}'}>
-          {/* <Stats />
           <Business />
-          <Billing />
+          {/* <Billing /> */}
           <CardDeal />
-          <Testimonials />
-          <Clients />
+          {/* <Testimonials /> */}
+          {/* <Clients /> */}
           <CTA />
-          <Footer /> */}
-          <h1>Hi</h1>
+          <Footer /> 
         </div>
       </div>
     </div>

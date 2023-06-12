@@ -2,7 +2,6 @@ import { useState } from "react";
 
 import { close, logo, menu } from "../assets";
 import { navLinks } from "../constants";
-// import Background from './components/Background';
 
 const Navbar = () => {
   const [active, setActive] = useState("Home");
@@ -10,7 +9,7 @@ const Navbar = () => {
 
   return (
     <nav className="w-full flex py-6 justify-between items-center navbar">
-      <img src={logo} alt="tasknet" className="w-[124px] h-[32px]" />
+      <img src={logo} alt="task" className="w-auto h-auto max-w-full max-h-[180px] opacity-100" />
 
       <ul className="list-none sm:flex hidden justify-end items-center flex-1">
         {navLinks.map((nav, index) => (

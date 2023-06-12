@@ -130,7 +130,7 @@
 }
 
 .pink__gradient {
-  background: linear-gradient(90deg, #f4c4f3 0%, #fc67fa 100%);
+  background: linear-gradient(rgba(99, 2, 108, 100), rgba(7, 8, 45, 0));
   filter: blur(900px);
 }
 
