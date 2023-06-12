@@ -20,10 +20,10 @@ const FeatureCard = ({ icon, title, content, index }) => (
 
 const Business = () =>  (
   <section id="features" className={layout.section}>
-    <div className={layout.sectionInfo}>
+    <div className={layout.sectionInfo} style={{ paddingLeft: '50px' }}>
       <h2 className={styles.heading2}>
-        You do the business, <br className="sm:block hidden" /> we’ll handle
-        the money.
+        Contribute your knowledge <br className="sm:block hidden" /> 
+        and computing power
       </h2>
       <p className={`${styles.paragraph} max-w-[470px] mt-5`}>
         With the right credit card, you can improve your financial life by

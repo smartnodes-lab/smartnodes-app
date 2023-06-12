@@ -2,6 +2,7 @@ import { useState } from "react";
 
 import { close, logo, menu } from "../assets";
 import { navLinks } from "../constants";
+// import Background from './components/Background';
 
 const Navbar = () => {
   const [active, setActive] = useState("Home");
