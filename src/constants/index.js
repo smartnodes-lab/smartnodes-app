@@ -23,23 +23,26 @@ export const features = [
   {
     id: "feature-1",
     icon: star,
-    title: "Rewards",
+    title: "AI Tools & Services",
     content:
-      "The best credit cards offer some tantalizing combinations of promotions and prizes",
+      "Innovative networks that facilitate collaboration and competition in AI, \
+      while addressing the increasing demand for cloud computing resources.",
   },
   {
     id: "feature-2",
     icon: shield,
-    title: "100% Secured",
+    title: "Trustless Decision-Making",
     content:
-      "We take proactive steps make sure your information and transactions are secure.",
+      "Machine-to-Human interfaces that enhance decentralized and automated systems using \
+      the power of collective human intelligence.",
   },
   {
     id: "feature-3",
-    icon: send,
-    title: "Balance Transfer",
+    icon: shield,
+    title: "Security",
     content:
-      "A balance transfer credit card can save you a lot of money in interest charges.",
+      "Smart contracts powered by Aleph Zero ensure integrity of user reputation, \
+      and participation-based rewards.",
   },
 ];
 

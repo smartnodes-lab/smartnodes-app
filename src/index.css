@@ -18,15 +18,26 @@
   scroll-behavior: smooth;
 }
 
-.text-gradient {
+.text-gradient1 {
+  background: radial-gradient(
+    64.18% 64.18% at 50.16% 35.69%,
+    #f8f4ff 0.89%,
+    #ace6ff 95.54%,
+    #9162ff 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
+}
+
+.text-gradient2 {
   background: radial-gradient(
     64.18% 64.18% at 71.16% 35.69%,
-    #def9fa 0.89%,
-    #bef3f5 17.23%,
-    #9dedf0 42.04%,
-    #7de7eb 55.12%,
-    #5ce1e6 71.54%,
-    #33bbcf 100%
+    #f8f4ff 0.89%,
+    #b8fbfe 42.04%,
+    #72d3fd 71.54%,
+    #9725fb 100%
   );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -125,16 +136,16 @@
 }
 
 .blue__gradient {
-  background: linear-gradient(180deg, rgba(188, 165, 255, 0) 0%, #214d76 100%);
+  background: linear-gradient(rgba(69, 45, 142, 0.1), rgba(54, 25, 98, 0.1));
   filter: blur(123px);
 }
 
 .pink__gradient {
-  background: linear-gradient(rgba(99, 2, 108, 100), rgba(7, 8, 45, 0));
+  background: linear-gradient(rgba(135, 5, 147, 0.6), rgba(94, 37, 185, 0.5));
   filter: blur(900px);
 }
 
 .white__gradient {
-  background: rgba(255, 255, 255, 0.6);
+  background: rgba(24, 24, 141, 0.6);
   filter: blur(750px);
 }

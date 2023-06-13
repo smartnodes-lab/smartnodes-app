@@ -8,10 +8,10 @@ const Navbar = () => {
   const [toggle, setToggle] = useState(false);
 
   return (
-    <nav className="w-full flex py-6 justify-between items-center navbar">
+    <nav className="w-full flex py-10 px-10 justify-between items-center navbar">
       <img src={logo} alt="task" className="w-auto h-auto max-w-full max-h-[180px] opacity-100" />
 
-      <ul className="list-none sm:flex hidden justify-end items-center flex-1">
+      <ul className="list-none sm:flex hidden justify-end px-5 items-center flex-1">
         {navLinks.map((nav, index) => (
           <li
             key={nav.id}

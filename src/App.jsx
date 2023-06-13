@@ -1,12 +1,14 @@
 import styles from './style';
 import React from 'react';
+import { motion } from 'framer-motion';
 
 import ParticleBackground from './components/ParticleBackground';
 import { Navbar, Hero, Stats, Business, Billing, CardDeal, Testimonials, Clients, CTA, Footer } from './components';
 
 const App = () => {
+
   return (
-    <div className="bg-primary w-full overflow-hidden">
+    <div className="bg-primary w-full overflow-hidden px-10">
       <ParticleBackground id="particles-container"/>
       <div className={'${styles.paddingX} ${styles.flexCenter}'}>
         <div className={'${styles.boxWidth}'}>
@@ -15,7 +17,7 @@ const App = () => {
         </div>
       </div>
       
-      <div className={'${styles.flexStart}'}>
+      <div>
         <div className={'${styles.boxWidth}'}>
           <Hero/>
         </div>

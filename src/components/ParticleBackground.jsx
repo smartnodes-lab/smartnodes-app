@@ -21,6 +21,7 @@ const ParticleBackground = () => {
                 options={{
                     fpsLimit: 120,
                     interactivity: {
+                        detectsOn: "parent",
                         events: {
                             onClick: {
                                 enable: true,
@@ -44,13 +45,13 @@ const ParticleBackground = () => {
                     },
                     particles: {
                         color: {
-                            value: "#ff0000",
+                            value: "#ffffff",
                             animation: {
                               h: {
                                 count: 0,
                                 enable: true,
                                 offset: 0,
-                                speed: 50,
+                                speed: 10,
                                 delay: 0,
                                 decay: 0,
                                 sync: false
@@ -79,7 +80,7 @@ const ParticleBackground = () => {
                             color: "#ffffff",
                             distance: 250,
                             enable: true,
-                            opacity: 0.5,
+                            opacity: 0.4,
                             width: 0.4,
                         },
                         collisions: {

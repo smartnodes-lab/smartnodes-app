@@ -23,12 +23,10 @@ const Business = () =>  (
     <div className={layout.sectionInfo} style={{ paddingLeft: '50px' }}>
       <h2 className={styles.heading2}>
         Contribute your knowledge <br className="sm:block hidden" /> 
-        and computing power
+        and computing power.
       </h2>
       <p className={`${styles.paragraph} max-w-[470px] mt-5`}>
-        With the right credit card, you can improve your financial life by
-        building credit, earning rewards and saving money. But with hundreds
-        of credit cards on the market.
+        
       </p>
 
       <Button styles={`mt-10`} />
