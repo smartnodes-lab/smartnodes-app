@@ -7,9 +7,9 @@
 :root {
   --black-gradient: linear-gradient(
     144.39deg,
-    #ffffff -278.56%,
+    #aff4ff -278.56%,
     #6d6d6d -78.47%,
-    #3e32be 91.61%
+    #320476 91.61%
   );
   --card-shadow: 0px 20px 100px -10px rgba(66, 71, 91, 0.1);
 }
@@ -118,7 +118,22 @@
   }
 }
 
-.feature-card:hover {
+@keyframes black-hole-animation {
+  0% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(5);
+  }
+}
+
+.animate-black-hole {
+  animation: black-hole-animation 2s ease-in-out infinite;
+}
+
+.feature-card {
   background: var(--black-gradient);
   box-shadow: var(--card-shadow);
 }
@@ -141,11 +156,11 @@
 }
 
 .pink__gradient {
-  background: linear-gradient(rgba(135, 5, 147, 0.6), rgba(94, 37, 185, 0.5));
+  background: linear-gradient(rgba(31, 5, 81, 0.6), rgba(94, 37, 185, 0.5));
   filter: blur(900px);
 }
 
 .white__gradient {
-  background: rgba(24, 24, 141, 0.6);
+  background: rgba(21, 11, 62, 0.6);
   filter: blur(750px);
 }

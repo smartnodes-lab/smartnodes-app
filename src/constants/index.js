@@ -1,4 +1,4 @@
-import { people01, people02, people03, facebook, instagram, linkedin, twitter, airbnb, binance, coinbase, dropbox, send, shield, star  } from "../assets";
+import { people01, people02, people03, facebook, instagram, linkedin, twitter, airbnb, binance, coinbase, dropbox, send, shield, star } from "../assets";
 
 export const navLinks = [
   {
@@ -14,8 +14,8 @@ export const navLinks = [
     title: "Product",
   },
   {
-    id: "clients",
-    title: "Clients",
+    id: "git",
+    title: "GitHub"
   },
 ];
 
@@ -31,15 +31,15 @@ export const features = [
   {
     id: "feature-2",
     icon: shield,
-    title: "Trustless Decision-Making",
+    title: "Trustless, Automated, Decision-Making",
     content:
       "Machine-to-Human interfaces that enhance decentralized and automated systems using \
       the power of collective human intelligence.",
   },
   {
     id: "feature-3",
-    icon: shield,
-    title: "Security",
+    icon: send,
+    title: "Near Instant Finality",
     content:
       "Smart contracts powered by Aleph Zero ensure integrity of user reputation, \
       and participation-based rewards.",

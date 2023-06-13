@@ -9,7 +9,7 @@ const Navbar = () => {
 
   return (
     <nav className="w-full flex py-10 px-10 justify-between items-center navbar">
-      <img src={logo} alt="task" className="w-auto h-auto max-w-full max-h-[180px] opacity-100" />
+      <img src={logo} alt="task" className="w-auto h-auto max-w-[450px] max-h-[180px] opacity-100" />
 
       <ul className="list-none sm:flex hidden justify-end px-5 items-center flex-1">
         {navLinks.map((nav, index) => (
@@ -20,7 +20,11 @@ const Navbar = () => {
             } ${index === navLinks.length - 1 ? "mr-0" : "mr-10"}`}
             onClick={() => setActive(nav.title)}
           >
-            <a href={`#${nav.id}`}>{nav.title}</a>
+            {nav.title === "GitHub" ? (
+              <a href="https://github.com/mattjhawken/tasknet">{nav.title}</a>
+            ) : (
+              <a href={`#${nav.id}`}>{nav.title}</a>
+            )}
           </li>
         ))}
       </ul>

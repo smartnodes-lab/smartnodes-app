@@ -8,7 +8,7 @@ import { Navbar, Hero, Stats, Business, Billing, CardDeal, Testimonials, Clients
 const App = () => {
 
   return (
-    <div className="bg-primary w-full overflow-hidden px-10">
+    <div className="bg-primary w-full overflow-hidden px-10 ${styles.flexCenter}">
       <ParticleBackground id="particles-container"/>
       <div className={'${styles.paddingX} ${styles.flexCenter}'}>
         <div className={'${styles.boxWidth}'}>
@@ -27,7 +27,7 @@ const App = () => {
         <div className={'${styles.boxWidth}'}>
           <Business />
           {/* <Billing /> */}
-          <CardDeal />
+          {/* <CardDeal /> */}
           {/* <Testimonials /> */}
           {/* <Clients /> */}
           <CTA />
