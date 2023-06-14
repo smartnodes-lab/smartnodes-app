@@ -20,16 +20,19 @@ const FeatureCard = ({ icon, title, content, index }) => (
 
 const Business = () =>  (
   <section id="features" className={layout.section}>
-    <div className={layout.sectionInfo} style={{ paddingLeft: '50px' }}>
+    <div className={layout.sectionInfo}>
       <h2 className={styles.heading2}>
-        Contribute your knowledge <br className="sm:block hidden" /> 
-        and computing power.
+        Where AI and <br className="sm:block hidden" /> 
+        human minds
       </h2>
-      <p className={`${styles.paragraph} max-w-[470px] mt-5`}>
-        
-      </p>
 
-      <Button styles={`mt-10`} />
+      <h2 className={styles.heading2}>
+          converge
+      </h2>
+
+      {/* <p className={`${styles.paragraph} max-w-[470px] mt-5`}>
+      </p> */}
+      {/* <Button styles={`mt-10`} /> */}
     </div>
 
     <div className={`${layout.sectionImg} flex-col`}>
