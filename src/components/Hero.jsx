@@ -22,10 +22,10 @@ const Hero = () => {
         </h1>
 
         <p className={`${styles.paragraph} mt-10`} style={{ lineHeight: '1.75' }}>
-          Brainstorm is an innovative, decentralized network that revolutionizes the way a wide array 
-          of tasks can be accomplished. By combining the power of distributed, on-demand AI with a dynamic
-          task marketplace, Brainstorm empower users on its network to collaborate, compete, and contribute 
-          to a wide range of human-centric tasks.
+          Brainstorm is an innovative network that revolutionizes the way a wide range 
+          of tasks can be accomplished and monetized. Through the integration of distributed, on-demand AI, 
+          and a dynamic task marketplace, Brainstorm enables users to actively participate, cooperate,
+          and compete in an extensive range of human and AI-centric tasks.
         </p>
       </div>
       

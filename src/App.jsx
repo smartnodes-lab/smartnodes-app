@@ -13,7 +13,6 @@ const App = () => {
       <div className={'${styles.paddingX} ${styles.flexCenter}'}>
         <div className={'${styles.boxWidth}'}>
           <Navbar/>
-          {/* <h1>Hi</h1> */}
         </div>
       </div>
       
@@ -25,9 +24,9 @@ const App = () => {
 
       <div className={'bg-primary px-10 ${styles.flexStart}'}>
         <div className={'${styles.boxWidth}'}>
-          <Features />
           <Opportunity />
-          {/* <CardDeal /> */}
+          <Features />
+          <CardDeal />
           {/* <Testimonials /> */}
           {/* <Clients /> */}
           {/* <CTA /> */}

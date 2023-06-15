@@ -25,15 +25,13 @@ export const features = [
     icon: star,
     title: "AI Tools & Services",
     content:
-      "Innovative networks that facilitate collaboration and competition in AI, \
+      "An innovative layer 2 solution that facilitate collaboration and competition in AI, \
       while addressing the increasing demand for cloud computing resources.",
     expanded_content: [
-      " - Design unique AI architectures utilizing peer-to-peer training, ensemble \
+      " - Design unique, distributed AI architectures utilizing peer-to-peer training, ensemble \
        voting, and much more!",
-      " - Access large amounts of on-demand computing power for trustless AI \
-       model execution.",
-      " - Earn rewards by solving tasks and datasets, or by simply donating your \
-      computing power!",
+      " - Access vast amounts of on-demand computing power for trustless AI model execution.",
+      " - Earn rewards by solving tasks and datasets, or by simply donating your computing power!",
     ],
   },
   {

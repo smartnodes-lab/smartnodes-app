@@ -63,6 +63,10 @@
   text-fill-color: transparent;
 }
 
+.flex-item {
+  flex: 1 1 auto;
+  transition: flex 0.5s ease;
+}
 
 .bg-blue-gradient {
   background: linear-gradient(
