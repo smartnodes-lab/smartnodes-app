@@ -1,9 +1,9 @@
 import { apple, bill, google } from "../assets";
 import styles, { layout } from "../style";
 
-const Billing = () => (
-  <section id="product" className={layout.sectionReverse}>
-    <div className={layout.sectionImgReverse}>
+const UseCases = () => (
+  <section id="product" className={layout.section}>
+    <div className={'flex-1 w-full flex-col items-center pl-5 max-w-xl'}>
       <img src={bill} alt="billing" className="w-[100%] h-[100%] relative z-[5]" />
 
       {/* gradient start */}
@@ -12,10 +12,9 @@ const Billing = () => (
       {/* gradient end */}
     </div>
 
-    <div className={layout.sectionInfo}>
+    <div className={'flex-1 w-full flex-col items-center pl-5 max-w-xl'}>
       <h2 className={styles.heading2}>
-        Easily control your <br className="sm:block hidden" /> billing &
-        invoicing
+        A vibrant marketplace <br className="sm:block hidden" /> for opportunity.
       </h2>
       <p className={`${styles.paragraph} max-w-[470px] mt-5`}>
         Elit enim sed massa etiam. Mauris eu adipiscing ultrices ametodio
@@ -31,4 +30,4 @@ const Billing = () => (
   </section>
 );
 
-export default Billing;
+export default UseCases;

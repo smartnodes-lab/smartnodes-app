@@ -12,6 +12,9 @@
     #320476 91.61%
   );
   --card-shadow: 0px 20px 100px -10px rgba(66, 71, 91, 0.1);
+  --theme-color1: rgba(212, 84, 255, 0.704);
+  --theme-color2: rgba(247, 69, 116, 0.77);
+  --theme-color3: rgba(79, 201, 246, 0.754);
 }
 
 * {
@@ -20,10 +23,11 @@
 
 .text-gradient1 {
   background: radial-gradient(
-    64.18% 64.18% at 50.16% 35.69%,
-    #f8f4ff 0.89%,
-    #ace6ff 95.54%,
-    #9162ff 100%
+    64.18% 64.18% at 71.16% 35.69%,
+    #ffffff 0.89%,
+    #b3f5fb 42.04%,
+    #ff95ba 71.54%,
+    #ef1f5e 100%
   );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -34,10 +38,10 @@
 .text-gradient2 {
   background: radial-gradient(
     64.18% 64.18% at 71.16% 35.69%,
-    #f8f4ff 0.89%,
-    #b8fbfe 42.04%,
-    #72d3fd 71.54%,
-    #9725fb 100%
+    #ffffff 0.89%,
+    #f85ab3 42.04%,
+    #f90351 71.54%,
+    #8f0db6 100%
   );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -48,10 +52,10 @@
 .text-gradient3 {
   background: radial-gradient(
     64.18% 64.18% at 71.16% 35.69%,
-    #5d00ff 0.89%,
-    #07f3ff 42.04%,
-    #72d3fd 71.54%,
-    #9725fb 100%
+    #ffffff 0.89%,
+    #ffffff 42.04%,
+    #ebf9ff 71.54%,
+    #bafcff 100%
   );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -148,8 +152,18 @@
   animation: black-hole-animation 2s ease-in-out infinite;
 }
 
-.feature-card {
-  background: var(--black-gradient);
+.feature-card-1 {
+  background: var(--theme-color1);
+  box-shadow: var(--card-shadow);
+}
+
+.feature-card-2 {
+  background: var(--theme-color2);
+  box-shadow: var(--card-shadow);
+}
+
+.feature-card-3 {
+  background: var(--theme-color3);
   box-shadow: var(--card-shadow);
 }
 
@@ -166,16 +180,16 @@
 }
 
 .blue__gradient {
-  background: linear-gradient(rgba(69, 45, 142, 0.1), rgba(54, 25, 98, 0.1));
+  background: linear-gradient(rgba(35, 91, 91, 0.5), rgba(54, 25, 98, 0.1));
   filter: blur(123px);
 }
 
 .pink__gradient {
-  background: linear-gradient(rgba(31, 5, 81, 0.6), rgba(94, 37, 185, 0.5));
+  background: linear-gradient(rgba(195, 176, 187, 0.4), rgba(37, 185, 94, 0.5));
   filter: blur(900px);
 }
 
 .white__gradient {
-  background: rgba(21, 11, 62, 0.6);
+  background: rgba(241, 177, 255, 0.195);
   filter: blur(750px);
 }

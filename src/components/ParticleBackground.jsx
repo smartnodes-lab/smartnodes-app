@@ -45,7 +45,7 @@ const ParticleBackground = () => {
                     },
                     particles: {
                         color: {
-                            value: "#ffffff",
+                            value: "#14101d",
                             animation: {
                               h: {
                                 count: 0,
@@ -93,7 +93,7 @@ const ParticleBackground = () => {
                                 default: "bounce",
                             },
                             random: false,
-                            speed: 0.5,
+                            speed: 0.25,
                             straight: false,
                         },
                         number: {
