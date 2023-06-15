@@ -7,11 +7,11 @@ import Stats from "./Stats";
 import Footer from "./Footer";
 import Testimonials from "./Testimonials";
 import Hero from "./Hero";
-import UseCases from "./UseCases";
+import Opportunity from "./Opportunity";
 
 export {
   Navbar,
-  UseCases,
+  Opportunity,
   CardDeal,
   Features,
   Clients,

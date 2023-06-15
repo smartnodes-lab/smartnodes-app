@@ -29,9 +29,8 @@ const ParticleBackground = () => {
                             },
                             onHover: {
                                 enable: true,
-                                mode: "repulse",
-                            },
-                            resize: true,
+                                mode: "trail",
+                            }
                         },
                         modes: {
                             push: {
@@ -44,8 +43,15 @@ const ParticleBackground = () => {
                         },
                     },
                     particles: {
+                        opacity: {
+                            value: {
+                                min: 0.1,
+                                max: 0.2
+                            },
+                            random: true
+                        },
                         color: {
-                            value: "#14101d",
+                            value: "#ff95ba",
                             animation: {
                               h: {
                                 count: 0,
@@ -101,10 +107,7 @@ const ParticleBackground = () => {
                                 enable: true,
                                 area: 800,
                             },
-                            value: 30,
-                        },
-                        opacity: {
-                            value: 0.4,
+                            value: 35,
                         },
                         shape: {
                             type: "circle",
