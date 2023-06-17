@@ -8,13 +8,9 @@ const Hero = () => {
   return (
     <section id="home" className={styles.section}>
       <div className={`flex-1 w-full flex-col items-center pl-10 max-w-xl`}>
-        
-        {/* <h1 className="flex-1 font-poppins font-semibold ss:text-[72px] text-[52px] text-white ss:leading-[100.8px] leading-[75px]">
-            <span className="text-gradient3">Distributed, </span>{" "}
-        </h1> */}
 
         <h1 className="flex-1 font-poppins font-semibold ss:text-[72px] text-[52px] text-white ss:leading-[100.8px] leading-[75px]">
-          <span className="text-gradient1">Distributed </span>{" "}
+          <span className="text-gradient1">Collective </span>{" "}
         </h1>
         
         <h1 className="flex-1 font-poppins font-semibold ss:text-[72px] text-[52px] text-white ss:leading-[100.8px] leading-[75px]">
@@ -22,10 +18,9 @@ const Hero = () => {
         </h1>
 
         <p className={`${styles.paragraph} mt-10`} style={{ lineHeight: '1.75' }}>
-          Brainstorm is an innovative network that revolutionizes the way a wide range 
-          of tasks can be accomplished and monetized. Through the integration of distributed, on-demand AI, 
-          and a dynamic task marketplace, Brainstorm enables users to actively participate, cooperate,
-          and compete in an extensive range of human and AI-centric tasks.
+          Framework is an innovative network that addresses the limitations of current automated and web-based 
+          systems. By leveraging distributed, on-demand computations and a dynamic marketplace of incentivized 
+          users, Framework transforms the way tasks and workflows are managed.
         </p>
       </div>
       

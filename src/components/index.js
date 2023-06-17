@@ -1,5 +1,5 @@
 import Navbar from "./Navbar";
-import CardDeal from "./CardDeal";
+import Example from "./Example";
 import Features from "./Features";
 import Clients from "./Clients";
 import CTA from "./CTA";
@@ -12,7 +12,7 @@ import Opportunity from "./Opportunity";
 export {
   Navbar,
   Opportunity,
-  CardDeal,
+  Example,
   Features,
   Clients,
   CTA,

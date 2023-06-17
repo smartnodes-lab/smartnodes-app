@@ -1,20 +1,20 @@
 const styles = {
   boxWidth: "xl:max-w-[1280px] w-full",
 
-  heading2: "font-poppins font-bold xs:text-[64px] text-[72px] text-white xs:leading-[76.8px] leading-[66.8px] w-full ",
+  heading2: "font-poppins font-bold xs:text-[54px] ss:text-[60px] lg:text-[72px] text-white w-full ",
   paragraph: "font-poppins font-normal text-white text-[22px] leading-[30.8px]",
 
   flexCenter: "flex justify-center items-center",
   flexStart: "flex justify-center items-start",
 
   paddingX: "sm:px-16 px-8",
-  paddingY: "sm:py-16 py-6",
+  paddingY: "sm:py-16 py-5",
   padding: "sm:px-16 px-6 sm:py-12 py-4",
 
   marginX: "sm:mx-16 mx-6",
   marginY: "sm:my-16 my-6",
 
-  section: "md:mt-10 mt-6 px-5 blur-overlay flex md:flex-row flex-col items-center justify-center",
+  section: "mt-5 px-5 blur-overlay flex md:flex-row flex-col items-center justify-center",
   section2: "sm:py-16 py-15 px-10 blur-overlay flex md:flex-row flex-col items-center justify-center bg-black-gradient rounded-2xl",
   animatedIcon: "flex h-full w-full hidden xs:block block",
 };

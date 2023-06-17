@@ -3,7 +3,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 
 import ParticleBackground from './components/ParticleBackground';
-import { Navbar, Hero, Opportunity, Stats, Features, CardDeal, Testimonials, Clients, CTA, Footer } from './components';
+import { Navbar, Hero, Opportunity, Stats, Features, Example, Testimonials, Clients, CTA, Footer } from './components';
 
 const App = () => {
 
@@ -26,11 +26,12 @@ const App = () => {
         <div className={'${styles.boxWidth}'}>
           <Opportunity />
           <Features />
-          <CardDeal />
+          <Example />
           {/* <Testimonials /> */}
           {/* <Clients /> */}
           {/* <CTA /> */}
-          <Footer /> 
+          <Footer />
+          
         </div>
       </div>
     </div>

@@ -46,7 +46,7 @@ const ParticleBackground = () => {
                         opacity: {
                             value: {
                                 min: 0.1,
-                                max: 0.2
+                                max: 0.5
                             },
                             random: true
                         },
@@ -86,7 +86,7 @@ const ParticleBackground = () => {
                             color: "#ffffff",
                             distance: 250,
                             enable: true,
-                            opacity: 0.4,
+                            opacity: 0.45,
                             width: 0.4,
                         },
                         collisions: {

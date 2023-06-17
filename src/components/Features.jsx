@@ -52,7 +52,7 @@ const FeatureCard = ({
       </motion.div>
       <motion.div className="flex-1 flex flex-col ml-3">
         <motion.h4
-          className="font-poppins font-semibold text-white text-[20px] leading-[23.4px] mb-2"
+          className="font-poppins font-semibold text-white text-[22px] leading-[23.4px] mb-2"
           layout="position"
         >
           {title}
@@ -62,7 +62,7 @@ const FeatureCard = ({
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           layout="position"
-          className="font-poppins font-semibold text-gray-950 text-[16px] leading-[23.4px] mb-1"
+          className="font-poppins font-semibold text-black text-[18px] leading-[23.4px] mb-1"
         >
           {content}
         </motion.p>
@@ -70,13 +70,13 @@ const FeatureCard = ({
         <AnimatePresence>
           {isExpanded && (
             <motion.div
-              initial={{ opacity: 0, scale: 0.9, y: 20 }}
+              initial={{ opacity: 0, scale: 1, y: 20 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{
                 opacity: 0,
                 scale: 0.9,
                 y: [-20, 0],
-                transition: { duration: 0.5, ease: "easeOut" }
+                transition: { duration: 0.05, ease: "cubic-bezier" }
               }}
             >
               {expanded_content.map((feature, featureIndex) => (
@@ -109,10 +109,10 @@ const Features = () => {
 
   return (
     <section id="features" className={styles.section2}>
-      <div className="flex-1 w-full flex-col position:relative mb-10 items-center max-w-xl">
+      <div className="flex-1 w-full flex-col ml-10 position:relative mb-10 mt-10 items-center max-w-xl">
         <h2 className={styles.heading2}>
-          Unleash the <br className="sm:block hidden" />
-          collective power.
+          Simplify <br className="sm:block hidden" />
+          tasks.
         </h2>
       </div>
 

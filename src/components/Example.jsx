@@ -1,26 +1,25 @@
-import { card } from "../assets";
 import styles, { layout } from "../style";
 import Button from "./Button";
 
-const CardDeal = () => (
+const Example = () => (
   <section className={layout.section}>
     <div className={layout.sectionInfo}>
       <h2 className={styles.heading2}>
-        Harness and participate <br className="sm:block hidden" /> 
-        in collective insight.
+        Participate in <br className="sm:block hidden" /> 
+        collective insight.
       </h2>
       <p className={`${styles.paragraph} max-w-[470px] mt-5`}>
-        Arcu tortor, purus in mattis at sed integer faucibus. Aliquet quis
-        aliquet eget mauris tortor.ç Aliquet ultrices ac, ametau.
+        Instantiate models for distributed, on-demand to 
+        be executed on a large-scale for dApps and other applications
       </p>
 
       <Button styles={`mt-10`} />
     </div>
 
     <div className={layout.sectionImg}>
-      <img src={card} alt="billing" className="w-[100%] h-[100%]" />
+      {/* <img src={card} alt="billing" className="w-[100%] h-[100%]" /> */}
     </div>
   </section>
 );
 
-export default CardDeal;
+export default Example;

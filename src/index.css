@@ -23,11 +23,11 @@
 
 .text-gradient1 {
   background: radial-gradient(
-    64.18% 64.18% at 71.16% 35.69%,
-    #ffffff 0.89%,
+    64.18% 64.18% at 71.16% 45.69%,
+    #ffffff 10.89%,
     #b3f5fb 42.04%,
     #ff95ba 71.54%,
-    #ef1f5e 100%
+    #ff2e70 100%
   );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -37,11 +37,11 @@
 
 .text-gradient2 {
   background: radial-gradient(
-    64.18% 64.18% at 71.16% 35.69%,
-    #ffffff 0.89%,
-    #f85ab3 42.04%,
-    #f90351 71.54%,
-    #8f0db6 100%
+    64.18% 64.18% at 81.16% 35.69%,
+    #b3f5fb -5.04%,
+    #ff6abe 42.04%,
+    #ff2e70 71.54%,
+    #b534dc 100%
   );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -84,7 +84,7 @@
   background: linear-gradient(
     144.39deg,
     #ffffff -278.56%,
-    #6d6d6d -78.47%,
+    #e0c9ff -78.47%,
     #11101d 91.61%
   );
 }
@@ -138,17 +138,6 @@
   100% {
     -webkit-transform: translateY(0);
     transform: translateY(0);
-  }
-}
-
-@keyframes black-hole-animation {
-  0% {
-    opacity: 1;
-    transform: scale(1);
-  }
-  100% {
-    opacity: 0;
-    transform: scale(5);
   }
 }
 
