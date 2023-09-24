@@ -8,6 +8,7 @@ import Footer from "./Footer";
 import Testimonials from "./Testimonials";
 import Hero from "./Hero";
 import Opportunity from "./Opportunity";
+import ParticleBackground from "./ParticleBackground";
 
 export {
   Navbar,
@@ -20,4 +21,5 @@ export {
   Footer,
   Testimonials,
   Hero,
+  ParticleBackground,
 };

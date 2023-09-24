@@ -20,8 +20,12 @@ const Navbar = () => {
             } ${index === navLinks.length - 1 ? "mr-0" : "mr-10"}`}
             onClick={() => setActive(nav.title)}
           >
-            {nav.title === "GitHub" ? (
-              <a href="https://github.com/mattjhawken/tasknet">{nav.title}</a>
+            {nav.title === "Launch App" ? (
+              <div className="">
+                <a href="/app">{nav.title}</a>
+              </div>
+            ) : nav.title === "GitHub" ? (
+              <a href="https://github.com/chainspace-network">{nav.title}</a>
             ) : (
               <a href={`#${nav.id}`}>{nav.title}</a>
             )}

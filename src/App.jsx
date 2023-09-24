@@ -1,40 +1,19 @@
 import styles from './style';
+import { Home, Program } from "./pages";
+import { Navbar } from "./components";
 import React from 'react';
-import { motion } from 'framer-motion';
-
-import ParticleBackground from './components/ParticleBackground';
-import { Navbar, Hero, Opportunity, Stats, Features, Example, Testimonials, Clients, CTA, Footer } from './components';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 const App = () => {
 
   return (
-    <div className="bg-primary w-full overflow-hidden px-10 ${styles.flexCenter}">
-      <ParticleBackground id="particles-container"/>
-      <div className={'${styles.paddingX} ${styles.flexCenter}'}>
-        <div className={'${styles.boxWidth}'}>
-          <Navbar/>
-        </div>
-      </div>
-      
-      <div>
-        <div className={'${styles.boxWidth}'}>
-          <Hero/>
-        </div>
-      </div>
-
-      <div className={'bg-primary px-10 ${styles.flexStart}'}>
-        <div className={'${styles.boxWidth}'}>
-          <Opportunity />
-          <Features />
-          <Example />
-          {/* <Testimonials /> */}
-          {/* <Clients /> */}
-          {/* <CTA /> */}
-          <Footer />
-          
-        </div>
-      </div>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route index element={<Home />} />
+        <Route path="/home" element={<Home />} />
+        <Route path="/app" element={<Program />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 

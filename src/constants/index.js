@@ -17,6 +17,10 @@ export const navLinks = [
     id: "git",
     title: "GitHub"
   },
+  {
+    id: "launch",
+    title: "Launch App"
+  },
 ];
 
 export const features = [
