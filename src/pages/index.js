@@ -1,9 +1,9 @@
 import Home from "./Home";
-import Program from "./Program";
+import Dashboard from "./Dashboard";
 import Login from "./Login";
 
 export {
     Home,
     Login,
-    Program
+    Dashboard
 }

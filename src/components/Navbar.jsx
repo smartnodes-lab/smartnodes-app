@@ -22,7 +22,7 @@ const Navbar = () => {
           >
             {nav.title === "Launch App" ? (
               <div className="">
-                <a href="/app">{nav.title}</a>
+                <a href="/dashboard">{nav.title}</a>
               </div>
             ) : nav.title === "GitHub" ? (
               <a href="https://github.com/chainspace-network">{nav.title}</a>

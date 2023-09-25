@@ -1,20 +1,34 @@
 import styles from './style';
-import { Home, Program } from "./pages";
+import { Home, Dashboard, Login } from "./pages";
 import { Navbar } from "./components";
-import React from 'react';
+
+import React, { useState, useEffect } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 const App = () => {
+    const [id, setId] = useState(() => {
+        const savedUsername = localStorage.getItem("username");
+        return savedUsername || "";
+    });
 
-  return (
-    <BrowserRouter>
-      <Routes>
-        <Route index element={<Home />} />
-        <Route path="/home" element={<Home />} />
-        <Route path="/app" element={<Program />} />
-      </Routes>
-    </BrowserRouter>
-  );
+    useEffect(() => {
+        localStorage.setItem("username", id);
+    }, [id]);
+
+    return (
+        <BrowserRouter>
+          <Routes>
+            <Route index element={<Home />} />
+            <Route path="/home" element={<Home />} />
+            <Route path="/dashboard" element={
+                <>
+                    {id}
+                    {id ? <Dashboard id={id} /> : <Login onIdSubmit={setId} />}
+                </>
+            } />
+          </Routes>
+        </BrowserRouter>
+    );
 }
 
 export default App;
