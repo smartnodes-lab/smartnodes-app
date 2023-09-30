@@ -15,12 +15,12 @@ const styles = {
   marginY: "sm:my-16 my-6",
 
   section: "mt-5 px-5 blur-overlay flex md:flex-row flex-col items-center justify-center",
-  section2: "sm:py-16 py-15 px-10 blur-overlay flex md:flex-row flex-col items-center justify-center bg-black-gradient rounded-2xl",
+  section2: "sm:py-16 py-15 px-10 blur-overlay flex md:flex-row flex-col items-center justify-center bg-black-gradient rounded-2xl z-0",
   animatedIcon: "flex h-full w-full hidden xs:block block",
 };
 
 export const layout = {
-  section: `flex md:flex-row flex-col ${styles.paddingY} items-center justify-center`,
+  section: `flex md:flex-row flex-col ${styles.paddingY} items-center justify-center mb-10`,
   sectionReverse: `flex md:flex-row flex-col-reverse ${styles.paddingY}`,
 
   sectionImgReverse: `flex-1 flex ${styles.flexCenter} md:mr-10 mr-0 md:mt-0 mt-10 relative`,

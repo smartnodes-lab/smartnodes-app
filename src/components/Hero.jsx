@@ -18,9 +18,8 @@ const Hero = () => {
         </h1>
 
         <p className={`${styles.paragraph} mt-10`} style={{ lineHeight: '1.75' }}>
-          Framework is an innovative network that addresses the limitations of current automated and web-based 
-          systems. By leveraging distributed, on-demand computations and a dynamic marketplace of incentivized 
-          users, Framework transforms the way tasks and workflows are managed.
+          Chainspace is building innovative network that addresses pressing issues surrounding individual job security and 
+          wage disparities by offering a platform for individuals to monetize their skills and expertise over the web.
         </p>
       </div>
       

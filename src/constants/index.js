@@ -32,10 +32,10 @@ export const features = [
       "An innovative layer 2 solution that facilitate collaboration and competition in AI, \
       while addressing the increasing demand for cloud computing resources.",
     expanded_content: [
-      " - Design unique, distributed AI architectures utilizing peer-to-peer training, ensemble \
+      "Design unique, distributed AI architectures utilizing peer-to-peer training, ensemble \
        voting, and much more!",
-      " - Access vast amounts of on-demand computing power for trustless AI model execution.",
-      " - Earn rewards by solving tasks and datasets, or by simply donating your computing power!",
+      "Access vast amounts of on-demand computing power for trustless AI model execution.",
+      "Earn rewards by solving tasks and datasets, or by simply donating your computing power!",
     ],
   },
   {
@@ -46,9 +46,9 @@ export const features = [
       "Machine-to-Human interfaces that enhance decentralized and automated systems using \
       the power of collective human intelligence.",
     expanded_content: [
-      " - Allows both people and machines to utilize the collective intelligence of humans \
+      "Allows both people and machines to utilize the collective intelligence of humans \
       via API calls.",
-      " - Potential use-cases for moderating decentralized apps (e.g. social media, insurance, etc), \
+      "Potential use-cases for moderating decentralized apps (e.g. social media, insurance, etc), \
       optimizing AI models, and much more!",
     ]
   },
@@ -60,9 +60,9 @@ export const features = [
       "Smart contracts powered by Aleph Zero ensure integrity of user reputation, \
       and participation-based rewards.",
     expanded_content: [
-      " - Leveraging Aleph Zero, and with more blockchains to come, Brainstorm achieves fast and \
+      "Leveraging Aleph Zero, and with more blockchains to come, Brainstorm achieves fast and \
        efficient consensus, enabling real-time decision-making and responsive AI networks.",
-      " - User participation and reputation are securely recorded on \
+      "User participation and reputation are securely recorded on \
        the blockchain, providing a transparent and tamper-proof system.",
     ]
   },

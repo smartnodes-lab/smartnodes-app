@@ -19,86 +19,49 @@ const FeatureCard = ({
   };
 
   return (
-    <motion.div
-      layout
-      transition={{
-        layout: {
-          duration: 1,
-          type: "spring"
-        },
-      }}
-      className={`flex flex-row p-6 opacity-1 rounded-[20px] ${
-        index !== features.length - 1 ? "mb-6" : "mb-0"
-      } ${classNames[index]}`}
+    <motion.div 
+      className={`card-container`}
       onClick={handleClick}
-      style={{
-        cursor: "pointer",
-        borderRadius: ".5rem",
-        boxShadow: "0 0 16px rgba(0,0,0,0.5)"
-      }}
     >
       <motion.div
-        className={`w-[64px] h-[64px] rounded-full ${styles.flexCenter} bg-dimBlue`}
-        initial={{ scale: 1 }}
-        animate={{ scale: isExpanded ? 0.8 : 1 }}
-        transition={{ duration: 0.3 }}
-        layout="position"
+        className={`card ${isExpanded ? "expanded" : ""} ${
+          index !== features.length - 1 ? "mb-6" : "mb-0"
+        } ${classNames[index]}`}
+        initial={{ transform: "rotateY(0deg)" }}
+        animate={{
+          transform: isExpanded ? "rotateY(180deg)" : "rotateY(0deg)",
+          transition: { duration: 1 },
+          transformStyle: "preserve-3d",
+        }}
       >
-        <img
-          src={icon}
-          alt="star"
-          className="w-[50%] h-[50%] object-contain"
-        />
-      </motion.div>
-      <motion.div className="flex-1 flex flex-col ml-3">
-        <motion.h4
-          className="font-poppins font-semibold text-white text-[22px] leading-[23.4px] mb-2"
-          layout="position"
-        >
-          {title}
-        </motion.h4>
-        <motion.p
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          layout="position"
-          className="font-poppins font-semibold text-black text-[18px] leading-[23.4px] mb-1"
-        >
-          {content}
-        </motion.p>
-
-        <AnimatePresence>
-          {isExpanded && (
-            <motion.div
-              initial={{ opacity: 0, scale: 1, y: 20 }}
-              animate={{ opacity: 1, scale: 1, y: 0 }}
-              exit={{
-                opacity: 0,
-                scale: 0.9,
-                y: [-20, 0],
-                transition: { duration: 0.05, ease: "cubic-bezier" }
-              }}
-            >
-              {expanded_content.map((feature, featureIndex) => (
-                <motion.p
-                  key={feature}
-                  className="font-poppins mt-3 font-semibold text-white text-[16px] leading-[20px]"
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  exit={{ opacity: 0 }}
-                  transition={{ duration: 0.3, }}
-                >
-                  {feature}
-                </motion.p>
-              ))}
-            </motion.div>
-          )}
-        </AnimatePresence>
+        <div className="card-front">
+          {/* Content for the front of the card */}
+          <div className={`w-[64px] h-[64px] rounded-full bg-dimBlue ${styles.flexCenter}`}>
+            <img
+              src={icon}
+              alt="star"
+              className="w-[50%] h-[50%] object-contain"
+            />
+          </div>
+          <div className="flex-1 flex flex-col ml-3">
+            <h4 className="font-poppins font-semibold text-white text-[22px] leading-[23.4px] mb-2">
+              {title}
+            </h4>
+            <p>{content}</p>
+          </div>
+        </div>
+        <ul className={`card-back ${classNames[index]}`}>
+          {/* Content for the back of the card */}
+          {expanded_content.map((feature, featureIndex) => (
+            <li key={featureIndex}>
+              {feature}
+            </li>
+          ))}
+        </ul>
       </motion.div>
     </motion.div>
   );
 };
-
 
 const Features = () => {
   const [expandedIndex, setExpandedIndex] = useState(-1);
@@ -108,7 +71,7 @@ const Features = () => {
   };
 
   return (
-    <section id="features" className={styles.section2}>
+    <section id="features" className={`${styles.section2}`}>
       <div className="flex-1 w-full flex-col ml-10 position:relative mb-10 mt-10 items-center max-w-xl">
         <h2 className={styles.heading2}>
           Simplify <br className="sm:block hidden" />

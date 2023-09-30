@@ -46,7 +46,7 @@ const ParticleBackground = () => {
                         opacity: {
                             value: {
                                 min: 0.1,
-                                max: 0.5
+                                max: 0.4
                             },
                             random: true
                         },
@@ -84,10 +84,10 @@ const ParticleBackground = () => {
                         },
                         links: {
                             color: "#ffffff",
-                            distance: 250,
+                            distance: 200,
                             enable: true,
-                            opacity: 0.45,
-                            width: 0.4,
+                            opacity: 0.4,
+                            width: 1,
                         },
                         collisions: {
                             enable: true,
@@ -107,7 +107,7 @@ const ParticleBackground = () => {
                                 enable: true,
                                 area: 800,
                             },
-                            value: 35,
+                            value: 30,
                         },
                         shape: {
                             type: "circle",

@@ -7,7 +7,7 @@ import { Navbar, Hero, Opportunity, Features, Example, Footer, ParticleBackgroun
 const Home = () => {
     return (
         <div className="bg-primary w-full overflow-hidden px-10 ${styles.flexCenter}">
-          <ParticleBackground id="particles-container"/>
+          <ParticleBackground id="particles-container" />
           <div className={'${styles.paddingX} ${styles.flexCenter}'}>
             <div className={'${styles.boxWidth}'}>
               <Navbar/>
@@ -15,7 +15,7 @@ const Home = () => {
           </div>
 
           <div>
-            <div className={'${styles.boxWidth}'}>
+            <div className={'${styles.boxWidth} mb-10'}>
               <Hero/>
             </div>
           </div>
@@ -24,7 +24,7 @@ const Home = () => {
             <div className={'${styles.boxWidth}'}>
               <Opportunity />
               <Features />
-              <Example />
+              {/* <Example /> */}
               {/* <Testimonials /> */}
               {/* <Clients /> */}
               {/* <CTA /> */}

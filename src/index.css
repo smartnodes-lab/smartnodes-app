@@ -145,19 +145,58 @@
   animation: black-hole-animation 2s ease-in-out infinite;
 }
 
+.card-container {
+  perspective: 2000px; /* Set the perspective for 3D effect */
+}
+
+.card {
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
+
+.card-front {
+  display: flex;
+  flex-direction: row;
+  padding: 1.5rem;
+  opacity: 1;
+  border-radius: 20px;
+  box-shadow: 0 0 16px rgba(0, 0, 0, 0.5);
+}
+
+.card-back {
+  display: flex;
+  flex-direction: row;
+  padding: 1.5rem;
+  opacity: 1;
+  border-radius: 20px;
+  box-shadow: 0 0 16px rgba(0, 0, 0, 0.5);
+  transform: rotateY(180deg);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  list-style-type: circle;
+}
+
 .feature-card-1 {
   background: var(--theme-color1);
   box-shadow: var(--card-shadow);
+  border-radius: 20px;
 }
 
 .feature-card-2 {
   background: var(--theme-color2);
   box-shadow: var(--card-shadow);
+  border-radius: 20px;
 }
 
 .feature-card-3 {
   background: var(--theme-color3);
   box-shadow: var(--card-shadow);
+  border-radius: 20px;
 }
 
 .feedback-container .feedback-card:last-child {
@@ -185,4 +224,15 @@
 .white__gradient {
   background: rgba(241, 177, 255, 0.195);
   filter: blur(750px);
+}
+
+.dim-layer {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  left: 0;
+  top: 0;
+  background: black;
+  opacity: 0;
+  pointer-events: none;
 }
