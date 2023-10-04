@@ -24,18 +24,29 @@ export const navLinks = [
 ];
 
 export const features = [
+  // {
+  //   id: "feature-1",
+  //   icon: star,
+  //   title: "AI Tools & Services",
+  //   content:
+  //     "An innovative layer 2 solution that facilitate collaboration and competition in AI, \
+  //     while addressing the increasing demand for cloud computing resources.",
+  //   expanded_content: [
+  //     "Design unique, distributed AI architectures utilizing peer-to-peer training, ensemble \
+  //      voting, and much more!",
+  //     "Access vast amounts of on-demand computing power for trustless AI model execution.",
+  //     "Earn rewards by solving tasks and datasets, or by simply donating your computing power!",
+  //   ],
+  // },
   {
     id: "feature-1",
     icon: star,
-    title: "AI Tools & Services",
-    content:
-      "An innovative layer 2 solution that facilitate collaboration and competition in AI, \
-      while addressing the increasing demand for cloud computing resources.",
+    title: "Solve & Earn",
+    content: "Engage in various tasks within the network while building your online reputation and earning cryptocurrency.",
     expanded_content: [
-      "Design unique, distributed AI architectures utilizing peer-to-peer training, ensemble \
-       voting, and much more!",
-      "Access vast amounts of on-demand computing power for trustless AI model execution.",
-      "Earn rewards by solving tasks and datasets, or by simply donating your computing power!",
+      "Poll-based questions",
+      "",
+      ""
     ],
   },
   {
@@ -57,7 +68,7 @@ export const features = [
     icon: send,
     title: "Consensus & Transparency",
     content:
-      "Smart contracts powered by Aleph Zero ensure integrity of user reputation, \
+      "Smart contracts powered by Aleph Zero ensure integrity of user reputation, contributions, \
       and participation-based rewards.",
     expanded_content: [
       "Leveraging Aleph Zero, and with more blockchains to come, Brainstorm achieves fast and \

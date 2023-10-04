@@ -15,7 +15,7 @@ const styles = {
   marginY: "sm:my-16 my-6",
 
   section: "mt-5 px-5 blur-overlay flex md:flex-row flex-col items-center justify-center",
-  section2: "sm:py-16 py-15 px-10 blur-overlay flex md:flex-row flex-col items-center justify-center bg-black-gradient rounded-2xl z-0",
+  section2: "sm:py-16 py-15 px-10 blur-overlay flex md:flex-row flex-col items-center justify-center bg-black-gradient rounded-2xl z-0 max-w-[1250px] mx-auto",
   animatedIcon: "flex h-full w-full hidden xs:block block",
 };
 

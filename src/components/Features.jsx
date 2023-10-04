@@ -47,7 +47,7 @@ const FeatureCard = ({
             <h4 className="font-poppins font-semibold text-white text-[22px] leading-[23.4px] mb-2">
               {title}
             </h4>
-            <p>{content}</p>
+            <p className="font-poppins text-[17px]">{content}</p>
           </div>
         </div>
         <ul className={`card-back ${classNames[index]}`}>
