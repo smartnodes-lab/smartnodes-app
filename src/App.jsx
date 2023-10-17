@@ -1,5 +1,5 @@
 import styles from './style';
-import { Home, Dashboard, Login } from "./pages";
+import { Home, Dashboard, TaskLanding, Login, NewsLanding } from "./pages";
 import { Navbar } from "./components";
 
 import React, { useState, useEffect } from 'react';
@@ -20,6 +20,8 @@ const App = () => {
           <Routes>
             <Route index element={<Home />} />
             <Route path="/home" element={<Home />} />
+            <Route path="/tasknet" element={<TaskLanding />} />
+            <Route path="/newsnet" element={<NewsLanding />} />
             <Route path="/dashboard" element={
                 <>
                     {id}

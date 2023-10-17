@@ -1,4 +1,10 @@
-import { people01, people02, people03, facebook, instagram, linkedin, twitter, airbnb, binance, coinbase, dropbox, send, shield, star } from "../assets";
+import { inter, people02, people03, facebook, instagram, linkedin, twitter, airbnb, binance, coinbase, dropbox, send, shield, star } from "../assets";
+
+export const overview = {
+  info: 
+      "Building cutting-edge tools for accessing and monetizing knowledge. We offer a range of APIs and UIs \
+      for streamlined workflow automation, trust-minimized decision making, and other internet-based tasks."
+}
 
 export const navLinks = [
   {
@@ -6,12 +12,12 @@ export const navLinks = [
     title: "Home",
   },
   {
-    id: "features",
-    title: "Features",
+    id: "tasknet",
+    title: "TaskNet",
   },
   {
-    id: "product",
-    title: "Product",
+    id: "newsnet",
+    title: "NewsNet",
   },
   {
     id: "git",
@@ -83,16 +89,16 @@ export const feedback = [
   {
     id: "feedback-1",
     content:
-      "Money is only a tool. It will take you wherever you wish, but it will not replace you as the driver.",
-    name: "Herman Jensen",
+      "Tailored APIs for workflow automation, trust-minimzed arbitration, general task & problem-solving across the internet.",
+    name: "Unlock Collective Intelligence",
     title: "Founder & Leader",
-    img: people01,
+    img: inter,
   },
   {
     id: "feedback-2",
     content:
-      "Money makes your life easier. If you're lucky to have it, you're lucky.",
-    name: "Steve Mark",
+      "Monetize your knowledge, engage in tasks, and build your online presence.",
+    name: "A Framework for Employment",
     title: "Founder & Leader",
     img: people02,
   },

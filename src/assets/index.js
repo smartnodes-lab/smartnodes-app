@@ -5,7 +5,6 @@ import card from "./card.png";
 import coinbase from "./coinbase.png";
 import dropbox from "./dropbox.png";
 import logo from "./logo.svg";
-import quotes from "./quotes.svg";
 import robot from "./robot.png";
 import send from "./Send.svg";
 import shield from "./Shield.svg";
@@ -27,16 +26,25 @@ import world from "./world.svg";
 import online1 from "./undraw_online.svg";
 import online2 from "./undraw_online_2.svg";
 import server from "./undraw_server.svg";
+import data from "./data.json";
+import dark_logo from "./dark_logo.svg";
+import logo_small from "./logo_small.svg";
+import logo_dark_small from "./logo_small_dark.svg";
+import inter from "./interface.png";
 
 export {
+  dark_logo,
+  inter,
   airbnb,
   bill,
   binance,
   card,
   coinbase,
   dropbox,
+  data,
   logo,
-  quotes,
+  logo_small,
+  logo_dark_small,
   robot,
   send,
   shield,

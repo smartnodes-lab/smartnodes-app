@@ -6,11 +6,17 @@ import CTA from "./CTA";
 import Stats from "./Stats";
 import Footer from "./Footer";
 import Testimonials from "./Testimonials";
-import Hero from "./Hero";
+import TaskHero from "./TaskHero";
 import Opportunity from "./Opportunity";
 import ParticleBackground from "./ParticleBackground";
+import AnimatedLottie from "./AnimatedLottie";
+import ThemeButton from "./ThemeButton";
+import MainHero from "./MainHero";
 
 export {
+  MainHero,
+  ThemeButton,
+  AnimatedLottie,
   Navbar,
   Opportunity,
   Example,
@@ -20,6 +26,6 @@ export {
   Stats,
   Footer,
   Testimonials,
-  Hero,
+  TaskHero,
   ParticleBackground,
 };

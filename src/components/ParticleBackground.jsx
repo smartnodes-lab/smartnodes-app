@@ -20,6 +20,7 @@ const ParticleBackground = () => {
                 loaded={particlesLoaded}
                 options={{
                     fpsLimit: 120,
+                    zLayers: 50,
                     interactivity: {
                         detectsOn: "parent",
                         events: {
@@ -117,6 +118,10 @@ const ParticleBackground = () => {
                         },
                     },
                     detectRetina: true,
+                    fullScreen: {
+                        enable: true,
+                        zIndex: -1
+                    },
                 }}
             />  
         </div>
