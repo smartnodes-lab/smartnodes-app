@@ -19,9 +19,6 @@ import facebook from "./facebook.svg";
 import instagram from "./instagram.svg";
 import linkedin from "./linkedin.svg";
 import twitter from "./twitter.svg";
-import people01 from "./people01.png";
-import people02 from "./people02.png";
-import people03 from "./people03.png";
 import world from "./world.svg";
 import online1 from "./undraw_online.svg";
 import online2 from "./undraw_online_2.svg";
@@ -30,11 +27,15 @@ import data from "./data.json";
 import dark_logo from "./dark_logo.svg";
 import logo_small from "./logo_small.svg";
 import logo_dark_small from "./logo_small_dark.svg";
-import inter from "./interface.png";
+import features from "./features_lottie.json";
+import monetize from "./monetize.json";
+import workflow from "./workflow.json";
 
 export {
+  workflow,
+  monetize,
+  features,
   dark_logo,
-  inter,
   airbnb,
   bill,
   binance,
@@ -59,9 +60,6 @@ export {
   instagram,
   linkedin,
   twitter,
-  people01,
-  people02,
-  people03,
   world,
   online1,
   online2,

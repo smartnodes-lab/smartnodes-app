@@ -1,9 +1,9 @@
-import { inter, people02, people03, facebook, instagram, linkedin, twitter, airbnb, binance, coinbase, dropbox, send, shield, star } from "../assets";
+import { monetize, workflow, facebook, instagram, linkedin, twitter, airbnb, binance, coinbase, dropbox, send, shield, star } from "../assets";
 
 export const overview = {
   info: 
-      "Building cutting-edge tools for accessing and monetizing knowledge. We offer a range of APIs and UIs \
-      for streamlined workflow automation, trust-minimized decision making, and other internet-based tasks."
+      "Building cutting-edge tools for monetizing knowledge and engagement. We offer a range of APIs and user interfaces \
+      for content monetization, trust-minimized decision making, and other internet-based tasks."
 }
 
 export const navLinks = [
@@ -89,26 +89,26 @@ export const feedback = [
   {
     id: "feedback-1",
     content:
-      "Tailored APIs for workflow automation, trust-minimzed arbitration, general task & problem-solving across the internet.",
-    name: "Unlock Collective Intelligence",
-    title: "Founder & Leader",
-    img: inter,
+      "Unlock the collective intelligence of humanity with our machine-human interfaces, empowering decentralized and automated systems with trust-minimized workflow management and decision-making.",
+    name: "Harness Collective Intelligence",
+    title: "dApps and Workflow",
+    img: workflow,
   },
   {
     id: "feedback-2",
     content:
-      "Monetize your knowledge, engage in tasks, and build your online presence.",
+      "Monetize your ideas and build communities around data. Engage in diverse tasks and collaborative networking while building your online presence and earning from contributions.",
     name: "A Framework for Employment",
-    title: "Founder & Leader",
-    img: people02,
+    title: "Monetize",
+    img: monetize,
   },
   {
     id: "feedback-3",
     content:
-      "It is usually people in the money business, finance, and international trade that are really rich.",
-    name: "Kenn Gallagher",
-    title: "Founder & Leader",
-    img: people03,
+      "Connect with a global network of individuals to delegate tasks, facilitate content creation, and enhance decision-making processes.",
+    name: "Join the Decentralized Workforce",
+    title: "",
+    img: monetize,
   },
 ];
 

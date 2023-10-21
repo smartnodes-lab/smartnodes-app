@@ -14,12 +14,12 @@ const TaskHero = () => {
         </h1>
         
         <h1 className="flex-1 font-poppins font-bold xs:text-[54px] ss:text-[64px] lg:text-[70px] text-[42px] text-blue-800 ss:leading-[100.8px] leading-[75px]">
-          <span>Collective <br /> Intelligence</span>{" "}
+          <span>Intelligence</span>{" "}
         </h1>
 
         <p className={`${styles.paragraph} mt-10`} style={{ lineHeight: '1.75' }}>
-        On a mission to revolutionize how automated and decentralized systems function. We are bridging technology and human proficiency, 
-        creating a symbiotic relationship that breathes new life into existing models and opens doors to innovative use-cases.
+        We're on a mission to revolutionize automated and decentralized systems, 
+        bridging technology and human intelligence to unlock innovative use-cases and enhance existing applications.
         </p>
       </div>
       
