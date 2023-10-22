@@ -1,12 +1,13 @@
 import AnimatedLottie from "./AnimatedLottie";
 
 const FeedbackCard = ({ content, name, title, img }) => (
-  <div className="flex justify-between flex-col px-10 py-12 rounded-[20px]  max-w-[370px] md:mr-10 sm:mr-5 mr-0 my-5 feedback-card">
+  <div className="flex flex-col px-10 py-12 rounded-[20px] md:max-h-[500px] max-w-[500px] md:max-w-[370px] md:mr-10 sm:mr-5 mr-0 my-5 feedback-card">
     <div className="flex flex-row items-center">
-      <div className="max-w-[100px]">
+      <div className="max-w-[100px] min-w-[30px] ss:block hidden">
         <AnimatedLottie
           animationData={img}
           alt={name}
+          loop={true}
         />
       </div>
       <div className="flex flex-col ml-4">

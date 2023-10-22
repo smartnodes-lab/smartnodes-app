@@ -2,7 +2,7 @@ import Navbar from "./Navbar";
 import Example from "./Example";
 import Features from "./Features";
 import Clients from "./Clients";
-import CTA from "./CTA";
+import ToPortal from "./ToPortal";
 import Stats from "./Stats";
 import Footer from "./Footer";
 import Testimonials from "./Testimonials";
@@ -22,7 +22,7 @@ export {
   Example,
   Features,
   Clients,
-  CTA,
+  ToPortal,
   Stats,
   Footer,
   Testimonials,

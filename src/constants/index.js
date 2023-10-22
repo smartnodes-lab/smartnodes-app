@@ -1,9 +1,9 @@
-import { monetize, workflow, facebook, instagram, linkedin, twitter, airbnb, binance, coinbase, dropbox, send, shield, star } from "../assets";
+import { monetize, job, workflow, facebook, instagram, linkedin, twitter, airbnb, binance, coinbase, dropbox, send, shield, star } from "../assets";
 
 export const overview = {
   info: 
-      "Building cutting-edge tools for monetizing knowledge and engagement. We offer a range of APIs and user interfaces \
-      for content monetization, trust-minimized decision making, and other internet-based tasks."
+      "Building cutting-edge tools for monetizing knowledge and engagement, while fostering thriving online communities. \
+      We offer a range of APIs and user interfaces for content monetization, trust-minimized decision making, and other internet-based tasks."
 }
 
 export const navLinks = [
@@ -89,26 +89,26 @@ export const feedback = [
   {
     id: "feedback-1",
     content:
-      "Unlock the collective intelligence of humanity with our machine-human interfaces, empowering decentralized and automated systems with trust-minimized workflow management and decision-making.",
-    name: "Harness Collective Intelligence",
-    title: "dApps and Workflow",
+      "Tailored machine-human APIs for empowering decentralized and automated systems with trust-minimized workflow management and decision-making.",
+    name: "for dApps and Automation",
+    title: "Collective Intelligence",
     img: workflow,
   },
   {
     id: "feedback-2",
     content:
-      "Monetize your ideas and build communities around data. Engage in diverse tasks and collaborative networking while building your online presence and earning from contributions.",
-    name: "A Framework for Employment",
+      "Monetize your ideas and build communities around valuable data. Engage in diverse tasks and collaborative networking while building your online presence and earning from contributions.",
+    name: "Content and Participation",
     title: "Monetize",
     img: monetize,
   },
   {
     id: "feedback-3",
     content:
-      "Connect with a global network of individuals to delegate tasks, facilitate content creation, and enhance decision-making processes.",
-    name: "Join the Decentralized Workforce",
-    title: "",
-    img: monetize,
+      "The Chainspace vision extends to creating a global network where individuals can delegate tasks, form organizations, and collaborate on content creation.",
+    name: "Shaping an Inclusive Future",
+    title: "Decentralized Workforce",
+    img: job,
   },
 ];
 

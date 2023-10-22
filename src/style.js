@@ -1,11 +1,12 @@
 const styles = {
   boxWidth: "xl:max-w-[1280px] w-full",
 
-  heading2: "font-poppins font-bold text-[42px] xs:text-[54px] ss:text-[60px] lg:text-[72px] text-gray-700 dark:text-white w-full ",
+  heading2: "font-poppins font-bold text-[44px] xs:text-[54px] ss:text-[62px] lg:text-[74px] text-gray-700 dark:text-white w-full ",
   paragraph: "font-poppins font-normal dark:text-white text-gray-900 sm:text-[18px] md:text-[20px] lg:text-[22px] leading-[30.8px]",
 
-  content: "flex flex-col max-w-[1440px] px-5 sm:px-10 lg:px-20",
+  content: "flex flex-col max-w-[1440px] px-5 md:px-10 lg:px-20",
   contentBox: "flex items-center bg-primary border-radius-50",
+  textBubble: "dark:bg-gray-900 bg-gray-200 rounded-3xl px-10 py-1",
 
   flexCenter: "flex items-center",
   flexStart: "flex justify-center items-start",
@@ -17,7 +18,7 @@ const styles = {
   marginX: "sm:mx-16 mx-6",
   marginY: "sm:my-16 my-6",
 
-  section: "mt-10 px-5 blur-overlay flex md:flex-row flex-col items-center justify-center",
+  section: "mt-10 px-2 md:px-5 blur-overlay flex md:flex-row flex-col items-center justify-center",
   section2: "sm:py-16 py-15 px-10 blur-overlay flex md:flex-row flex-col items-center justify-center bg-black-gradient rounded-2xl z-0 max-w-[1250px] mx-auto",
   animatedIcon: "flex h-full w-full hidden xs:block block",
 };

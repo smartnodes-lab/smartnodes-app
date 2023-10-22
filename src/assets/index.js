@@ -5,7 +5,6 @@ import card from "./card.png";
 import coinbase from "./coinbase.png";
 import dropbox from "./dropbox.png";
 import logo from "./logo.svg";
-import robot from "./robot.png";
 import send from "./Send.svg";
 import shield from "./Shield.svg";
 import star from "./Star.svg";
@@ -30,8 +29,10 @@ import logo_dark_small from "./logo_small_dark.svg";
 import features from "./features_lottie.json";
 import monetize from "./monetize.json";
 import workflow from "./workflow.json";
+import job from "./job.json";
 
 export {
+  job,
   workflow,
   monetize,
   features,
@@ -46,7 +47,6 @@ export {
   logo,
   logo_small,
   logo_dark_small,
-  robot,
   send,
   shield,
   star,

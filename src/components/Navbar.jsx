@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import ThemeButton from "./ThemeButton";
 import { close, logo, menu, dark_logo, logo_small, logo_dark_small } from "../assets";
 import { navLinks } from "../constants";
@@ -6,11 +6,29 @@ import { navLinks } from "../constants";
 const Navbar = () => {
   const [active, setActive] = useState(false);
   const [toggle, setToggle] = useState(false);
+  const [theme, setTheme] = useState(localStorage.getItem("theme") || "light");
+
+  useEffect(() => {
+    // Update the theme state when the local storage changes
+    const handleThemeChange = () => {
+      setTheme(localStorage.getItem("theme") || "light");
+    };
+
+    window.addEventListener("storage", handleThemeChange);
+
+    return () => {
+      // Clean up the event listener when the component unmounts
+      window.removeEventListener("storage", handleThemeChange);
+    };
+  }, []);
+
+  const logoSrc = theme === "light" ? dark_logo : logo;
+  const smallLogoSrc = theme === "light" ? logo_small : logo_dark_small;
 
   return (
-    <nav className="w-full flex py-10 px-2 sm:px-10 justify-between items-center navbar">
-      <img src={localStorage.getItem("theme") === "light" ? dark_logo : logo} alt="task" className="w-auto h-auto max-w-[300px] max-h-[160px] opacity-100 hidden sm:block" />
-      <img src={localStorage.getItem("theme") === "light" ? logo_small : logo_dark_small} alt="task" className="w-[60px] h-[60px] opacity-100 sm:hidden"/>
+    <nav className="w-full flex py-10 px-2 sm:px-10 justify-between items-center">
+      <img src={logoSrc} alt="task" className="w-auto h-auto max-w-[300px] max-h-[160px] opacity-100 hidden sm:block" />
+      <img src={smallLogoSrc} alt="task" className="w-[60px] h-[60px] opacity-100 sm:hidden" />
 
       <div>
         <ThemeButton className="px-20" />
