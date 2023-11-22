@@ -1,7 +1,6 @@
 import Navbar from "./Navbar";
 import Example from "./Example";
 import Features from "./Features";
-import Clients from "./Clients";
 import ToPortal from "./ToPortal";
 import Stats from "./Stats";
 import Footer from "./Footer";
@@ -12,8 +11,12 @@ import ParticleBackground from "./ParticleBackground";
 import AnimatedLottie from "./AnimatedLottie";
 import ThemeButton from "./ThemeButton";
 import MainHero from "./MainHero";
+import Sidebar from "./Sidebar";
+import LineChart from "./charts/LineChart";
+import CircularChart from "./charts/CircularChart";
 
 export {
+  Sidebar,
   MainHero,
   ThemeButton,
   AnimatedLottie,
@@ -21,11 +24,12 @@ export {
   Opportunity,
   Example,
   Features,
-  Clients,
   ToPortal,
   Stats,
   Footer,
   Testimonials,
   TaskHero,
   ParticleBackground,
+  LineChart,
+  CircularChart
 };

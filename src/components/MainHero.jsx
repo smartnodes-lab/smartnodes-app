@@ -5,7 +5,7 @@ import { overview } from "../constants";
 import AnimatedLottie from "./AnimatedLottie";
 
 const MainHero = () => {
-  const words = ["Engagement", "Collective Insight", "Your Applications", "Your Data"];
+  const words = ["Engagement", "Collective Insight", "Your Knowledge"];
   const animationDuration = 900; // Adjust the duration for typing and pause
   const [currentWord, setCurrentWord] = useState(" ");
   const [isTyping, setIsTyping] = useState(false);
@@ -71,7 +71,7 @@ const MainHero = () => {
           </div>
           <div className="z-20 max-w-xl justify-center items-center">
             <div className="py-10 justify-items-center bg-light dark:bg-gray-700 shadow-xl px-10 rounded-3xl">
-              <h2 className="text-[38px] md:text-[44px] font-bold text-gray-800 dark:text-white">Generate  
+              <h2 className="text-[38px] md:text-[44px] font-bold text-gray-800 dark:text-white">Unlocking  
               <br className=""/> Value From </h2>
               <div className="text-[42px] md:text-[46px] font-bold text-orange-500 mb-2">
                     <span className={`typing ${isTyping ? "animate-typing" : ""}`}>

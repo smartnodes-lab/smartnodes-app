@@ -1,36 +1,22 @@
 import styles from "../style";
 import React from "react";
 
-import { Navbar, TaskHero, Opportunity, Features, Footer, ParticleBackground } from '../components';
+import { Navbar, Testimonials, ParticleBackground, MainHero, TaskHero, Footer } from '../components';
 
-const TaskLanding = () => {
+const NewsLanding = () => {
   return (
-    <div className={`dark:bg-dark bg-light w-full overflow-hidden px-10 relative`}>
-      <div className="relative z-10">
-        <ParticleBackground id="particles-container" className="relative inset-0 z-0" />
-        <div className={`${styles.flexCenter}`}>
-          <div className={`${styles.boxWidth}`}>
-            <Navbar className="z-50" />
-          </div>
-        </div>
+    <div className={`dark:bg-dark bg-light min-h-screen flex-col ${styles.flexCenter} w-full`}>
+      <div className="mt-5 sm:mt-10 flex-col">
+        <TaskHero />
+        <MainHero />
+        <Testimonials style={{ zIndex: 0 }} />
+      </div>
 
-        <div>
-          <div className={'${styles.boxWidth} mb-10'}>
-            <TaskHero />
-          </div>
-        </div>
-        
-
-        <div className={'bg-primary px-10 ${styles.flexStart}'}>
-          <div className={'${styles.boxWidth}'}>
-            <Opportunity />
-            <Features />
-            <Footer />
-          </div>
-        </div>
+      <div  style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%", zIndex: 0 }}>
+        <ParticleBackground />
       </div>
     </div>
-  );
+  )
 }
 
-export default TaskLanding;
+export default NewsLanding;

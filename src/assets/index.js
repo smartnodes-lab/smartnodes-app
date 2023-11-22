@@ -30,8 +30,11 @@ import features from "./features_lottie.json";
 import monetize from "./monetize.json";
 import workflow from "./workflow.json";
 import job from "./job.json";
+import home from "./home.png";
+import economy from "./economy.png";
 
 export {
+  economy,
   job,
   workflow,
   monetize,
@@ -63,5 +66,6 @@ export {
   world,
   online1,
   online2,
-  server
+  server,
+  home
 };

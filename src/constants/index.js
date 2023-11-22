@@ -1,10 +1,26 @@
-import { monetize, job, workflow, facebook, instagram, linkedin, twitter, airbnb, binance, coinbase, dropbox, send, shield, star } from "../assets";
+import { monetize, home, economy, job, workflow, facebook, instagram, linkedin, twitter, airbnb, binance, coinbase, dropbox, send, shield, star } from "../assets";
 
 export const overview = {
   info: 
       "Building cutting-edge tools for monetizing knowledge and engagement, while fostering thriving online communities. \
-      We offer a range of APIs and user interfaces for content monetization, trust-minimized decision making, and other internet-based tasks."
+      We are developing a range of APIs and user interfaces for content monetization, trust-minimized decision making, and other internet-based tasks."
 }
+
+export const sideLinks = [
+  {
+    title: "Analytics",
+    links: [
+      {
+        name: "Home",
+        icon: home
+      },
+      {
+        name: "Economy",
+        icon: economy
+      }
+    ]
+  }
+]
 
 export const navLinks = [
   {
@@ -22,10 +38,6 @@ export const navLinks = [
   {
     id: "git",
     title: "GitHub"
-  },
-  {
-    id: "launch",
-    title: "Launch App"
   },
 ];
 
