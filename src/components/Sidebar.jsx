@@ -26,13 +26,13 @@ const Sidebar = ({ open, close }) => {
             </div>
             <div className="mt-10">
                 {sideLinks.map((item) => (
-                    <div key={item.title} >
+                    <div key={item.title} className="mb-20 ml-1">
                         <p className="text-gray-400 font-poppins text-lg dark:text-gray-400 m-3 mt-4 uppercase">
                             {item.title}
                         </p>
                         {item.links.map((link) => (
                             <NavLink
-                                to={`/${link.name}`}
+                                to={`/${link.id}`}
                                 key={link.name}
                                 className="flex flex-row items-center mt-5"
                             >

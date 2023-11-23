@@ -17,13 +17,13 @@ module.exports = {
       },
     },
     screens: {
-      xs: "380px",
-      ss: "520px",
-      sm: "768px",
-      md: "1060px",
-      lg: "1300px",
-      xl: "1700px",
-      xxl: "2100px"
+      xs: "280px",
+      ss: "420px",
+      sm: "568px",
+      md: "860px",
+      lg: "1000px",
+      xl: "1500px",
+      xxl: "1900px"
     },
   },
   plugins: [],

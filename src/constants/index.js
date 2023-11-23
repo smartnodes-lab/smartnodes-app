@@ -1,4 +1,4 @@
-import { monetize, home, economy, job, workflow, facebook, instagram, linkedin, twitter, airbnb, binance, coinbase, dropbox, send, shield, star } from "../assets";
+import { monetize, education, home, stock, connect, economy, job, workflow, facebook, instagram, linkedin, twitter, airbnb, binance, coinbase, dropbox, send, shield, star } from "../assets";
 
 export const overview = {
   info: 
@@ -12,11 +12,33 @@ export const sideLinks = [
     links: [
       {
         name: "Home",
+        id: "home",
         icon: home
       },
       {
         name: "Economy",
+        id: "economy",
         icon: economy
+      },
+      {
+        name: "Assets",
+        id: "assets",
+        icon: stock
+      }
+    ]
+  },
+  {
+    title: "Coming soon...",
+    links: [
+      {
+        name: "Foresight",
+        id: "foresight",
+        icon: education
+      },
+      {
+        name: "Tasknet",
+        id: "tasknet",
+        icon: connect,
       }
     ]
   }

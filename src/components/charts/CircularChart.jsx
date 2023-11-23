@@ -1,73 +1,84 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect } from 'react';
+import * as THREE from 'three';
 import * as d3 from 'd3';
 
-const CircularChart = ({ categories, correlations }) => {
-  const svgRef = useRef(null);
-
+const CircularChart = () => {
   useEffect(() => {
-    const svg = d3.select(svgRef.current);
-  
-    const width = 500;
-    const height = 500;
-    const centerX = width / 2;
-    const centerY = height / 2;
-    const radius = Math.min(centerX, centerY) - 20;
-  
-    const angleScale = d3.scalePoint()
-      .domain(categories)
-      .range([0, 2 * Math.PI])
-      .padding(0.5);
-  
-    const lines = [];
-    categories.forEach((category, i) => {
-      categories.forEach((targetCategory, j) => {
-        if (i < j) {
-          lines.push({
-            source: angleScale(category),
-            target: angleScale(targetCategory),
-            correlation: correlations[i][j],
-          });
-        }
-      });
-    });
-  
-    svg.selectAll(".correlation-line")
-      .data(lines)
-      .enter()
-      .append("line")
-      .attr("class", "correlation-line")
-      .attr("x1", d => centerX + radius * Math.cos(d.source))
-      .attr("y1", d => centerY + radius * Math.sin(d.source))
-      .attr("x2", d => centerX + radius * Math.cos(d.target))
-      .attr("y2", d => centerY + radius * Math.sin(d.target))
-      .style("stroke", d => d3.interpolateRdYlBu(d.correlation))
-      .style("stroke-width", "2px")
-      .style("opacity", 0.7)
-      .transition()
-      .duration(2000)
-      .ease(d3.easeLinear)
-      .style("stroke-dasharray", "5,5")
-      .style("opacity", 0.3)
-      .transition()
-      .duration(2000)
-      .ease(d3.easeLinear)
-      .style("stroke-dasharray", "2,2")
-      .style("opacity", 0.7);
-  
-  }, [categories, correlations]);
-  
+    // Set up Three.js scene
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+    const renderer = new THREE.WebGLRenderer();
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    document.body.appendChild(renderer.domElement);
 
-  return (
-    <div className="rounded-xl bg-dimWhite px-2 py-1">
-        <h3 className="font-poppins font-semibold text-[18px] sm:text-[24px] lg:text-[36px] ml-3 mt-3">Correlations</h3>
-        <div className="border-[1px] border-black mx-5 mt-2"/>
-        <svg
-            ref={svgRef}
-            width={500}
-            height={500}
-        />
-    </div>
-  );
+    // Example hierarchical edge-bundling data
+    const hierarchicalData = {
+      // Define your hierarchical data structure
+    };
+
+    // Implement hierarchical edge-bundling algorithm
+    const hierarchy = d3.hierarchy(hierarchicalData);
+    const bundle = d3.bundle();
+    const dataWithBundledEdges = bundle(hierarchy);
+
+    // Create nodes and edges using Three.js geometry and material
+    const nodes = [];
+    const edges = [];
+
+    dataWithBundledEdges.each(node => {
+      nodes.push(node);
+      if (node.parent) {
+        edges.push({ source: node, target: node.parent });
+      }
+    });
+
+    const nodeRadius = 5;
+    const nodeGeometry = new THREE.SphereGeometry(nodeRadius);
+    const nodeMaterial = new THREE.MeshBasicMaterial({ color: 0x00ff00 });
+
+    nodes.forEach(node => {
+      const nodeMesh = new THREE.Mesh(nodeGeometry, nodeMaterial);
+      nodeMesh.position.set(node.x, node.y, node.z);
+      scene.add(nodeMesh);
+    });
+
+    const edgeMaterial = new THREE.LineBasicMaterial({ color: 0x0000ff });
+
+    edges.forEach(edge => {
+      const geometry = new THREE.BufferGeometry().setFromPoints([
+        new THREE.Vector3(edge.source.x, edge.source.y, edge.source.z),
+        new THREE.Vector3(edge.target.x, edge.target.y, edge.target.z),
+      ]);
+      const edgeLine = new THREE.Line(geometry, edgeMaterial);
+      scene.add(edgeLine);
+    });
+
+    // Set up Three.js camera and animation loop
+    camera.position.z = 5;
+
+    function animate() {
+      requestAnimationFrame(animate);
+      // Update any animations or interactions here
+      renderer.render(scene, camera);
+    }
+
+    // Handle window resize
+    window.addEventListener('resize', () => {
+      camera.aspect = window.innerWidth / window.innerHeight;
+      camera.updateProjectionMatrix();
+      renderer.setSize(window.innerWidth, window.innerHeight);
+    });
+
+    // Start the animation loop
+    animate();
+
+    // Cleanup Three.js resources on component unmount
+    return () => {
+      renderer.domElement.remove();
+    };
+  }, []); // Empty dependency array ensures useEffect runs only once
+
+  return null; // No need to render anything, Three.js handles the scene
 };
 
 export default CircularChart;

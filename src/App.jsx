@@ -25,11 +25,12 @@ const App = () => {
         ) : (
           <div className="fixed sidebar dark:bg-black-700 bg-slate-200 w-0" />
         )}
-        <div className={`flex-1 flex flex-col dark:bg-dark bg-light min-h-screen ${activeMenu ? "md:ml-72" : ""}`}>
+        <div className={`flex-1 flex flex-col dark:bg-dark bg-light min-h-screen 
+          overflow-x-hidden overflow-y-hidden ${activeMenu ? "md:ml-72" : ""}`}>
           <div className="fixed md:static bg-main-bg dark:bg-main-dark-bg navbar w-full">
             <Navbar style={{ zIndex: 10000 }}/>
           </div>
-          <div className="flex-1 overflow-x-hidden overflow-y-auto p-4">
+          <div className="flex-1 p-4">
             <Routes>
               <Route index element={<Home />} />
               <Route path="/home" element={<Home />} />

@@ -1,63 +1,88 @@
 import React, { useEffect, useRef } from 'react';
 import * as d3 from 'd3';
 
-const LineGraph = ({ data }) => {
+const LineChart = ({ data, title, yAxisTitle, width = 500, height = 400 }) => {
   const svgRef = useRef(null);
 
   useEffect(() => {
-    // Access the SVG element using the ref
     const svg = d3.select(svgRef.current);
 
-    // Declare chart dimensions and margins
-    const width = 928;
-    const height = 500;
-    const marginTop = 20;
-    const marginRight = 30;
-    const marginBottom = 30;
-    const marginLeft = 40;
+    // Calculate inner dimensions based on provided width and height
+    const margin = { top: 40, right: 30, bottom: 30, left: 30 }; // Adjust margins as needed
 
-    // Declare the x (horizontal position) scale.
-    const x = d3.scaleUtc(d3.extent(data, d => d.date), [marginLeft, width - marginRight]);
+    const cardWidth = width;
+    const cardHeight = height;
 
-    // Declare the y (vertical position) scale.
-    const y = d3.scaleLinear([0, d3.max(data, d => d.close)], [height - marginBottom, marginTop]);
+    const innerWidth = cardWidth - margin.left - margin.right;
+    const innerHeight = cardHeight - margin.top - margin.bottom;
 
-    // Declare the line generator.
-    const line = d3.line()
-      .x(d => x(d.date))
-      .y(d => y(d.close));
+    // Parse the date strings into JavaScript Date objects
+    const parseDate = d3.timeParse('%Y-%m-%d');
 
-    // Add the axes
-    svg.append("g")
-      .attr("transform", `translate(0,${height - marginBottom})`)
-      .call(d3.axisBottom(x).ticks(width / 80).tickSizeOuter(0))
-      .call(g => g.select(".domain").remove());
+    const x = d3
+      .scaleTime()
+      .range([0, innerWidth])
+      .domain(d3.extent(data, d => parseDate(d.date)));
 
-    svg.append("g")
-      .attr("transform", `translate(${marginLeft},0)`)
-      .call(d3.axisLeft(y))
+    const y = d3
+      .scaleLinear()
+      .range([innerHeight, 0]) // Reverse the range to position the y-axis correctly
+      .domain([d3.min(data, d => d.value), d3.max(data, d => d.value)]);
 
-    // Append a path for the line.
-    svg.append("path")
-      .attr("fill", "none")
-      .attr("stroke", "steelblue")
-      .attr("stroke-width", 1.5)
-      .attr("d", line(data));
-  }, [data]);
+    const line = d3
+      .line()
+      .x(d => x(parseDate(d.date)))
+      .y(d => y(d.value));
+
+    svg.selectAll('*').remove();
+
+    svg.attr('width', cardWidth)
+      .attr('height', cardHeight)
+      .append('g')
+      .attr('transform', `translate(${margin.left},${margin.top})`);
+
+    // Append x-axis
+    svg.append('g')
+      .attr('transform', `translate(0,${innerHeight})`)
+      .call(d3.axisBottom(x).tickFormat(d3.timeFormat('%b %d')))
+      .select('.domain')
+      .remove();
+
+    // Append y-axis
+    const yAxis = svg.append('g')
+      .call(d3.axisLeft(y)
+        .ticks(5) // Customize the number of ticks
+      );
+
+    // Append y-axis label
+    yAxis.append('text')
+      .attr('transform', 'rotate(-90)')
+      .attr('y', -60) // Adjust the position as needed
+      .attr('dy', '0.71em')
+      .attr('fill', '#000')
+      .text(yAxisTitle);
+
+    // Append path
+    svg.append('path')
+      .datum(data)
+      .attr('fill', 'none')
+      .attr('stroke', 'steelblue')
+      .attr('stroke-width', 2)
+      .attr('d', line);
+
+  }, [data, width, height, yAxisTitle]);
 
   return (
     <div className="rounded-xl bg-slate-300 px-2 py-1">
-      <h3 className="font-poppins font-semibold text-[18px] sm:text-[24px] lg:text-[36px] ml-3 mt-3">Total Liquidity</h3>
-      <div className="border-[1px] border-black mx-5 mt-2"/>
-      <svg  
+      <h3 className="font-poppins font-semibold text-[18px] sm:text-[24px] lg:text-[36px] ml-3 mt-3">{title}</h3>
+      <div className="border-[1px] border-black mx-4 mt-2" />
+      <svg
         ref={svgRef}
-        width={928}
-        height={500}
-        viewBox={`0 0 928 500`}
+        viewBox={`0 0 ${width} ${height}`}
         style={{ maxWidth: '100%', height: 'auto', height: 'intrinsic' }}
       />
     </div>
   );
 };
 
-export default LineGraph;
+export default LineChart;

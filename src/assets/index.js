@@ -32,8 +32,15 @@ import workflow from "./workflow.json";
 import job from "./job.json";
 import home from "./home.png";
 import economy from "./economy.png";
+import connect from "./connect.png";
+import stock from "./stock.png";
+import education from "./education.png";
+
 
 export {
+  education,
+  stock,
+  connect,
   economy,
   job,
   workflow,
