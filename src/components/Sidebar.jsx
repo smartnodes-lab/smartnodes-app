@@ -10,7 +10,7 @@ const Sidebar = ({ open, close }) => {
     const { activeMenu, setActiveMenu } = useStateContext();
 
     return (
-        <div className="h-screen ml-3 md:overflow-hidden overflow-auto md:hover:overflow-auto pb-10">
+        <div className="h-screen ml-3 lg:overflow-hidden border-r border-black overflow-auto md:hover:overflow-auto pb-10">
             <div className="flex justify-between items-center">
                 <Link to="/" className="ml-2 mt-4">
                     <img className="w-40" src={dark_logo}/>
@@ -37,7 +37,7 @@ const Sidebar = ({ open, close }) => {
                                 className="flex flex-row items-center mt-5"
                             >
                                 <img src={link.icon} style={{ width: "30px", height: "30px" }}/>
-                                <span className="ml-2 font-poppins font-xl">{link.name}</span>
+                                <span className="ml-2 font-poppins font-xl dark:text-gray-400 text-gray-900">{link.name}</span>
                             </NavLink>
                         ))}
                     </div>

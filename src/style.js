@@ -1,7 +1,9 @@
 const styles = {
   boxWidth: "xl:max-w-[1280px] w-full",
 
-  heading2: "font-poppins font-bold text-[44px] xs:text-[54px] ss:text-[62px] lg:text-[74px] text-gray-700 dark:text-white w-full ",
+  heading: "font-poppins font-bold text-[26px] xs:text-[34px] sm:text-[44px] lg:text-[60px] text-gray-700 dark:text-white w-full ",
+  heading2: "font-poppins font-bold text-[30px] xs:text-[40px] sm:text-[54px] lg:text-[74px] text-gray-700 dark:text-white w-full ",
+  subheading: "font-poppins font-bold text-[24px] xs:text-[30px] sm:text-[40px] lg:text-[50px] text-gray-700 dark:text-white w-full ",
   paragraph: "font-poppins font-normal dark:text-white text-gray-900 sm:text-[18px] md:text-[20px] lg:text-[22px] leading-[30.8px]",
 
   content: "flex flex-col max-w-[1440px] px-5 md:px-10 lg:px-20",
@@ -21,6 +23,9 @@ const styles = {
   section: "mt-10 px-2 md:px-5 blur-overlay flex md:flex-row flex-col items-center justify-center",
   section2: "sm:py-16 py-15 px-10 blur-overlay flex md:flex-row flex-col items-center justify-center bg-black-gradient rounded-2xl z-0 max-w-[1250px] mx-auto",
   animatedIcon: "flex h-full w-full hidden xs:block block",
+
+  landingText: "text-[15px] sm:text-[18px] md:text-[20px] lg:text-[24px] text-black dark:text-white",
+  landingText2: "text-[14px] sm:text-[16px] md:text-[18px] lg:text-[22px] text-black dark:text-white"
 };
 
 export const layout = {
@@ -31,6 +36,8 @@ export const layout = {
   sectionImg: `flex-1 flex ${styles.Start} md:ml-10 ml-0 md:mt-0 mt-10 relative`,
 
   sectionInfo: `flex-1 ${styles.flexStart} flex-col align-items-center`,
+  features: `flex flex-row justify-around w-full mt-10`,
+  feature: `flex-col justify-center items-center text-center max-w-[400px]`
 };
 
 export default styles;

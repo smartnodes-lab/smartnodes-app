@@ -1,11 +1,11 @@
 import Home from "./Home";
 import Login from "./Login";
-import TaskLanding from "./TaskLanding";
-import NewsLanding from "./NewsLanding";
+import ProjectLanding from "./ProjectLanding";
+import TensorLinkLanding from "./TensorLinkLanding";
 
 export {
     Home,
     Login,
-    TaskLanding,
-    NewsLanding
+    ProjectLanding,
+    TensorLinkLanding
 }

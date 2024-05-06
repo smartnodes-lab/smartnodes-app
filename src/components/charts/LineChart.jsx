@@ -8,7 +8,7 @@ const LineChart = ({ data, title, yAxisTitle, width = 500, height = 400 }) => {
     const svg = d3.select(svgRef.current);
 
     // Calculate inner dimensions based on provided width and height
-    const margin = { top: 40, right: 30, bottom: 30, left: 30 }; // Adjust margins as needed
+    const margin = { top: 0, right: 30, bottom: 30, left: 30 }; // Adjust margins as needed
 
     const cardWidth = width;
     const cardHeight = height;
@@ -79,7 +79,7 @@ const LineChart = ({ data, title, yAxisTitle, width = 500, height = 400 }) => {
       <svg
         ref={svgRef}
         viewBox={`0 0 ${width} ${height}`}
-        style={{ maxWidth: '100%', height: 'auto', height: 'intrinsic' }}
+        style={{ maxWidth: '100%', height: 'auto' }}
       />
     </div>
   );

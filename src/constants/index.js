@@ -1,61 +1,83 @@
-import { monetize, education, home, stock, connect, economy, job, workflow, facebook, instagram, linkedin, twitter, airbnb, binance, coinbase, dropbox, send, shield, star } from "../assets";
+import { space, education, home, ai, workflow, data, job, telescope, blocks , community, linkedin, twitter, airbnb, binance, coinbase, dropbox } from "../assets";
 
 export const overview = {
   info: 
-      "Building cutting-edge tools for monetizing knowledge and engagement, while fostering thriving online communities. \
-      We are developing a range of APIs and user interfaces for content monetization, trust-minimized decision making, and other internet-based tasks."
+      "Tensorlink networks are strategically positioned to revolutionize AI training, astrophysics (TBA), and multifaceted workflow management (TBA). And we are only just beginning..."
 }
+
+export const portals = [
+  {
+    title: "User Guide",
+    link: "docs",
+    img: blocks,
+  },
+  {
+    title: "Running a Worker",
+    link: "docs/worker",
+    img: ai,
+  },
+  {
+    title: "Running a Validator",
+    link: "docs/validator",
+    img: workflow,
+  },
+  {
+    title: "Join the Community",
+    link: "tensorlink/community",
+    img: community,
+  }
+]
 
 export const sideLinks = [
   {
-    title: "Analytics",
+    title: "Tensorlink",
+    links: [
+      {
+        name: "Home",
+        id: "tensorlink",
+        icon: home
+      },
+      // {
+      //   name: "Overview",
+      //   id: "overview",
+      //   icon: economy
+      // },
+      {
+        name: "Getting started",
+        id: "docs#getting-started",
+        icon: education
+      }
+    ]
+  },
+  {
+    title: "SmartNodes",
     links: [
       {
         name: "Home",
         id: "home",
         icon: home
       },
-      {
-        name: "Economy",
-        id: "economy",
-        icon: economy
-      },
-      {
-        name: "Assets",
-        id: "assets",
-        icon: stock
-      }
-    ]
-  },
-  {
-    title: "Coming soon...",
-    links: [
-      {
-        name: "Foresight",
-        id: "foresight",
-        icon: education
-      },
-      {
-        name: "Tasknet",
-        id: "tasknet",
-        icon: connect,
-      }
+      // {
+      //   name: "Tasknet",
+      //   id: "tasknet",
+      //   icon: connect,
+      // }
     ]
   }
 ]
 
 export const navLinks = [
   {
-    id: "home",
-    title: "Home",
+    id: "tensorlink",
+    title: "Tensorlink",
   },
   {
-    id: "tasknet",
-    title: "TaskNet",
+    id: "smartnodes",
+    title: "SmartNodes",
   },
   {
-    id: "newsnet",
-    title: "NewsNet",
+    id: "docs",
+    title: "Documentation",
   },
   {
     id: "git",
@@ -64,86 +86,82 @@ export const navLinks = [
 ];
 
 export const features = [
+  {
+    id: "1",
+    title: "Plug-and-Play Integration",
+    content: "Seamlessly integrate your existing PyTorch models with Tensorlink and instantly tap into powerful distributed computing resources—no complex setup required."
+  },
+  {
+    id: "2",
+    title: "Decentralized Model Training",
+    content: "Tensorlink distributes models across the network, reducing reliance on costly centralized data centers and minimizing potential bottlenecks through parallelization."
+  },
+  {
+    id: "3",
+    title: "Security",
+    content: "Tensorlink leverages Ethereum to ensure the integrity of participants and reward distributions. Novel proof-of-learning mechanisms uphold network validity.",
+  },
   // {
-  //   id: "feature-1",
-  //   icon: star,
-  //   title: "AI Tools & Services",
-  //   content:
-  //     "An innovative layer 2 solution that facilitate collaboration and competition in AI, \
-  //     while addressing the increasing demand for cloud computing resources.",
-  //   expanded_content: [
-  //     "Design unique, distributed AI architectures utilizing peer-to-peer training, ensemble \
-  //      voting, and much more!",
-  //     "Access vast amounts of on-demand computing power for trustless AI model execution.",
-  //     "Earn rewards by solving tasks and datasets, or by simply donating your computing power!",
-  //   ],
-  // },
-  {
-    id: "feature-1",
-    icon: star,
-    title: "Solve & Earn",
-    content: "Engage in various tasks within the network while building your online reputation and earning cryptocurrency.",
-    expanded_content: [
-      "Poll-based questions",
-      "",
-      ""
-    ],
-  },
-  {
-    id: "feature-2",
-    icon: shield,
-    title: "Trustless, Automated, Decision-Making",
-    content:
-      "Machine-to-Human interfaces that enhance decentralized and automated systems using \
-      the power of collective human intelligence.",
-    expanded_content: [
-      "Allows both people and machines to utilize the collective intelligence of humans \
-      via API calls.",
-      "Potential use-cases for moderating decentralized apps (e.g. social media, insurance, etc), \
-      optimizing AI models, and much more!",
-    ]
-  },
-  {
-    id: "feature-3",
-    icon: send,
-    title: "Consensus & Transparency",
-    content:
-      "Smart contracts powered by Aleph Zero ensure integrity of user reputation, contributions, \
-      and participation-based rewards.",
-    expanded_content: [
-      "Leveraging Aleph Zero, and with more blockchains to come, Brainstorm achieves fast and \
-       efficient consensus, enabling real-time decision-making and responsive AI networks.",
-      "User participation and reputation are securely recorded on \
-       the blockchain, providing a transparent and tamper-proof system.",
-    ]
-  },
-];
+  //   id: "",
+  //   title: "Accessibility",
+  //   content: "Lower financial and technical barriers to AI training, making advanced computational resources more accessible and affordable for all.",
+  // }
+  //     title: "Trustless, Automated, Decision-Making",
+  //     content:
+  //       "Machine-to-Human interfaces that enhance decentralized and automated systems using \
+  //       the power of collective human intelligence.",
+  //     expanded_content: [
+  //       "Allows both people and machines to utilize the collective intelligence of humans \
+  //       via API calls.",
+  //       "Potential use-cases for moderating decentralized apps (e.g. social media, insurance, etc), \
+  //       optimizing AI models, and much more!",
+  ];
 
 export const feedback = [
   {
     id: "feedback-1",
     content:
-      "Tailored machine-human APIs for empowering decentralized and automated systems with trust-minimized workflow management and decision-making.",
-    name: "for dApps and Automation",
-    title: "Collective Intelligence",
-    img: workflow,
+      "Optimize your AI workflows with TensorLink, our cutting-edge PyTorch model offloading solution. Seamlessly distribute inference and training tasks, maximizing model scalability and minimizing costs. (In Progress)",
+    name: "PyTorch Model Offloading",
+    title: "TensorLink",
+    img: space,
+    blur: false,
+    link: "/tensorlink"
   },
   {
     id: "feedback-2",
-    content:
-      "Monetize your ideas and build communities around valuable data. Engage in diverse tasks and collaborative networking while building your online presence and earning from contributions.",
-    name: "Content and Participation",
-    title: "Monetize",
-    img: monetize,
+    content: "Nice try buddy, you're not getting this information just yet!",
+    name: "Something very cool.",
+    title: "",
+    // content: 
+    //   "Explore the depths of space with StarNet, a groundbreaking distributed radio telescope array positioned to be the world's largest and highest-resolution radio telescope, capturing unparalleled imaging and even potential transmission capabilities. (In Progress)",
+    // name: "The Distributed Radio Telescope",
+    // title: "StarNet",
+    img: telescope,
+    blur: true,
+    link: ""
   },
   {
     id: "feedback-3",
-    content:
-      "The Chainspace vision extends to creating a global network where individuals can delegate tasks, form organizations, and collaborate on content creation.",
-    name: "Shaping an Inclusive Future",
-    title: "Decentralized Workforce",
+    content: "Nice try buddy, you're not getting this information just yet!",
+    name: "Something very cool.",
+    title: "",
+    // content:
+    //   "Tailored machine-human APIs for empowering decentralized and automated systems with trust-minimized workflow management and decision-making. (TBD)",
+    // name: "for dApps and Automation",
+    // title: "Collective Intelligence",
     img: job,
+    blur: true,
+    link: ""
   },
+  // {
+  //   id: "feedback-3",
+  //   content:
+  //     "The Chainspace vision extends to creating a global network where individuals can delegate tasks, form organizations, and collaborate on content creation.",
+  //   name: "Shaping an Inclusive Future",
+  //   title: "Decentralized Workforce",
+  //   img: job,
+  // },
 ];
 
 export const stats = [
@@ -166,90 +184,113 @@ export const stats = [
 
 export const footerLinks = [
   {
+    title: "About",
+    links: [
+      // {
+      //   name: "Content",
+      //   link: "https://www.framework.exchange/content/",
+      // },
+      // {
+      //   name: "How it Works",
+      //   link: "https://www.framework.exchange/how-it-works/",
+      // },
+      // {
+      //   name: "Create",
+      //   link: "https://www.framework.exchange/create/",
+      // },
+      // {
+      //   name: "Explore",
+      //   link: "https://www.framework.exchange/explore/",
+      // },
+      // {
+      //   name: "Terms & Services",
+      //   link: "https://www.framework.exchange/terms-and-services/",
+      // },
+    ],
+  },
+  {
     title: "Useful Links",
     links: [
       {
-        name: "Content",
-        link: "https://www.hoobank.com/content/",
+        name: "Twitter",
+        icon: twitter,
+        link: "https://www.twitter.com/tensorlink",
       },
       {
-        name: "How it Works",
-        link: "https://www.hoobank.com/how-it-works/",
+        name: "LinkedIn",
+        icon: linkedin,
+        link: "https://www.linkedin.com/company/tensorlink/",
       },
       {
-        name: "Create",
-        link: "https://www.hoobank.com/create/",
-      },
-      {
-        name: "Explore",
-        link: "https://www.hoobank.com/explore/",
-      },
-      {
-        name: "Terms & Services",
-        link: "https://www.hoobank.com/terms-and-services/",
-      },
-    ],
+        name: "GitHub",
+        icon: linkedin,
+        link: "https://github.com/tensorlink"
+      }
+    ]
   },
+  // {
+  //   title: "Community",
+  //   links: [
+  //     // {
+  //     //   name: "Help Center",
+  //     //   link: "https://www.framework.exchange/help-center/",
+  //     // },
+  //     // {
+  //     //   name: "Partners",
+  //     //   link: "https://www.framework.exchange/partners/",
+  //     // },
+  //     // {
+  //     //   name: "Suggestions",
+  //     //   link: "https://www.framework.exchange/suggestions/",
+  //     // },
+  //     // {
+  //     //   name: "Blog",
+  //     //   link: "https://www.framework.exchange/blog/",
+  //     // },
+  //     // {
+  //     //   name: "Newsletters",
+  //     //   link: "https://www.framework.exchange/newsletters/",
+  //     // },
+  //   ],
+  // },
   {
-    title: "Community",
+    title: "Donate",
     links: [
       {
-        name: "Help Center",
-        link: "https://www.hoobank.com/help-center/",
+        name: "Bitcoin: bc1qg6klkt3z77wdlgusz5lujulr5ezayvqsw8m4r5",
+        link: "bc1qg6klkt3z77wdlgusz5lujulr5ezayvqsw8m4r5",
       },
       {
-        name: "Partners",
-        link: "https://www.hoobank.com/partners/",
+        name: "Ethereum: 0x1Bc3a15dfFa205AA24F6386D959334ac1BF27336",
+        link: "0x1Bc3a15dfFa205AA24F6386D959334ac1BF27336",
       },
       {
-        name: "Suggestions",
-        link: "https://www.hoobank.com/suggestions/",
-      },
-      {
-        name: "Blog",
-        link: "https://www.hoobank.com/blog/",
-      },
-      {
-        name: "Newsletters",
-        link: "https://www.hoobank.com/newsletters/",
-      },
-    ],
-  },
-  {
-    title: "Partner",
-    links: [
-      {
-        name: "Our Partner",
-        link: "https://www.hoobank.com/our-partner/",
-      },
-      {
-        name: "Become a Partner",
-        link: "https://www.hoobank.com/become-a-partner/",
-      },
+        name: "Solana: 3urnEem9JcdYB7t5ysVpk62fh2M8cU6RsmM9PoJaDiJV"
+      }
     ],
   },
 ];
 
 export const socialMedia = [
-  {
-    id: "social-media-1",
-    icon: instagram,
-    link: "https://www.instagram.com/",
-  },
-  {
-    id: "social-media-2",
-    icon: facebook,
-    link: "https://www.facebook.com/",
-  },
+  // {
+  //   id: "social-media-1",
+  //   icon: instagram,
+  //   link: "https://www.instagram.com/",
+  // },
+  // {
+  //   id: "social-media-2",
+  //   icon: facebook,
+  //   link: "https://www.facebook.com/",
+  // },
   {
     id: "social-media-3",
     icon: twitter,
-    link: "https://www.twitter.com/",
+    link: "https://www.twitter.com/tensorlink",
   },
   {
     id: "social-media-4",
     icon: linkedin,
-    link: "https://www.linkedin.com/",
+    link: "https://www.linkedin.com/company/tensorlink/",
   },
 ];
 

@@ -18,6 +18,22 @@
   scroll-behavior: smooth;
 }
 
+.dark-grad {
+  background: linear-gradient(
+    to bottom,
+    #2f3439, /* Light gray color at the top */
+    rgba(248, 250, 252, 0) 100% /* Transparent color at the bottom */
+  );
+}
+
+.light-grad {
+  background: linear-gradient(
+    to bottom,
+    #7d7d7d, /* Light gray color at the top */
+    rgba(171, 171, 171, 0) 100% /* Transparent color at the bottom */
+  );
+}
+
 .text-gradient1 {
   background: radial-gradient(
     64.18% 64.18% at 71.16% 45.69%,
@@ -77,31 +93,23 @@
   );
 }
 
-.bg-black-gradient {
-  background: linear-gradient(
-    144.39deg,
-    #ffffff -278.56%,
-    #e0c9ff -78.47%,
-    #11101d 91.61%
-  );
-}
-
-.bg-black-gradient-2 {
-  background: linear-gradient(
-    -168.39deg,
-    #ffffff -278.56%,
-    #6d6d6d -78.47%,
-    #11101d 91.61%
-  );
-}
-
 .bg-gray-gradient {
   background: linear-gradient(
-    153.47deg,
-    rgba(255, 255, 255, 0) -341.94%,
-    #14101d 95.11%
+    to bottom,
+    #131621, /* Dark gray color at the top */
+    rgba(48, 48, 48, 0.125) 100% /* Transparent color at the bottom */
   );
 }
+
+.bg-gray-gradient2 {
+  background: linear-gradient(
+    to right,
+    #141827 0%, /* Dark gray color at the left */
+    #141827 50%, /* Dark gray color at the left */
+    rgba(20, 24, 39, 0) 100% /* Transparent color in the middle */
+  );
+}
+
 
 .bg-discount-gradient {
   background: linear-gradient(125.17deg, #272727 0%, #11101d 100%);
@@ -207,9 +215,9 @@
 .feedback-card {
   background: linear-gradient(
     144.39deg,
-    #aff4ff -278.56%,
-    #919191 -78.47%,
-    #2949ff48 91.61%
+    #1e319f -58.56%,
+    #3c648d -50.47%,
+    #2e1966 91.61%
   );
 }
 
@@ -233,7 +241,7 @@
 }
 
 .black__gradient {
-  background: rgba(26, 26, 26, 0.4);
+  background: rgba(122, 10, 132, 0.575);
   filter: blur(750px);
 }
 
@@ -262,4 +270,18 @@
 
 .animate-sine-wave {
   animation: wave 2s linear infinite;
+}
+
+.spline {
+  position: abosulte;
+  margin: 0;
+  top: 0;
+  height: 600
+}
+
+.hr-centered {
+  width: 75%; /* This sets the line to half the width of its container */
+  border-top: 1px solid #ccc; /* Adjust the color and thickness as needed */
+  margin-left: auto; /* Centers the line by pushing it equally from both sides */
+  margin-right: auto;
 }

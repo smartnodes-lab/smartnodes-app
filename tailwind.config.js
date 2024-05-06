@@ -1,4 +1,7 @@
 /** @type {import('tailwindcss').Config} */
+
+const defaultTheme = "dark";
+
 module.exports = {
   content: ["./index.html", "./src/**/*.{js,jsx}"],
   darkMode: 'class',
@@ -7,7 +10,7 @@ module.exports = {
     extend: {
       colors: {
         light: "rgba(0, 60, 255, 0.05)",
-        dark: "rgba(0, 0, 35, 1)",
+        dark: "rgba(0, 0, 25, 1)",
         secondary: "rgba(26, 82, 255, 0.91)",
         dimWhite: "rgba(255, 255, 255, 0.7)",
         dimBlue: "rgba(9, 151, 124, 0.1)",
@@ -17,11 +20,11 @@ module.exports = {
       },
     },
     screens: {
-      xs: "280px",
-      ss: "420px",
-      sm: "568px",
+      xs: "350px",
+      ss: "550px",
+      sm: "670px",
       md: "860px",
-      lg: "1000px",
+      lg: "1250px",
       xl: "1500px",
       xxl: "1900px"
     },

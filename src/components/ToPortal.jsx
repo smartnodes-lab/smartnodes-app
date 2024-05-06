@@ -1,16 +1,37 @@
 import styles from "../style";
-import Button from "./Button";
+import { portals } from "../constants";
+import AnimatedLottie from "./AnimatedLottie";
+import { pingpong } from "three/src/math/MathUtils.js";
 
 const ToPortal = () => (
-  <section className={`${styles.section} flex-col relative mt-20 sm:flex-row sm:mb-10 mb-6 self-center px-10 max-w-[1440px]`}>
-    <div className={`w-full sm:flex-row mt-10 sm:mb-10 mb-6 z-[1] bg-gray-400 px-10 rounded-3xl`}>
-      <h2 className={styles.heading2}>Get Started.</h2>
-      <div className="flex mt-4 sm:mt-0 space-x-4"> {/* Added 'space-x-4' for button spacing */}
-        <Button text="Product 1" link="/product1" />
-        <Button text="Product 2" link="/product2" />
-      </div>
+  <section className={`flex pt-0 pb-20 flex-col items-center justify-center border-t dark:border-t-white border-t-black`}>
+    <div className="w-full text-center pt-20 lg:pb-10 px-20 dark-grad-vertical">
+      <h2 className={styles.heading2}>Get Started with Tensorlink.</h2>
+    </div>
+    <div className="flex flex-wrap justify-center mt-10 max-w-[1200px]">
+      {portals.map((product, index) => (
+        <div key={index} className={`flex items-center justify-center py-1 sm:py-4 px-4 lg:py-10 lg:px-10 border-slate-400 ${index === 0 ? "md:border-r md:border-b" : index === 3 ? "md:border-l" : index === 1 ? "md:border-b" : ""}`}>
+          <CustomComponent {...product} wide={index === 1} />
+        </div>
+      ))}
     </div>
   </section>
+);
+
+const CustomComponent = ({ title, link, img, wide }) => (
+  <a href={link} className="no-underline">
+    <div className={`feedback-card rounded-2xl py-1 flex flex-col justify-between min-h-[100px] md:min-w-[425px] lg:min-w-[500px] min-w-[500px]`}>
+      <div className="flex flex-col items-center justify-center h-full">
+        <h4 className="font-poppins font-semibold lg:text-3xl text-2xl mt-5 leading-[32px] text-white mb-1 text-center">
+          {title}
+        </h4>
+        <div className={`align-middle justify-center content-center max-w-[140px] min-w-[170px] max-h-[190px] min-h-[190px]
+                          ${wide ? "overflow-hidden min-w-[300px]" : " md:max-w-[150px] md:min-w-[180px] md:max-h-[200px] md:min-h-[200px]"}`}>
+          <AnimatedLottie animationData={img} loop={true}/>
+        </div>
+      </div>
+    </div>
+  </a>
 );
 
 export default ToPortal;

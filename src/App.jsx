@@ -1,8 +1,9 @@
-import { Home, Login, TaskLanding } from "./pages";
+import { Home, Login, ProjectLanding, TensorLinkLanding } from "./pages";
 import { Navbar, Footer, Sidebar } from "./components";
 import React, { useState, useEffect } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { useStateContext } from "./contexts/contextProvider";
+import { connect } from "./assets";
 
 const App = () => {
   const { activeMenu, setActiveMenu } = useStateContext();
@@ -17,24 +18,32 @@ const App = () => {
 
   return (
     <BrowserRouter>
-      <div className="dark:bg-dark bg-dimWhite flex min-h-screen">
-        {activeMenu ? (
-          <div className="fixed sidebar dark:bg-black-700 bg-slate-200 w-72">
-            <Sidebar />
-          </div>
-        ) : (
-          <div className="fixed sidebar dark:bg-black-700 bg-slate-200 w-0" />
-        )}
+      {/* {!activeMenu && (
+        <button 
+          className="absolute top-0 left-0 z-20 p-2"
+          onClick={() => setActiveMenu(true)} // Toggles the sidebar on
+        >
+          <img src={connect} alt="Toggle Sidebar" className="w-10 h-10" />
+        </button>
+      )} */}
+
+      {activeMenu && (
+        <div className="fixed inset-y-0 left-0 z-20 w-72 bg-slate-50 dark:bg-gray-900 dark:bg-black-700 transition-transform">
+          <Sidebar />
+        </div>
+      )}
+      <div className={`flex-1 flex flex-col min-h-screen transition-margin ${activeMenu ? "ss:ml-72" : ""}`}>
         <div className={`flex-1 flex flex-col dark:bg-dark bg-light min-h-screen 
-          overflow-x-hidden overflow-y-hidden ${activeMenu ? "md:ml-72" : ""}`}>
-          <div className="fixed md:static bg-main-bg dark:bg-main-dark-bg navbar w-full">
-            <Navbar style={{ zIndex: 10000 }}/>
+          overflow-x-hidden overflow-y-hidden`}> {/* ${activeMenu ? "md:ml-72" : ""} */}
+          <div className="static bg-main-bg dark:bg-main-dark-bg navbar w-full pb-5">
+            <Navbar style={{ zIndex: 10 }}/>
           </div>
-          <div className="flex-1 p-4">
+          <div className="flex-1">
             <Routes>
-              <Route index element={<Home />} />
-              <Route path="/home" element={<Home />} />
-              <Route path="/tasknet" element={<TaskLanding />} />
+              <Route index element={<TensorLinkLanding />} />
+              <Route path="/tensorlink" element={<TensorLinkLanding />} />
+              <Route path="/smartnodes" element={<ProjectLanding />} />
+              <Route path="/docs" element={<Home />} />
             </Routes>
           </div>
           <Footer />

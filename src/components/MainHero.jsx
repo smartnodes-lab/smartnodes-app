@@ -1,93 +1,40 @@
+import { React } from "react";
 import styles from "../style";
-import React, { useState, useEffect } from "react";
-import { data } from "../assets";
-import { overview } from "../constants";
 import AnimatedLottie from "./AnimatedLottie";
+import heroAnimation from "../assets/cloud-network.json";
+import { Link } from "react-router-dom";
 
 const MainHero = () => {
-  const words = ["Engagement", "Collective Insight", "Your Knowledge"];
-  const animationDuration = 900; // Adjust the duration for typing and pause
-  const [currentWord, setCurrentWord] = useState(" ");
-  const [isTyping, setIsTyping] = useState(false);
-  const [isDeleting, setIsDeleting] = useState(false); // Add state for deleting
-
-  useEffect(() => {
-    let currentIndex = 0;
-
-    const typeDeleteText = () => {
-      setIsDeleting(true);
-
-      const current = words[currentIndex];
-      const nextIndex = (currentIndex + 1) % words.length;
-      const next = words[nextIndex];
-
-      let i = current.length;
-
-      const deleteInterval = setInterval(() => {
-        if (i > 0) {
-            if (i === 1) {
-                setCurrentWord(" ");
-                i--;
-            } else {
-                setCurrentWord(current.substring(0, i - 1));
-                i--;
-            }
-        } else {
-          clearInterval(deleteInterval);
-          setIsDeleting(false);
-          setTimeout(() => {
-            setIsTyping(true);
-            let j = 0;
-            const typeInterval = setInterval(() => {
-              if (j < next.length) {
-                setCurrentWord(next.substring(0, j + 1));
-                j++;
-              } else {
-                clearInterval(typeInterval);
-                setTimeout(() => {
-                  setIsTyping(false);
-                  setTimeout(() => {
-                    currentIndex = nextIndex;
-                    typeDeleteText();
-                  }, animationDuration); // Pause between words
-                }, animationDuration * 3.5); // Longer pause after typing word
-              }
-            }, animationDuration / next.length);
-          }, animationDuration / 1.5); // Short pause after deleting word
-        }
-      }, animationDuration / current.length);
-    };
-
-    typeDeleteText();
-  }, []);
 
   return (
-    <section className={styles.section}>
-      <div className={`items-center rounded-xl mt-20 ${styles.content}`}>
-        <div className={`${styles.contentBox} flex-row mt-2 mb-2`}>
-          <div className="z-0 w-[58%] h-[25%] absolute rounded-full black__gradient left-20" />
-          <div className="min-w-[325px] mr-10 hidden sm:block">
-            <AnimatedLottie animationData={data} loop={true} />
+    <section id="home" className={`${styles.section} rounded-3xl xs:px-10 px-5`}>
+      <div className="dark:bg-gray-900 bg-gray-200 rounded-3xl px-3 flex sm:mx-10 md:flex-row flex-col z-20">
+        <div className={`flex-1 w-full flex-col items-center max-w-xl z-0 mx-3 sm:mx-5 md:mx-10 md:py-20 xs:py-10 py-5 mb-5`}>
+          <h1 className="flex-1 font-poppins font-semibold lg:text-[70px] xs:text-[42px] ss:text-[54px] text-[32px] text-white ss:leading-[100.8px] leading-[75px]">
+            <span className="text-gray-800 dark:text-gray-200">Fueling </span>{" "}
+          </h1>
+          
+          <h1 className="flex-1 font-poppins font-bold lg:text-[70px] xs:text-[42px] ss:text-[54px] text-[32px] text-blue-800 ss:leading-[100.8px] leading-[75px]">
+            <span>Innovation.</span>{" "}
+          </h1>
+
+          <div className={`mt-4`}>
+            <p className={`${styles.paragraph}`} style={{ lineHeight: '1.75' }}>
+            Smartnodes is a smart contract that powers and incentivizes decentralized physical infrastructure. 
+            Through interactions with specialized off-chain networks, Smartnodes fuels collaberation of resources
+            across a wide range of fields including machine learning (<Link to="/tensorlink" className="underline text-blue-400">Tensorlink
+            </Link>) and astrophysics (TBA).
+            </p>
           </div>
-          <div className="z-20 max-w-xl justify-center items-center">
-            <div className="py-10 justify-items-center bg-light dark:bg-gray-700 shadow-xl px-10 rounded-3xl">
-              <h2 className="text-[38px] md:text-[44px] font-bold text-gray-800 dark:text-white">Unlocking  
-              <br className=""/> Value From </h2>
-              <div className="text-[42px] md:text-[46px] font-bold text-orange-500 mb-2">
-                    <span className={`typing ${isTyping ? "animate-typing" : ""}`}>
-                        {currentWord}
-                    <span className="animate-pulse font-light leading-tight">|</span>
-                </span>
-              </div>
-              <p className={`${styles.paragraph} py-2`}>{overview.info}</p>
-              <a
-                href="#tools"
-                className="mt-5 inline-block px-6 py-3 text-white bg-blue-500 hover:bg-blue-600 rounded-md text-sm md:text-base font-semibold transition duration-300 ease-in-out"
-              >
-                Learn More
-              </a>
-            </div>
+        </div>
+        
+        <div className={'flex-1 items-center mt-5 max-w-3xl'}>
+          <div className={`${styles.animatedIcon} align-middle`} style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+            <AnimatedLottie animationData={heroAnimation}/>
           </div>
+          <div className="absolute w-[40%] h-[45%] left-0 opacity-50 white__gradient dark:black__gradient top-80"/>
+          {/* <div className="absolute z-[1] w-[40%] h-[0%] top-0 pink__gradient" /> */}
+          {/* <div className="absolute z-[1] w-[50%] h-[50%] left-20 bottom-50 blue__gradient"/> */}
         </div>
       </div>
     </section>

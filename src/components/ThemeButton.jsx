@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { dark1, dark2 } from "../assets";
 
 const ThemeButton = () => {
     const [theme, setTheme] = useState(localStorage.getItem("theme") || "light");
@@ -19,7 +20,7 @@ const ThemeButton = () => {
 
     return (
         <button onClick={handleThemeSwitch} className="">
-            {theme === "dark" ? <p>Light</p> : <p>Dark</p>}
+            <img src={dark1} alt={theme === "dark" ? "Light Logo" : "Dark Logo"} className="w-[28px] dark:bg-gray-300 rounded-xl"/>
         </button>
     )
 }

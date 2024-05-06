@@ -1,31 +1,27 @@
-import { LineChart, CircularChart } from "../components";
 import styles from "../style";
-import React, { useState, useEffect } from "react";
- 
-const Home = () => {
-  const [data, setData] = useState([]);
-  const [data2, setData2] = useState([]);
+import React, { useEffect } from "react";
+import { useStateContext } from "../contexts/contextProvider";
 
+import { Example, WelcomeTensorlink, WhyTensorlink, Stats, GettingStarted } from '../components';
+
+const Home = () => {
+  const { setActiveMenu } = useStateContext();
+
+  // Use useEffect to call setActiveMenu only once after the component mounts
   useEffect(() => {
-    // Fetch data from the endpoint
-    fetch('http://127.0.0.1:5000/usd/WALCL')
-      .then(response => response.json())
-      .then(data => setData(data['WALCL'].slice(-100, -1)))
-      .catch(error => console.error('Error fetching data:', error));
-    
-    fetch("http://127.0.0.1:5000/usd/WM2NS")
-      .then(response => response.json())
-      .then(data2 => setData2(data2["WM2NS"].slice(-100, -1)))
-      .catch(error => console.error("Error fetching data:", error));
-  }, []);
-    return (
-      <div className={`h-full w-full ${styles.flexCenter}`}>
-        <div className="mt-3 grid grid-cols-1 gap-5 md:grid-cols-2 2xl:grid-cols-3">
-              <LineChart data={data} title="FED Balance Sheet"/>
-              <LineChart data={data2} title="M2 Money Supply" className="ml-20"/>
-        </div>
+    setActiveMenu(true);
+  }, []); // The empty array means this effect runs only once after the initial render
+
+  return (
+    <div className={`z-20 min-h-screen flex-col ${styles.flexCenter} min-w-full`}>
+      <div className="z-10 mt-5 ml-20 sm:mt-10 flex-col min-w-full">
+        <h2 className={`${styles.heading} text-middle xs:max-w-[350px] max-w-[250px] sm:max-w-[1280px]`}>
+          Coming soon...<br />
+        </h2>
+        {/* <GettingStarted path="/getting-started"/> */}
       </div>
-    )
+    </div>
+  )
 }
 
 export default Home;

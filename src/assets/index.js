@@ -21,7 +21,6 @@ import twitter from "./twitter.svg";
 import world from "./world.svg";
 import online1 from "./undraw_online.svg";
 import online2 from "./undraw_online_2.svg";
-import server from "./undraw_server.svg";
 import data from "./data.json";
 import dark_logo from "./dark_logo.svg";
 import logo_small from "./logo_small.svg";
@@ -29,15 +28,31 @@ import logo_dark_small from "./logo_small_dark.svg";
 import features from "./features_lottie.json";
 import monetize from "./monetize.json";
 import workflow from "./workflow.json";
+import space from "./space.json";
 import job from "./job.json";
 import home from "./home.png";
 import economy from "./economy.png";
 import connect from "./connect.png";
 import stock from "./stock.png";
 import education from "./education.png";
+import telescope from "./telescope.json";
+import dark1 from "./dark1.svg";
+import dark2 from "./dark2.svg";
+import ml_flow from "./ML_Flow_Chart.png";
+import blocks from "./block_animation.json";
+import community from "./community.json";
+import ai from "./ai.json";
 
 
 export {
+  ai,
+  community,
+  blocks,
+  ml_flow,
+  dark1,
+  dark2,
+  telescope,
+  space,
   education,
   stock,
   connect,
@@ -73,6 +88,5 @@ export {
   world,
   online1,
   online2,
-  server,
   home
 };
