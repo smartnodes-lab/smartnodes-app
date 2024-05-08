@@ -23,6 +23,7 @@ import online1 from "./undraw_online.svg";
 import online2 from "./undraw_online_2.svg";
 import data from "./data.json";
 import dark_logo from "./dark_logo.svg";
+import real_dark_logo from "./dark_logo.png";
 import logo_small from "./logo_small.svg";
 import logo_dark_small from "./logo_small_dark.svg";
 import features from "./features_lottie.json";
@@ -33,7 +34,6 @@ import job from "./job.json";
 import home from "./home.png";
 import economy from "./economy.png";
 import connect from "./connect.png";
-import stock from "./stock.png";
 import education from "./education.png";
 import telescope from "./telescope.json";
 import dark1 from "./dark1.svg";
@@ -45,6 +45,7 @@ import ai from "./ai.json";
 
 
 export {
+  real_dark_logo,
   ai,
   community,
   blocks,
@@ -54,7 +55,6 @@ export {
   telescope,
   space,
   education,
-  stock,
   connect,
   economy,
   job,

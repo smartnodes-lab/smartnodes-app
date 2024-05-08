@@ -1,8 +1,7 @@
 import styles from "../style";
 import React from "react";
 
-import { Testimonials, ParticleBackground, MainHero, MainHero2, Opportunity, AnimatedLottie } from '../components';
-import {space} from "../assets";
+import { Testimonials, MainHero, MainHero2, Opportunity, AnimatedLottie } from '../components';
 
 const ProjectLanding = () => {
   return (
@@ -18,10 +17,6 @@ const ProjectLanding = () => {
           className="max-w-[300px]"
         /> */}
         </div>
-      </div>
-
-      <div style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%", zIndex: 0 }}>
-        <ParticleBackground />
       </div>
     </div>
   )

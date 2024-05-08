@@ -2,7 +2,7 @@ import styles from "../style";
 import React from "react";
 
 
-import { ParticleBackground, Example, ToPortal, WhyTensorlink, Stats, WelcomeTensorlink } from '../components';
+import { Example, ToPortal, WhyTensorlink, Stats, WelcomeTensorlink } from '../components';
 
 const TensorLinkLanding = () => {
   return (
@@ -12,10 +12,6 @@ const TensorLinkLanding = () => {
         <WhyTensorlink />
         <WelcomeTensorlink />
         <ToPortal />
-      </div>
-
-      <div  style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%", zIndex: 1 }}>
-        <ParticleBackground />
       </div>
     </div>
   )

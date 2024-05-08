@@ -11,7 +11,7 @@
   },
   "dependencies": {
     "@splinetool/react-spline": "^2.2.6",
-    "@splinetool/runtime": "^1.2.0",
+    "@splinetool/runtime": "^1.2.5",
     "d3": "^7.8.5",
     "framer-motion": "^10.12.16",
     "lottie-react": "^2.4.0",

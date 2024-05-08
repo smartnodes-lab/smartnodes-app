@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { dark1, dark2 } from "../assets";
 
 const ThemeButton = () => {
-    const [theme, setTheme] = useState(localStorage.getItem("theme") || "light");
+    const [theme, setTheme] = useState(localStorage.getItem("theme") || "dark");
 
     useEffect(() => {
         if (theme === "dark") {

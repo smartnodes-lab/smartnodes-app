@@ -9,7 +9,7 @@ const Example = () => (
         Distributed<br />Neural Network<br />Scaling. 
       </h2>
       <p className={`${styles.landingText} mt-5 max-w-[270px] pl-10 ml-0 ss:pl-0 md:ml-0 xs:max-w-[250px] ss:max-w-[600px]`}>
-        Tensorlink empowers you with cutting-edge tools for rapid and scalable model deployment directly within PyTorch.
+        Tensorlink empowers you with cutting-edge tools for rapid and scalable model deployment directly from PyTorch.
       </p>
     </div>
 

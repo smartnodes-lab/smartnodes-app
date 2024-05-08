@@ -1,4 +1,5 @@
-import { space, education, home, ai, workflow, data, job, telescope, blocks , community, linkedin, twitter, airbnb, binance, coinbase, dropbox } from "../assets";
+import { ai, workflow, job, telescope, blocks , community, linkedin, twitter, airbnb, binance, coinbase, dropbox } from "../assets";
+import { MdHome } from "react-icons/md";
 
 export const overview = {
   info: 
@@ -35,7 +36,7 @@ export const sideLinks = [
       {
         name: "Home",
         id: "tensorlink",
-        icon: home
+        icon: MdHome
       },
       // {
       //   name: "Overview",
@@ -45,7 +46,7 @@ export const sideLinks = [
       {
         name: "Getting started",
         id: "docs#getting-started",
-        icon: education
+        icon: MdHome
       }
     ]
   },
@@ -55,7 +56,7 @@ export const sideLinks = [
       {
         name: "Home",
         id: "home",
-        icon: home
+        icon: MdHome
       },
       // {
       //   name: "Tasknet",
@@ -89,7 +90,7 @@ export const features = [
   {
     id: "1",
     title: "Plug-and-Play Integration",
-    content: "Seamlessly integrate your existing PyTorch models with Tensorlink and instantly tap into powerful distributed computing resources—no complex setup required."
+    content: "Seamlessly integrate PyTorch models with Tensorlink and instantly tap into powerful distributed computing resources-no complex setup required."
   },
   {
     id: "2",
@@ -99,7 +100,7 @@ export const features = [
   {
     id: "3",
     title: "Security",
-    content: "Tensorlink leverages Ethereum to ensure the integrity of participants and reward distributions. Novel proof-of-learning mechanisms uphold network validity.",
+    content: "Tensorlink leverages Ethereum to ensure the integrity of the network and incentivize users. Proof-of-learning mechanisms maintain worker reputations.",
   },
   // {
   //   id: "",
@@ -124,7 +125,7 @@ export const feedback = [
       "Optimize your AI workflows with TensorLink, our cutting-edge PyTorch model offloading solution. Seamlessly distribute inference and training tasks, maximizing model scalability and minimizing costs. (In Progress)",
     name: "PyTorch Model Offloading",
     title: "TensorLink",
-    img: space,
+    img: ai,
     blur: false,
     link: "/tensorlink"
   },

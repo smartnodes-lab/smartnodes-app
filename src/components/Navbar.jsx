@@ -24,7 +24,7 @@ const NavButton = ({ title, customFunc, icon }) => {
 const Navbar = () => {
   const [active, setActive] = useState(false);
   const [toggle, setToggle] = useState(false);
-  const [theme, setTheme] = useState(localStorage.getItem("theme") || "light");
+  const [theme, setTheme] = useState(localStorage.getItem("theme") || "dark");
   const { activeMenu, setActiveMenu } = useStateContext();
 
   useEffect(() => {
@@ -44,7 +44,7 @@ const Navbar = () => {
   const handleActiveMenu = () => setActiveMenu(!activeMenu);
 
   return (
-    <nav className="w-full flex py-10 px-5 ml-1 md:ml-5 justify-between items-center" style={{ maxWidth: "1440px", margin: "0 auto" }}>
+    <nav className="w-full flex z-20 py-10 px-5 ml-1 md:ml-5 justify-between items-center" style={{ maxWidth: "1440px", margin: "0 auto" }}>
     {/* Existing navbar content */}
       {/* {!activeMenu && (
         <div className="flex flex-row">
@@ -109,7 +109,7 @@ const Navbar = () => {
         <div
           className={`${
             !toggle ? "hidden" : "flex"
-          } p-6 bg-gray-gradient absolute z-10 top-20 right-0 mx-4 mt-10 min-w-[140px] rounded-xl sidebar`}
+          } p-6 bg-slate-500 absolute z-10 top-20 right-0 mx-4 mt-10 min-w-[140px] rounded-xl sidebar`}
         >
           <ul className="list-none flex justify-end items-start flex-1 flex-col">
             <div className="" style={{zIndex: 100000}}>

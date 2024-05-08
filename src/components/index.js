@@ -11,11 +11,9 @@ import ParticleBackground from "./ParticleBackground";
 import AnimatedLottie from "./AnimatedLottie";
 import ThemeButton from "./ThemeButton";
 import MainHero2 from "./MainHero2";
-import Sidebar from "./Sidebar";
-import LineChart from "./charts/LineChart";
-import CircularChart from "./charts/CircularChart";
 import GettingStarted from "./GettingStarted";
 import WelcomeTensorlink from "./WelcomeTensorlink";
+import Sidebar from "./Sidebar";
 
 export {
   WelcomeTensorlink,
@@ -33,7 +31,5 @@ export {
   Footer,
   Testimonials,
   MainHero2,
-  ParticleBackground,
-  LineChart,
-  CircularChart
+  ParticleBackground
 };
