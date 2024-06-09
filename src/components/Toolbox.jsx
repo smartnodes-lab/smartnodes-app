@@ -7,8 +7,8 @@ import { features } from "../assets";
 const Testimonials = () =>  (
   <section id="tools" className={`${styles.flexCenter} flex-col`}>
     <div className={`w-full flex flex-col sm:flex-row items-center rounded-xl ${styles.content}`}>
-      <h2 className={`${styles.heading2} text-[36px] mt-20 ml-10`}>
-        The <br className="sm:block hidden" /> Smartnodes <br className="sm:block hidden" />Toolbox.
+      <h2 className={`${styles.heading2} text-[36px] mt-10 ml-10`}>
+        The <br className="sm:block hidden" /> Tensorlink <br className="sm:block hidden" />Toolbox.
       </h2>
       <div className="sm:block hidden md:mr-10 sm:mr-7 mr-5">
         <AnimatedLottie animationData={features} loop={true}/>

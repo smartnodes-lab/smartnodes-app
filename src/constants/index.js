@@ -9,7 +9,7 @@ export const overview = {
 export const portals = [
   {
     title: "User Guide",
-    link: "docs",
+    link: "docs/install",
     img: blocks,
   },
   {
@@ -36,48 +36,53 @@ export const sideLinks = [
       {
         name: "Home",
         id: "tensorlink",
-        icon: MdHome
+        icon: MdHome,
       },
-      // {
-      //   name: "Overview",
-      //   id: "overview",
-      //   icon: economy
-      // },
       {
-        name: "Getting started",
-        id: "docs#getting-started",
-        icon: MdHome
+        name: "Docs",
+        id: "docs",
+        icon: MdHome,
+        sublinks: [
+          { id: "overview", name: "Overview"},
+          { id: "install", name: "Installation"},
+          { id: "wallet", name: "Wallet Config"},
+          { id: "model-example", name: "Model Setup"}
+        ]
       }
     ]
   },
   {
-    title: "SmartNodes",
+    title: "Smartnodes",
     links: [
       {
         name: "Home",
-        id: "home",
+        id: "smartnodes",
         icon: MdHome
       },
-      // {
-      //   name: "Tasknet",
-      //   id: "tasknet",
-      //   icon: connect,
-      // }
+    ]
+  },
+  {
+    title: "Links",
+    links: [
+      {
+        name: "GitHub",
+        id: "https://github.com/tensorlink"
+      }
     ]
   }
 ]
 
 export const navLinks = [
   {
+    id: "smartnodes",
+    title: "Smartnodes",
+  },
+  {
     id: "tensorlink",
     title: "Tensorlink",
   },
   {
-    id: "smartnodes",
-    title: "SmartNodes",
-  },
-  {
-    id: "docs",
+    id: "docs/overview",
     title: "Documentation",
   },
   {

@@ -269,3 +269,13 @@
   margin-left: auto; /* Centers the line by pushing it equally from both sides */
   margin-right: auto;
 }
+
+.syntax-highlighter code {
+  font-size: 1rem !important;
+}
+
+@media (max-width: 768px) {
+  .syntax-highlighter code {
+    font-size: 0.8rem !important; /* Adjust the font size as needed */
+  }
+}

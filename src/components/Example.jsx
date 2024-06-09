@@ -3,8 +3,8 @@ import styles, { layout } from "../style";
 import { features } from "../constants";
 
 const Example = () => (
-  <section className={`mt-10 blur-overlay items-center flex flex-col`}>
-    <div className="flex-row px-10 mb-10 max-w-[1280px]">
+  <section className={`bg-gradient-to-t from-slate-50 to-transparent dark:from-gray-950 dark:to-transparent mt-10 items-center flex flex-col`}>
+    <div className="flex-row px-10 mb-20 max-w-[1280px]">
       <h2 className={`${styles.heading2} ss:text-left text-center md:min-w-[820px] lg:min-w-[1250px]`}>
         Distributed<br />Neural Network<br />Scaling. 
       </h2>

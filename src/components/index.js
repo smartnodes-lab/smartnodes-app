@@ -12,10 +12,24 @@ import AnimatedLottie from "./AnimatedLottie";
 import ThemeButton from "./ThemeButton";
 import MainHero2 from "./MainHero2";
 import GettingStarted from "./GettingStarted";
+import Overview from "./Overview";
 import WelcomeTensorlink from "./WelcomeTensorlink";
+import WelcomeDocs from "./WelcomeDocs";
 import Sidebar from "./Sidebar";
+import NavButton from "./NavButton";
+import LaunchApp from "./LaunchApp";
+import ModelExample from "./ModelExample";
+import WalletSetup from "./WalletSetup";
+import Button from "./Button";
 
 export {
+  Button,
+  WalletSetup,
+  Overview,
+  ModelExample,
+  LaunchApp,
+  WelcomeDocs,
+  NavButton,
   WelcomeTensorlink,
   GettingStarted,
   Sidebar,

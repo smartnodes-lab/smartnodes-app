@@ -18,7 +18,7 @@ const ParticleBackground = () => {
             init={particlesInit}
             loaded={particlesLoaded}
             options={{
-                fpsLimit: 120,
+                fpsLimit: 60,
                 zLayers: 50,
                 interactivity: {
                     detectsOn: "parent",
@@ -107,7 +107,7 @@ const ParticleBackground = () => {
                             enable: true,
                             area: 800,
                         },
-                        value: 30,
+                        value: 20,
                     },
                     shape: {
                         type: "circle",

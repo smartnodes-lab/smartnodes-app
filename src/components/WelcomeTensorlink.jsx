@@ -15,7 +15,7 @@ const WelcomeTensorlink = () => {
           <p className={`${styles.landingText} self-start ml-3 xs:ml-5 sm:ml-0 mt-5 mb-10 xs:max-w-[350px] max-w-[250px] sm:max-w-[1280px]`}>
             Tensorlink transforms neural network training by:
           </p>
-          <ul className={`${styles.landingText} list-disc ml-10 mr-10 xs:mr-0 xs:ml-10 max-w-[550px]`}>
+          <ul className={`${styles.landingText} list-disc ml-7 mr-7 xs:mr-0 xs:ml-10 max-w-[550px]`}>
             <li key="1" className="mb-6">
               Connecting users' existing workflows to a network that effortlessly handles distributed training.
             </li>

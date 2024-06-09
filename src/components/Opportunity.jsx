@@ -7,7 +7,7 @@ const Opportunity = () => (
   {/* <div className={'flex-1 w-full flex-col items-center pl-5 hidden md:block md:mb-10 max-w-xl'}>
     <img src={online1} alt="opportunity" className="w-[100%] h-[100%] relative z-[5]" />
   </div> */}
-    <div className='flex justify-between space-x-4 z-40'>
+    <div className='flex justify-between space-x-4 z-40 pt-20'>
       {/* Text content section */}
       <div className={'flex-1 w-full flex-col md:pl-20 items-center mb-10 max-w-xl'}>
         <h2 className={styles.heading2}>

@@ -56,7 +56,7 @@ const Navbar = () => {
           /> */}
       {!activeMenu ? (
         <div 
-          className="flex flex-row bg-gray-300 dark:bg-gray-500 rounded-xl px-3 py-1" 
+          className="flex flex-row bg-gray-300 dark:bg-gray-500 rounded-xl px-3 py-0" 
           style={{zIndex: 100000}}
           onClick={() => setActiveMenu(!activeMenu)} 
         >

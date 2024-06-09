@@ -1,11 +1,15 @@
 import Home from "./Home";
 import Login from "./Login";
-import ProjectLanding from "./ProjectLanding";
+import Smartnodes from "./Smartnodes";
+import SmartnodesLanding from "./SmartnodesLanding";
+import SmartnodesApp from "./SmartnodesApp";
 import TensorLinkLanding from "./TensorLinkLanding";
 
 export {
     Home,
     Login,
-    ProjectLanding,
-    TensorLinkLanding
+    SmartnodesLanding,
+    SmartnodesApp,
+    Smartnodes,
+    TensorLinkLanding,
 }
