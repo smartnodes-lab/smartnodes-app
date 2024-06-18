@@ -12,14 +12,14 @@ const WalletSetup = () => (
         <h1 className={`${styles.subheading}`}>
           Wallet config
         </h1>
+        <p className={`${styles.landingText2} sm:px-10 text-lg dark:text-gray-300 text-black mb-5 mt-5 font-bold`}>
+          As Tensorlink is in it's alpha-stage, this step is unnecessary. Please conitinue to the <Link to="/docs/model-example" className="underline text-blue-400">next page.</Link>
+        </p>
+
         <p className={`${styles.landingText2} sm:px-10 text-lg dark:text-gray-300 text-black mb-5 mt-5`}>
           To utilize Tensorlink, you'll need Smartnodes tokens (SNO) to compensate workers and validators for their services. 
           SNO is an ERC20 token, enabling you to easily connect any web wallet to access services and spend SNO (e.g., MetaMask,
           Trust Wallet, etc.)
-        </p>
-        <p className={`${styles.landingText2} sm:px-10 text-lg dark:text-gray-300 text-black mb-5 mt-5 font-bold`}>
-          During Tensorlink's testnet phase, this step is unnecessary. However, you will still need some testnet ETH to cover gas
-          fees. You can receive testnet ETH at: <a style={{ color: "#66bdcd", textDecoration: 'underline' }} href="https://www.goerlifaucet.org/">https://www.goerlifaucet.org/</a>
         </p>
       
         <h1 className={`${styles.subheading2} mt-10 pt-10 border-t dark:border-t-white border-t-black`}>
@@ -31,7 +31,7 @@ const WalletSetup = () => (
         </p>
 
         <p className={`${styles.landingText2} sm:px-10 text-lg dark:text-gray-300 text-black mb-5 mt-5`}>
-          Visit the <Link to="/smartnodes/app" className="underline text-blue-400">Smart Nodes Interface</Link> and connect your web wallet with the account that you want associated with Tensorlink. 
+          Visit the <Link to="/app" className="underline text-blue-400">Smart Nodes Interface</Link> and connect your web wallet with the account that you want associated with Tensorlink. 
           Once connected, navigate to the "Create User" option on the sign-up screen. Here you will be required to 
           input a user ID hash. This value belongs to a set of credentials that are automatically generated for you when installing Tensorlink. 
           These keys are essential for accessing Tensorlink's services and should be kept secure. Select "Import Public Key" and find the public_key.pem file

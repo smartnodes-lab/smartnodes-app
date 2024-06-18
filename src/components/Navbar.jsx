@@ -79,12 +79,8 @@ const Navbar = () => {
             onClick={() => setActive(nav.title)}
             style={{zIndex: 10000}}
           >
-            {nav.title === "Launch App" ? (
-              <div>
-                <a href="/dashboard">{nav.title}</a>
-              </div>
-            ) : nav.title === "GitHub" ? (
-              <a href="https://github.com/tensorlink">{nav.title}</a>
+            {nav.title === "GitHub" ? (
+              <a href="https://github.com/smartnodes-lab">{nav.title}</a>
             ) : nav.title === "tensorlink" ? (
               <a href="/tensorlink">{nav.title}</a>
             ) : (
@@ -125,7 +121,7 @@ const Navbar = () => {
                 onClick={() => setActive(nav.title)}
               >
                 {nav.title === "GitHub" ? (
-                  <a href="https://github.com/tensorlink">{nav.title}</a>
+                  <a href="https://github.com/smartnodes-lab">{nav.title}</a>
                 ) : (
                   <a href={`/${nav.id}`}>{nav.title}</a>
                 )}

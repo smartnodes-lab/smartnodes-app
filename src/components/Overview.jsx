@@ -8,10 +8,10 @@ const Overview = () => (
   <section className="bg-slate-50 dark:bg-gray-900 px-5 md:px-10 flex flex-col border-t dark:border-t-white border-t-black items-center">
     <div className="text-left px-20 xs:px-0 mt-20 max-w-[1280px] justify-center items-center">
       <h1 className={`${styles.subheading}`}>
-        Overview of TensorLink
+        Overview of Tensorlink
       </h1>
       <p className={`${styles.landingText2} sm:px-10 text-lg dark:text-gray-300 text-black mb-5 mt-5`}>
-        TensorLink is a decentralized platform designed to scale neural network training and inference in PyTorch by arbitrarily distributing models across a network of peers. With TensorLink, users can efficiently train and execute large models, harnessing the combined computational power of distributed nodes.
+        Tensorlink is a decentralized platform designed to scale neural network training and inference in PyTorch by arbitrarily distributing models across a network of peers. With Tensorlink, users can efficiently train and execute large models, harnessing the combined computational power of distributed nodes.
       </p>
 
       <h2 className={`${styles.subheading2} mt-10 pt-10 border-t dark:border-t-white border-t-black`}>

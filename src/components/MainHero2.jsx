@@ -5,7 +5,7 @@ import { overview } from "../constants";
 import AnimatedLottie from "./AnimatedLottie";
 
 const MainHero = () => {
-  const words = ["Collective Insight", "Idle Hardware", "Distributed Systems"];
+  const words = ["", "Idle Hardware", "Distributed Systems"];
   const animationDuration = 900; // Adjust the duration for typing and pause
   const [currentWord, setCurrentWord] = useState(" ");
   const [isTyping, setIsTyping] = useState(false);
@@ -65,7 +65,6 @@ const MainHero = () => {
     <section className={styles.section} style={{zIndex: 100000}}>
       <div className={`items-center rounded-xl mt-10 ${styles.content}`}>
         <div className={`${styles.contentBox} flex-row mt-2 mb-2`}>
-          <div className="z-0 w-[58%] h-[25%] absolute rounded-full black__gradient left-20" />
           <div className="min-w-[325px] mr-10 hidden sm:block">
             <AnimatedLottie animationData={data} loop={true} />
           </div>

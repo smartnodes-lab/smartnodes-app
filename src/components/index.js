@@ -21,9 +21,11 @@ import LaunchApp from "./LaunchApp";
 import ModelExample from "./ModelExample";
 import WalletSetup from "./WalletSetup";
 import Button from "./Button";
+import NodeDashboard from "./NodeDashboard";
 
 export {
   Button,
+  NodeDashboard,
   WalletSetup,
   Overview,
   ModelExample,

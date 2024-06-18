@@ -3,7 +3,7 @@ import { MdHome } from "react-icons/md";
 
 export const overview = {
   info: 
-      "Tensorlink networks are strategically positioned to revolutionize AI training, astrophysics (TBA), and multifaceted workflow management (TBA). And we are only just beginning..."
+      "Smartnodes is create super networks whose combined power will "
 }
 
 export const portals = [
@@ -31,7 +31,17 @@ export const portals = [
 
 export const sideLinks = [
   {
-    title: "Tensorlink",
+    title: "Smartnodes",
+    links: [
+      {
+        name: "Home",
+        id: "smartnodes",
+        icon: MdHome
+      },
+    ]
+  },
+  {
+    title: "tensorlink",
     links: [
       {
         name: "Home",
@@ -52,21 +62,11 @@ export const sideLinks = [
     ]
   },
   {
-    title: "Smartnodes",
-    links: [
-      {
-        name: "Home",
-        id: "smartnodes",
-        icon: MdHome
-      },
-    ]
-  },
-  {
     title: "Links",
     links: [
       {
         name: "GitHub",
-        id: "https://github.com/tensorlink"
+        id: "https://github.com/smartnodes-lab"
       }
     ]
   }
@@ -74,16 +74,16 @@ export const sideLinks = [
 
 export const navLinks = [
   {
-    id: "smartnodes",
-    title: "Smartnodes",
+    id: "",
+    title: "Home",
   },
   {
     id: "tensorlink",
-    title: "Tensorlink",
+    title: "tensorlink",
   },
   {
-    id: "docs/overview",
-    title: "Documentation",
+    id: "app",
+    title: "Launch App",
   },
   {
     id: "git",
@@ -95,7 +95,7 @@ export const features = [
   {
     id: "1",
     title: "Plug-and-Play Integration",
-    content: "Seamlessly integrate PyTorch models with Tensorlink and instantly tap into powerful distributed computing resources-no complex setup required."
+    content: "Seamlessly integrate PyTorch models with Tensorlink and tap into powerful distributed computing resources. No complex setup required."
   },
   {
     id: "2",
@@ -105,7 +105,7 @@ export const features = [
   {
     id: "3",
     title: "Security",
-    content: "Tensorlink leverages Ethereum to ensure the integrity of the network and incentivize users. Proof-of-learning mechanisms maintain worker reputations.",
+    content: "Tensorlink leverages Ethereum to ensure the integrity of the network and incentivize users. Proof-of-learn mechanisms maintain worker reputations.",
   },
   // {
   //   id: "",
@@ -127,9 +127,9 @@ export const feedback = [
   {
     id: "feedback-1",
     content:
-      "Optimize your AI workflows with TensorLink, our cutting-edge PyTorch model offloading solution. Seamlessly distribute inference and training tasks, maximizing model scalability and minimizing costs. (In Progress)",
+      "Optimize your machine learning workflows with Tensorlink-AI, our cutting-edge PyTorch model offloading solution. Seamlessly distribute inference and training tasks, maximizing model scalability and minimizing costs.",
     name: "PyTorch Model Offloading",
-    title: "TensorLink",
+    title: "tensorlink",
     img: ai,
     blur: false,
     link: "/tensorlink"
@@ -220,7 +220,7 @@ export const footerLinks = [
       {
         name: "Twitter",
         icon: twitter,
-        link: "https://www.twitter.com/tensorlink",
+        link: "https://www.twitter.com/smartnodes_lab",
       },
       {
         name: "LinkedIn",
@@ -230,7 +230,7 @@ export const footerLinks = [
       {
         name: "GitHub",
         icon: linkedin,
-        link: "https://github.com/tensorlink"
+        link: "https://github.com/smartnodes-lab"
       }
     ]
   },
@@ -291,7 +291,7 @@ export const socialMedia = [
   {
     id: "social-media-3",
     icon: twitter,
-    link: "https://www.twitter.com/tensorlink",
+    link: "https://www.twitter.com/smartnodes_lab",
   },
   {
     id: "social-media-4",

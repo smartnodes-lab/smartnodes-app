@@ -10,7 +10,7 @@ const Button = ({ icon, bgColor, color, bgHoverColor, size, text, borderRadius, 
       type="button"
       onClick={onClick}
       style={{ backgroundColor: bgColor, color, borderRadius }}
-      className={` text-${size} font-bold p-3 w-${width} hover:drop-shadow-xl hover:bg-${bgHoverColor}`}
+      className={`text-${size} font-bold p-3 w-${width} hover:drop-shadow-xl hover:bg-${bgHoverColor}`}
     >
       {icon} {text}
     </button>

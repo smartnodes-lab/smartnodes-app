@@ -18,7 +18,7 @@ const WhyTensorlink = () => {
           </h2>
           <p className={`${styles.landingText} mt-5 max-w-[270px] pl-5 ml-0 ss:pl-0 md:ml-0 xs:max-w-[400px] ss:max-w-[650px]`}>
             Tensorlink harnesses idle computers to efficiently process neural networks, primarily large language models (LLMs),
-            providing an economical and user-friendly alternative to hosting services for machine learning.
+            providing an economical and user-friendly alternative to hosting services.
           </p>
           <div className="lg:pl-3 lg:ml-3">
             <h3 className={`${styles.subheading} mt-10 sm:mt-20 text-left ml-4 md:min-w-[820px] lg:min-w-[1250px]`}>
@@ -44,7 +44,7 @@ const WhyTensorlink = () => {
               Power
             </h3>
             <p className={`${styles.landingText} mt-5 max-w-[270px] pl-5 ml-0 ss:pl-0 md:ml-0 xs:max-w-[400px] ss:max-w-[650px]`}>
-              Aim to deliver and aggregate computational resources that outshine even the most powerful supercomputers.
+              We aim to deliver and aggregate computational resources that outshine even the most powerful supercomputers.
             </p>
           </div>
         </div>

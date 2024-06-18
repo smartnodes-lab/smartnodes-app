@@ -17,17 +17,27 @@ const WelcomeTensorlink = () => {
           </p>
           <ul className={`${styles.landingText} list-disc ml-7 mr-7 xs:mr-0 xs:ml-10 max-w-[550px]`}>
             <li key="1" className="mb-6">
-              Connecting users' existing workflows to a network that effortlessly handles distributed training.
+              Providing a universal framework for accelerating neural network training, connecting users' existing workflows networks of GPUs.
             </li>
             <li key="2" className="mb-6">
-              Utilizing data and pipeline parallelism to efficiently host large models and impact of internet latency.
+              Utilizing data and pipeline parallelism to efficiently host large models over the internet.
             </li>
             <li key="3" className="mb-6">
-              Creating an on-chain ecosystem for: collateralized nodes, establishing reputation, payments, and incentivized rewards.
+              Creating an economical solution for large scale computation while providing consumers a way to monetize their idle GPUs.
             </li>
           </ul>
         </div>
-        <img src={ml_flow} className="hidden sm:block min-w-[200px] md:max-w-[550px] mb-10 px-5 lg:px-0" alt="Flowchart showing Tensorlink process" />
+        <img
+          src={ml_flow}
+          className="hidden sm:block min-w-[200px] lg:min-w-[500px] md:max-w-[550px] mb-10 px-5 lg:px-10"
+          alt="Flowchart showing Tensorlink process"
+          style={{
+            backgroundColor: "#333", // Medium grey background color
+            border: "2px solid #ccc",   // Nice border
+            borderRadius: "8px",         // Rounded corners
+            padding: "35px"              // Padding inside the border
+          }}
+        />
       </div>
     </section>
   );  

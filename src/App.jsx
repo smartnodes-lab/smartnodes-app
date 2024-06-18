@@ -23,7 +23,7 @@ const App = () => {
         </div>
       )}
       <div className={`flex-1 flex flex-col min-h-screen transition-margin ${activeMenu ? "ss:ml-72" : ""}`}>
-        <div className={`flex-1 flex flex-col dark:bg-dark bg-gray-200 min-h-screen overflow-x-hidden overflow-y-hidden`}>
+        <div className={`flex-1 flex flex-col dark:bg-dark bg-gray-200 min-h-screen overflow-x-scroll overflow-y-hidden`}>
           <div className="static w-full pb-5">
             <Navbar style={{ zIndex: 10 }}/>
           </div>
@@ -31,7 +31,7 @@ const App = () => {
             <Routes >
               <Route index element={<Smartnodes />} />
               <Route path="tensorlink" element={<TensorLinkLanding />} />
-              <Route path="smartnodes/*" element={<Smartnodes />}>
+              <Route path="*" element={<Smartnodes className="z-50" />}>
                 <Route path="app" element={<SmartnodesApp />} />
               </Route>
               <Route path="docs/*" element={<Home />}>

@@ -2,7 +2,7 @@ import styles, { layout } from "../style";
 import Spline from "@splinetool/react-spline";
 
 const Opportunity = () => (
-  <section id="product" className={`${layout.section} mt-0 px-5 relative`}>
+  <section id="product" className={`${layout.section} mt-0 px-20 sm:px-5 relative`}>
 
   {/* <div className={'flex-1 w-full flex-col items-center pl-5 hidden md:block md:mb-10 max-w-xl'}>
     <img src={online1} alt="opportunity" className="w-[100%] h-[100%] relative z-[5]" />

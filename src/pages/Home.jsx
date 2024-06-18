@@ -10,8 +10,15 @@ const Home = () => {
     setActiveMenu(true);
   }, []); 
 
+  const Disclaimer = () => (
+    <div style={{ background: "lightgray", padding: "10px", marginBottom: "20px" }}>
+      Note: Documentation is not complete or ready for distribution/use.
+    </div>
+  );
+
   return (
     <div>
+      <Disclaimer />
       <Routes>
         <Route index element={<WelcomeDocs />} />
         <Route path="overview" element={<Overview />} />
