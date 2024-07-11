@@ -279,3 +279,7 @@
     font-size: 0.8rem !important; /* Adjust the font size as needed */
   }
 }
+
+.space-x-2 > * + * {
+  margin-left: 0.5rem;
+}

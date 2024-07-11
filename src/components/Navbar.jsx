@@ -61,14 +61,12 @@ const Navbar = () => {
           onClick={() => setActiveMenu(!activeMenu)} 
         >
           <img src={logoSrc} alt="task" className="w-auto h-auto max-w-[350px] max-h-[160px] opacity-100 hidden md:block" />
-          <img src={smallLogoSrc} alt="task" className="w-[70px] h-[70px] opacity-100 md:hidden" />
+          <img src={smallLogoSrc} alt="task" className="w-[70px] h-[70px] opacity-100 md:hidden my-1" />
         </div>
       ) : (
         <div></div>
       )}
-        {/* </div>
-      )} */}
-
+      
       <ul className="list-none md:flex hidden justify-end px-5 items-center flex-1">
         {navLinks.map((nav, index) => (
           <li

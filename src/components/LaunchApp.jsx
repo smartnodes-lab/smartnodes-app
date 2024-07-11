@@ -8,7 +8,7 @@ const LaunchApp = () => {
       <div className="dark:bg-gray-900 bg-gray-200 rounded-3xl px-3 flex sm:mx-10 md:flex-row flex-col z-20">
         <div className="flex-1 w-full flex-col items-center max-w-[1280px] z-0 mx-3 sm:mx-5 md:mx-10 md:py-10 xs:py-10 py-5 mb-5">
           <h1 className={`flex-1 ${styles.subheading}`}>
-            Get Started with Smartnodes & Tensorlink
+            Get Started with Smartnodes
           </h1>
           {/* <div className={`mt-4`}>
             <p className={`${styles.paragraph}`} style={{ lineHeight: '1.75' }}>
