@@ -29,7 +29,7 @@ const Sidebar = ({ open, close }) => {
                     onClick={() => setActiveMenu(!activeMenu)} 
                     className="rounded-full p-3 mt-4 text-lg"
                 >
-                    <MdOutlineCancel />
+                    <MdOutlineCancel color="grey"/>
                 </button>
             </div>
             <div className="mt-10">

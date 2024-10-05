@@ -23,12 +23,13 @@ const GettingStarted = () => (
       <p className={`${styles.landingText2} sm:px-10 text-lg dark:text-gray-300 text-black mb-5 mt-5`}>
         Welcome to the quickstart guide for Tensorlink! Whether you are experienced with PyTorch or
         just starting out, this guide will help you set up and run your first distributed training task
-        using Tensorlink. While a general knowledge of Python and PyTorch is assumed, we aim to make this guide accessible
+        using Tensorlink. While a general knowledge of Python and PyTorch is assumed, we have tried to make this guide accessible
          even to those who are new.
       </p>
       <p className={`${styles.landingText2} sm:px-10 text-lg dark:text-gray-300 text-black mb-5 mt-5`}>
-        This guide will help you through the complete process of leveraging distributed training with a Hugging Face 
-        Large Language Model (LLM). From financial preparations such as creating a testnet wallet and loading funds, to technical setup and execution of training, we'll cover all the necessary steps to get you started.
+        This guide will walk you through the complete process of leveraging distributed training with a Large Language Model (LLM) 
+        from the Hugging Face library. We will cover all the necessary steps to get you started with Tensorlink, including how to 
+        request free training jobs for sub-8Gb models on the network, as well as the preparations needed for training larger models.
       </p>
 
       <h1 className={`${styles.subheading2} mt-10 pt-10 border-t dark:border-t-white border-t-black`}>
@@ -36,8 +37,8 @@ const GettingStarted = () => (
       </h1>
       <p className={`${styles.landingText2} sm:px-10 text-lg dark:text-gray-300 text-black mb-5 mt-5`}>
         Before installing Tensorlink, ensure you have the following requirements:
-        <li className="mt-4 ml-5">Python 3.9.5 or higher</li>
-        <li className="mt-2 mb-5 ml-5">PyTorch 2.3 or higher</li>
+        <li className="mt-4 ml-5">Python 3.11.9+</li>
+        <li className="mt-2 mb-5 ml-5">PyTorch 2.3+ (installed as dependency, ensure model is compatible)</li>
         Tensorlink can be installed using pip. Open your terminal and run the following command:
       </p>
       <div className="mx-5 sm:mx-20">

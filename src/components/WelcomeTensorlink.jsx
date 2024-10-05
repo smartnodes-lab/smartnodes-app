@@ -15,21 +15,21 @@ const WelcomeTensorlink = () => {
           <p className={`${styles.landingText} self-start ml-3 xs:ml-5 sm:ml-0 mt-5 mb-10 xs:max-w-[350px] max-w-[250px] sm:max-w-[1280px]`}>
             Tensorlink transforms neural network training by:
           </p>
-          <ul className={`${styles.landingText} list-disc ml-7 mr-7 xs:mr-0 xs:ml-10 max-w-[550px]`}>
-            <li key="1" className="mb-6">
-              Providing a universal framework for accelerating neural network training, connecting users' existing workflows networks of GPUs.
+          <ul className={`${styles.landingText} list-disc ml-7 mr-7 xs:mr-0 xs:ml-10 max-w-[650px] mb-5`}>
+            <li key="1" className="mb-7">
+              Providing a universal framework for accelerating neural network training, connecting users' existing workflows to a networks of GPUs.
             </li>
-            <li key="2" className="mb-6">
-              Utilizing data and pipeline parallelism to efficiently host large models over the internet.
+            <li key="2" className="mb-7">
+              Utilizing data and pipeline parallelism to efficiently host large models over the internet, enabling large-scale model training on consumer devices.
             </li>
-            <li key="3" className="mb-6">
-              Creating an economical solution for large scale computation while providing consumers a way to monetize their idle GPUs.
+            <li key="3" className="mb-7">
+              Delivering large-scale computation at a fraction of the cost by incentivizing consumers to monetize their idle GPUs.
             </li>
           </ul>
         </div>
         <img
           src={ml_flow}
-          className="hidden sm:block min-w-[200px] lg:min-w-[500px] md:max-w-[550px] mb-10 px-5 lg:px-10"
+          className="sm:min-w-[200px] lg:min-w-[500px] md:max-w-[550px] mb-10 px-5 lg:px-10"
           alt="Flowchart showing Tensorlink process"
           style={{
             backgroundColor: "#333", // Medium grey background color

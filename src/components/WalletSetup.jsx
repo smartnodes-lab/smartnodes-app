@@ -13,21 +13,20 @@ const WalletSetup = () => (
           Wallet config
         </h1>
         <p className={`${styles.landingText2} sm:px-10 text-lg dark:text-gray-300 text-black mb-5 mt-5 font-bold`}>
-          As Tensorlink is in it's alpha-stage, this step is unnecessary. Please conitinue to the <Link to="/docs/model-example" className="underline text-blue-400">next page.</Link>
+          As Tensorlink is in alpha, this step is unnecessary. Please conitinue to the <Link to="/docs/model-example" className="underline text-blue-400">next page.</Link>
         </p>
 
         <p className={`${styles.landingText2} sm:px-10 text-lg dark:text-gray-300 text-black mb-5 mt-5`}>
-          To utilize Tensorlink, you'll need Smartnodes tokens (SNO) to compensate workers and validators for their services. 
-          SNO is an ERC20 token, enabling you to easily connect any web wallet to access services and spend SNO (e.g., MetaMask,
-          Trust Wallet, etc.)
+          To utilize Tensorlink for larger models and rate-limit-free services, you'll need Smartnodes tokens (SNO) to compensate workers and validators for their services. 
+          SNO is an ERC20 token, enabling you to easily connect any web wallet to access services (e.g., MetaMask, Trust Wallet, etc.)
         </p>
       
         <h1 className={`${styles.subheading2} mt-10 pt-10 border-t dark:border-t-white border-t-black`}>
           Signing Up
         </h1>
         <p className={`${styles.landingText2} sm:px-10 text-lg dark:text-gray-300 text-black mb-5 mt-5`}>
-          To access TensorLink's decentralized services for neural network training and inference, you must first sign up as a User on the
-          Smart Nodes contract. If you have already registered, you may skip to the next step. 
+          To access Tensorlink's full services, you must first sign up as a User on the Smart Nodes contract. 
+          If you have already registered, you may skip to the next step. 
         </p>
 
         <p className={`${styles.landingText2} sm:px-10 text-lg dark:text-gray-300 text-black mb-5 mt-5`}>

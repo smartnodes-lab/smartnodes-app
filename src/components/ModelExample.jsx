@@ -40,8 +40,49 @@ const codeStringHuggingFace = `  from transformers import BertForSequenceClassif
   )
 `
 
-const codeStringDistributed = ` from 
-`
+const codeStringTrainingLoop = `  from torch.optim import AdamW
+  from torch.nn import CrossEntropyLoss
+
+  # Define optimizer and loss function
+  optimizer = AdamW(d_model.parameters(), lr=5e-5)
+  loss_fn = CrossEntropyLoss()
+
+  # Training loop
+  epochs = 3
+  for epoch in range(epochs):
+      for batch in DataLoader(tokenized_dataset["train"], batch_size=8):
+          input_ids = batch["input_ids"].to(device)
+          attention_mask = batch["attention_mask"].to(device)
+          labels = batch["label"].to(device)
+
+          optimizer.zero_grad()
+          outputs = d_model(input_ids, attention_mask=attention_mask, labels=labels)
+          loss = outputs.loss
+          loss.backward()
+          optimizer.step()
+
+      print(f"Epoch {epoch + 1}/{epochs} completed")
+`;
+
+const codeStringMonitorJob = `  # Check job status
+  status = user.check_job_status(d_model)
+  print(f"Job Status: {status}")
+`;
+
+const codeStringEvaluateModel = `  # Evaluation
+  d_model.eval()
+  for batch in DataLoader(tokenized_dataset["validation"], batch_size=8):
+      input_ids = batch["input_ids"].to(device)
+      attention_mask = batch["attention_mask"].to(device)
+      labels = batch["label"].to(device)
+
+      with torch.no_grad():
+          outputs = d_model(input_ids, attention_mask=attention_mask, labels=labels)
+          predictions = outputs.logits.argmax(dim=-1)
+          accuracy = (predictions == labels).float().mean()
+
+      print(f"Accuracy: {accuracy.item()}")
+`;
 
 const ModelExample = () => (
   <section path="/docs/install" className="bg-slate-50 dark:bg-gray-900 px-5 md:px-10 flex flex-col border-t dark:border-t-white border-t-black items-center">
@@ -62,9 +103,10 @@ const ModelExample = () => (
       <h1 className={`${styles.subheading2} mt-10 pt-10 border-t dark:border-t-white border-t-black`}>
         Model setup
       </h1>
-      <p className={`${styles.landingText2} sm:px-10 text-lg dark:text-gray-300 text-black mb-5 mt-5`}>
+      <p className={`${styles.landingText2} sm:px-10 text-lg dark:text-gray-300 text-black mb-8 mt-5`}>
         The following example will set up a basic environment for training a BertModel provided by HuggingFace, a popular transformer library for PyTorch. Again, Tensorlink is designed
         to work with any PyTorch neural network so you may choose to train any model you wish.
+        The only limitations to the size of the model you can run is the available memory on your device.
       </p>
       <div className="flex justify-center w-full">
         <SyntaxHighlighter language="python" style={vscDarkPlus} className="syntax-highlighter justify-center items-center sm:mx-20 max-w-[275px] xs:max-w-[350px] ss:max-w-[515px] sm:max-w-[700px] md:max-w-full">
@@ -88,18 +130,50 @@ const ModelExample = () => (
       <p className={`${styles.landingText2} sm:px-10 text-lg dark:text-gray-300 text-black mb-5 mt-5`}>
         Once this is done, a job request should have been created and you'll be successfully connected to Tensorlink.
       </p>
+
+      <h1 className={`${styles.subheading2} mt-10 pt-10 border-t dark:border-t-white border-t-black`}>
+        Training the Distributed Model
+      </h1>
+      <p className={`${styles.landingText2} sm:px-10 text-lg dark:text-gray-300 text-black mb-5 mt-5`}>
+        Now that the model is connected, you can proceed with training. Below is an example of the training loop, where the model is distributed across Tensorlink nodes for accelerated computation.
+      </p>
+      <div className="flex justify-center w-full">
+        <SyntaxHighlighter language="python" style={vscDarkPlus} className="syntax-highlighter justify-center items-center sm:mx-20 max-w-[275px] xs:max-w-[350px] ss:max-w-[515px] sm:max-w-[700px] md:max-w-full">
+          {codeStringTrainingLoop}
+        </SyntaxHighlighter>
+      </div>
+
+      <h1 className={`${styles.subheading2} mt-10 pt-10 border-t dark:border-t-white border-t-black`}>
+        Monitor the Training Process
+      </h1>
+      <p className={`${styles.landingText2} sm:px-10 text-lg dark:text-gray-300 text-black mb-5 mt-5`}>
+        You can monitor the progress of your distributed training job using Tensorlink’s job status functionality.
+      </p>
+      <div className="flex justify-center w-full">
+        <SyntaxHighlighter language="python" style={vscDarkPlus} className="syntax-highlighter justify-center items-center sm:mx-20 max-w-[275px] xs:max-w-[350px] ss:max-w-[515px] sm:max-w-[700px] md:max-w-full">
+          {codeStringMonitorJob}
+        </SyntaxHighlighter>
+      </div>
+
+      <h1 className={`${styles.subheading2} mt-10 pt-10 border-t dark:border-t-white border-t-black`}>
+        Evaluating the Model
+      </h1>
+      <p className={`${styles.landingText2} sm:px-10 text-lg dark:text-gray-300 text-black mb-5 mt-5`}>
+        After training is complete, you can evaluate the performance of the trained model.
+      </p>
+      <div className="flex justify-center w-full">
+        <SyntaxHighlighter language="python" style={vscDarkPlus} className="syntax-highlighter justify-center items-center sm:mx-20 max-w-[275px] xs:max-w-[350px] ss:max-w-[515px] sm:max-w-[700px] md:max-w-full">
+          {codeStringEvaluateModel}
+        </SyntaxHighlighter>
+      </div>
+
     </div>
 
     <div className="flex mt-10 mb-10 justify-between w-full">
-      <NavButton className="" title="Wallet Setup" subtitle="Previous" page="docs/wallet" />
-      <NavButton className="" title="Running a Model" subtitle="Next" page="docs/model-example" />
+      <NavButton className="text-left" title="Wallet Config" subtitle="Previous" page="docs/wallet" />
+      <NavButton className="sm:mt-20" title="Running A Node" subtitle="Next" path="/docs/nodes" />
     </div>
-
-    {/* 
-    <p className="dark:text-gray-300 text-black mt-4">
-        Thats all it takes to get started!
-    </p> */}
   </section>
-);
+)
 
-export default ModelExample;
+export default ModelExample

@@ -5,7 +5,7 @@ const styles = {
   heading2: "font-poppins font-bold text-[30px] xs:text-[40px] sm:text-[54px] lg:text-[74px] text-gray-700 dark:text-white w-full ",
   subheading: "font-poppins font-bold text-[24px] xs:text-[30px] sm:text-[40px] lg:text-[50px] text-gray-700 dark:text-white w-full ",
   subheading2: "font-poppins font-bold text-[18px] xs:text-[24px] sm:text-[32px] lg:text-[40px] text-gray-700 dark:text-white w-full ",
-  paragraph: "font-poppins font-normal dark:text-white text-gray-900 sm:text-[18px] md:text-[20px] lg:text-[22px] leading-[30.8px]",
+  paragraph: "font-poppins font-normal dark:text-white text-gray-900 sm:text-[18px] md:text-[20px] lg:text-[21px] leading-[30.8px]",
 
   content: "flex flex-col max-w-[1440px] px-5 md:px-10 lg:px-20",
   contentBox: "flex items-center bg-primary border-radius-50",
@@ -21,7 +21,7 @@ const styles = {
   marginX: "sm:mx-16 mx-6",
   marginY: "sm:my-16 my-6",
 
-  section: "mt-10 px-2 md:px-5 blur-overlay flex md:flex-row flex-col items-center justify-center",
+  section: "sm:mt-10 px-2 md:px-5 blur-overlay flex md:flex-row flex-col items-center justify-center",
   section2: "sm:py-16 py-15 px-10 blur-overlay flex md:flex-row flex-col items-center justify-center bg-black-gradient rounded-2xl z-0 max-w-[1250px] mx-auto",
   animatedIcon: "flex h-full w-full hidden xs:block block",
   landingText: "text-[15px] sm:text-[18px] md:text-[20px] lg:text-[24px] text-black dark:text-white leading-8",

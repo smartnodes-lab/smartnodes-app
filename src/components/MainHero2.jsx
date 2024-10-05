@@ -9,7 +9,7 @@ const MainHero = () => {
   const animationDuration = 900; // Adjust the duration for typing and pause
   const [currentWord, setCurrentWord] = useState(" ");
   const [isTyping, setIsTyping] = useState(false);
-  const [isDeleting, setIsDeleting] = useState(false); // Add state for deleting
+  const [isDeleting, setIsDeleting] = useState(false);
 
   useEffect(() => {
     let currentIndex = 0;
@@ -25,13 +25,13 @@ const MainHero = () => {
 
       const deleteInterval = setInterval(() => {
         if (i > 0) {
-            if (i === 1) {
-                setCurrentWord(" ");
-                i--;
-            } else {
-                setCurrentWord(current.substring(0, i - 1));
-                i--;
-            }
+          if (i === 1) {
+            setCurrentWord(" ");
+            i--;
+          } else {
+            setCurrentWord(current.substring(0, i - 1));
+            i--;
+          }
         } else {
           clearInterval(deleteInterval);
           setIsDeleting(false);
@@ -49,7 +49,7 @@ const MainHero = () => {
                   setTimeout(() => {
                     currentIndex = nextIndex;
                     typeDeleteText();
-                  }, animationDuration); // Pause between words
+                  }, animationDuration);
                 }, animationDuration * 3.5); // Longer pause after typing word
               }
             }, animationDuration / next.length);
@@ -62,23 +62,35 @@ const MainHero = () => {
   }, []);
 
   return (
-    <section className={styles.section} style={{zIndex: 100000}}>
-      <div className={`items-center rounded-xl mt-10 ${styles.content}`}>
+    <section className={styles.section} style={{ zIndex: 100000 }}>
+      <div className={`items-center lg:px-0 px-20 rounded-xl mt-10 ${styles.content}`}>
         <div className={`${styles.contentBox} flex-row mt-2 mb-2`}>
-          <div className="min-w-[325px] mr-10 hidden sm:block">
+          <div className="min-w-[305px] mr-10 hidden md:block">
             <AnimatedLottie animationData={data} loop={true} />
           </div>
-          <div className="max-w-xl justify-center items-center" style={{zIndex: 10000}}>
-            <div className="py-10 justify-items-center bg-light dark:bg-gray-700 shadow-xl px-10 rounded-3xl">
-              <h2 className="text-[38px] md:text-[44px] font-bold text-gray-800 dark:text-white">Unlocking  
-              <br className=""/> Value From </h2>
-              <div className="text-[42px] md:text-[46px] font-bold text-orange-500 mb-2">
-                    <span className={`typing ${isTyping ? "animate-typing" : ""}`}>
-                        {currentWord}
-                    <span className="animate-pulse font-light leading-tight">|</span>
+          <div className="max-w-2xl justify-center items-center" style={{ zIndex: 10000 }}>
+            <div className="py-10 justify-items-center bg-gray-100 dark:bg-gray-700 shadow-xl px-20 xs:px-10 rounded-2xl">
+              
+              {/* Title */}
+              <h2 className="text-[32px] md:text-[40px] font-extrabold text-gray-800 dark:text-gray-200 leading-tight">
+                Unlocking  
+                <br /> Value From
+              </h2>
+
+              {/* Typing Animation */}
+              <div className="text-[32px] md:text-[40px] font-bold text-orange-500 mb-2">
+                <span className={`typing ${isTyping ? "animate-typing" : ""}`}>
+                  {currentWord}
+                  <span className="animate-pulse font-light leading-tight">|</span>
                 </span>
               </div>
-              <p className={`${styles.paragraph} py-2`}>{overview.info}</p>
+
+              {/* Paragraph */}
+              <p className="text-gray-600 dark:text-gray-400 text-md md:text-lg lg:text-xl leading-relaxed py-2">
+                {overview.info}
+              </p>
+
+              {/* Call to Action */}
               <a
                 href="#tools"
                 className="mt-5 inline-block px-6 py-3 text-white bg-blue-500 hover:bg-blue-600 rounded-md text-sm md:text-base font-semibold transition duration-300 ease-in-out"

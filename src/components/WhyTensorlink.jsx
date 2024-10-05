@@ -13,11 +13,11 @@ const WhyTensorlink = () => {
       />
       <div className="ss:ml-5 flex flex-row max-w-[1280px] items-center justify-center pt-5 relative">
         <div className="flex-row mt-20 px-10 xs:mx-0 mx-5 z-20 mb-20 max-w-[1280px] relative">
-          <h2 className={`${styles.heading2} ss:text-left text-center md:min-w-[820px] lg:min-w-[1250px]`}>
+          <h2 className={`${styles.heading2} font-extrabold ss:text-left text-center md:min-w-[820px] lg:min-w-[1250px]`}>
             Why<br />Tensorlink?<br />
           </h2>
           <p className={`${styles.landingText} mt-5 max-w-[270px] pl-5 ml-0 ss:pl-0 md:ml-0 xs:max-w-[400px] ss:max-w-[650px]`}>
-            Tensorlink harnesses idle computers to efficiently process neural networks, primarily large language models (LLMs),
+            Tensorlink harnesses idle computers to efficiently process neural networks in PyTorch,
             providing an economical and user-friendly alternative to hosting services.
           </p>
           <div className="lg:pl-3 lg:ml-3">
@@ -27,7 +27,7 @@ const WhyTensorlink = () => {
             <p className={`${styles.landingText} mt-5 max-w-[270px] pl-5 ml-0 ss:pl-0 md:ml-0 xs:max-w-[400px] ss:max-w-[650px]`}>
               Unlike existing distributed computing solutions, which require extensive workflow customization and setup, 
               Tensorlink offers a simple, plug-and-play solution integrated with PyTorch, enabling straightforward
-              distribution of neural networks. 
+              acceleration of neural network training. 
             </p>
           </div>
           <div className="lg:pl-6 lg:ml-6">
@@ -35,7 +35,7 @@ const WhyTensorlink = () => {
               Cost
             </h3>
             <p className={`${styles.landingText} mt-5 max-w-[270px] pl-5 ml-0 ss:pl-0 md:ml-0 xs:max-w-[400px] ss:max-w-[650px]`}>
-              Through on-chain reward mechanisms, workers are incentivized to complete jobs, reducing costs and making cutting-edge machine learning more accessible to researchers and individuals.
+              Through on-chain reward mechanisms, workers are incentivized to complete jobs, reducing costs and making cutting-edge models more accessible to researchers, startups, and individual developers.
             </p>
           </div>
           
@@ -44,7 +44,7 @@ const WhyTensorlink = () => {
               Power
             </h3>
             <p className={`${styles.landingText} mt-5 max-w-[270px] pl-5 ml-0 ss:pl-0 md:ml-0 xs:max-w-[400px] ss:max-w-[650px]`}>
-              We aim to deliver and aggregate computational resources that outshine even the most powerful supercomputers.
+              We aim to deliver and aggregate computational resources that rival even the most powerful supercomputers. With Tensorlink, you can tap into a vast network of computing power at your fingertips.
             </p>
           </div>
         </div>

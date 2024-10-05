@@ -7,26 +7,30 @@ import { Link } from "react-router-dom";
 const MainHero = () => {
 
   return (
-    <section id="home" className={`${styles.section} rounded-3xl xs:px-7 px-20`}>
-      <div className="dark:bg-gray-900 bg-gray-100 rounded-3xl px-3 flex sm:mx-10 md:flex-row flex-col z-20">
-        <div className={`flex-1 w-full flex-col items-cente max-w-xl z-0 mx-3 sm:mx-5 md:mx-10 md:py-20 xs:py-10 py-5 mb-5`}>
-          <h1 className="flex-1 font-poppins font-semibold lg:text-[70px] xs:text-[42px] ss:text-[54px] text-[32px] text-white ss:leading-[100.8px] leading-[75px]">
-            <span className="text-gray-800 dark:text-gray-200">Fueling </span>{" "}
-          </h1>
-          
-          <h1 className="flex-1 font-poppins font-bold lg:text-[70px] xs:text-[42px] ss:text-[54px] text-[32px] text-blue-800 ss:leading-[100.8px] leading-[75px]">
-            <span>Innovation.</span>{" "}
+    <section id="home" className={`${styles.section} rounded-xl xs:px-7 px-20`}>
+      <div className="dark:bg-gray-900 bg-gray-300 rounded-2xl px-5 flex sm:mx-10 md:flex-row flex-col z-20">
+      
+        {/* Left Column - Title & Description */}
+        <div className="flex-1 w-full flex-col items-center max-w-xl sm:min-w-[350px] z-0 mx-3 sm:mx-5 md:mx-10 md:py-10 py-7 mb-5">
+        
+          {/* Title */}
+          <h1 className="flex-1 font-poppins font-extrabold lg:text-[60px] xs:text-[38px] ss:text-[48px] text-[32px] text-gray-900 dark:text-gray-100 ss:leading-[80.8px] leading-[55px] mt-3">
+            <span className="block">Distributed</span>
+            <span className="block">Systems for</span>
+            <span className="text-blue-800 dark:text-blue-400 block">Science & Compute.</span>
           </h1>
 
-          <div className={`mt-4`}>
-            <p className={`${styles.paragraph}`} style={{ lineHeight: '1.75' }}>
-              Smartnodes is a hybrid smart contract that powers and incentivizes decentralized physical infrastructure. Through interactions with specialized off-chain networks, 
-              Smartnodes fuels the sharing of resources across a wide range of fields including machine learning (<Link to="/tensorlink" className="underline font-bold text-blue-600">Tensorlink</Link>) and astrophysics (TBA).
+          {/* Subtitle */}
+          <div className="mt-4">
+            <p className="text-gray-700 dark:text-gray-200 text-lg leading-relaxed max-w-lg">
+              Smartnodes is a hybrid smart contract platform designed to power and incentivize peer-to-peer resource sharing. 
+              By leveraging specialized off-chain networks, Smartnodes establishes a diverse web of distributed resources that drive innovation across a variety of fields.
             </p>
           </div>
         </div>
-        
-        <div className={'flex-1 items-center mt-5 max-w-3xl'}>
+
+        {/* Right Column - Animation */}
+        <div className={'flex-1 items-center mt-1 max-w-3xl'}>
           <div className={`${styles.animatedIcon} align-middle`} style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
             <AnimatedLottie animationData={heroAnimation}/>
           </div>

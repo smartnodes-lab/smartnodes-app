@@ -40,11 +40,9 @@ const SmartnodesApp = () => {
     { title: "Worker Dashboard", icon: <MdOutlineHub style={{ color: "lightBlue" }}/>, endpoint: "/api/worker" }
   ];
 
-  // const RPC_ENDPOINT = "https://sepolia.infura.io/v3/4bb158409bfe45d49cea535f20975671";
-  const RPC_ENDPOINT = "http://127.0.0.1:7545";
-  // const SEPOLIA_NETWORK_ID = 11155111;
-  const SEPOLIA_NETWORK_ID = 5777;
-  const contractAddress = '0xe7EA242352622Ae8d05c16b992A93bac37E615a4';
+  const RPC_ENDPOINT = "http://https://api.developer.coinbase.com/rpc/v1/base-sepolia";
+  const BASE_NETWORK_ID = 8;
+  const contractAddress = '0x06F8979dD0Ff1D79c24c95BbD749220fdc5D321d';
   const abi = abiArtifact.abi;
 
   const sdk = new CoinbaseWalletSDK({
@@ -53,7 +51,7 @@ const SmartnodesApp = () => {
 
   const connectToCoinbaseWallet = async () => {
     try {
-      const coinbaseWallet = sdk.makeWeb3Provider(RPC_ENDPOINT, SEPOLIA_NETWORK_ID);
+      const coinbaseWallet = sdk.makeWeb3Provider(RPC_ENDPOINT, BASE_NETWORK_ID);
       const accounts = await coinbaseWallet.request({ method: 'eth_requestAccounts' });
       const provider = new ethers.providers.Web3Provider(coinbaseWallet);
       const signer = provider.getSigner();
@@ -235,7 +233,7 @@ const SmartnodesApp = () => {
           Smartnodes Dashboard
         </h1>
 
-        <div className="bg-slate-200 dark:bg-slate-800 dark:text-gray-200 rounded-xl max-w-[700px] p-3 xs:p-8 pt-7 m-3 overflow-x-scroll">
+        <div className="bg-slate-200 dark:bg-slate-800 dark:text-gray-200 rounded-xl max-w-[700px] p-3 xs:p-8 pt-7 m-3 mb-4 overflow-x-scroll">
           <div className="mb-5">
             <h2 className={`font-bold text-xl text-gray-400`}>Account</h2>
             <p className="text-2xl overflow-auto font-semibold">{userAddress ? userAddress : "No address connected"}</p>

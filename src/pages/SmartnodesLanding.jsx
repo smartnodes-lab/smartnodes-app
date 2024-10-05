@@ -1,7 +1,6 @@
 import styles from "../style";
 import React, { useEffect } from "react";
 import { useStateContext } from "../contexts/contextProvider";
-
 import { Testimonials, LaunchApp, MainHero, MainHero2, Opportunity, ParticleBackground } from '../components';
 
 const SmartnodesLanding = () => {
@@ -10,7 +9,7 @@ const SmartnodesLanding = () => {
   // Use useEffect to call setActiveMenu only once after the component mounts
   useEffect(() => {
     setActiveMenu(false);
-  }, []); 
+  }, []);
 
   return (
     <div className={`min-h-screen flex-col ${styles.flexCenter} w-full`}>
@@ -19,7 +18,7 @@ const SmartnodesLanding = () => {
       </div>
       <div className="md:mt-1 mt-5 flex-col">
         <MainHero />
-        {/* <MainHero2 /> */}
+        <MainHero2 />
         <Opportunity />
         <Testimonials style={{ zIndex: 0 }} />
         <LaunchApp />

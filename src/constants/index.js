@@ -2,14 +2,13 @@ import { ai, workflow, job, telescope, blocks , community, linkedin, twitter, ai
 import { MdHome } from "react-icons/md";
 
 export const overview = {
-  info: 
-      "Smartnodes is create super networks whose combined power will "
+  info: "Our solutions are designed to parallelize workflows and aggregate resources, merging the efforts of smaller devices into super-networks that leverage their collective strengths. This results in cost-effective and user-friendly tools for advanced computational and data-intensive tasks."
 }
 
 export const portals = [
   {
-    title: "User Guide",
-    link: "docs/install",
+    title: "Tensorlink Docs",
+    link: "docs/overview",
     img: blocks,
   },
   {
@@ -78,8 +77,14 @@ export const navLinks = [
     title: "Home",
   },
   {
-    id: "tensorlink",
-    title: "tensorlink",
+    id: "networks",
+    title: "Networks",
+    networks: [
+      {
+        network: "Tensorlink",
+        link: "tensorlink"
+      }
+    ]
   },
   {
     id: "app",
@@ -95,17 +100,17 @@ export const features = [
   {
     id: "1",
     title: "Plug-and-Play Integration",
-    content: "Seamlessly integrate PyTorch models with Tensorlink and tap into powerful distributed computing resources. No complex setup required."
+    content: "Seamlessly integrate PyTorch models with Tensorlink and tap into powerful distributed computing resources-no complex setup required."
   },
   {
     id: "2",
     title: "Decentralized Model Training",
-    content: "Tensorlink distributes models across the network, reducing reliance on costly centralized data centers and minimizing potential bottlenecks through parallelization."
+    content: "Tensorlink distributes models across a network of peers, reducing reliance on costly centralized data centers and minimizing potential bottlenecks through parallelization."
   },
   {
     id: "3",
     title: "Security",
-    content: "Tensorlink leverages Ethereum to ensure the integrity of the network and incentivize users. Proof-of-learn mechanisms maintain worker reputations.",
+    content: "Tensorlink leverages Ethereum to ensure network integrity while incentivizing user participation. Validator nodes and proof-of-learning mechanisms enhance reliability and trust within the ecosystem.",
   },
   // {
   //   id: "",
@@ -127,9 +132,9 @@ export const feedback = [
   {
     id: "feedback-1",
     content:
-      "Optimize your machine learning workflows with Tensorlink-AI, our cutting-edge PyTorch model offloading solution. Seamlessly distribute inference and training tasks, maximizing model scalability and minimizing costs.",
-    name: "PyTorch Model Offloading",
-    title: "tensorlink",
+      "Optimize your machine learning workflows with Tensorlink, our cutting-edge solution for PyTorch model offloading. Seamlessly distribute training and inference tasks to maximize model scalability while significantly reducing costs.",
+    name: "Distributed PyTorch Models",
+    title: "Tensorlink",
     img: ai,
     blur: false,
     link: "/tensorlink"
@@ -142,7 +147,7 @@ export const feedback = [
     // content: 
     //   "Explore the depths of space with StarNet, a groundbreaking distributed radio telescope array positioned to be the world's largest and highest-resolution radio telescope, capturing unparalleled imaging and even potential transmission capabilities. (In Progress)",
     // name: "The Distributed Radio Telescope",
-    // title: "StarNet",
+    // title: "Starnet",
     img: telescope,
     blur: true,
     link: ""

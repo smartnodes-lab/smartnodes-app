@@ -1,8 +1,8 @@
 import AnimatedLottie from "./AnimatedLottie";
 
 const FeedbackCard = ({ content, name, title, img, blur, link }) => (
-  <a href={link} className="no-underline">
-    <div className={`flex flex-col px-10 mx-5 py-12 rounded-[20px] sm:h-[400px] md:h-[500px] xl:h-[550px] max-w-[500px] md:max-w-[400px] my-5 feedback-card ${blur ? 'blur' : ''}`}>
+  <a href={link} className="no-underline mr-5">
+    <div className={`flex flex-col px-10 mx-5 py-12 rounded-[20px] sm:h-[400px] md:h-[500px] xl:h-[550px] max-w-[500px] lg:max-w-[390px] md:max-w-[320px] my-5 feedback-card ${blur ? 'blur' : ''}`}>
       <div className="flex flex-row items-center">
         <div className="max-w-[100px] min-w-[30px] ss:block hidden">
           <AnimatedLottie
