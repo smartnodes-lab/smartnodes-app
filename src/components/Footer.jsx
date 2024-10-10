@@ -12,7 +12,7 @@ const Footer = () => (
           className="w-[266px] h-[72.14px] object-contain bg-gray-400 rounded-xl"
         />
         <p className={`${styles.paragraph} mt-4 ml-2 max-w-[312px]`}>
-          A specialized distributed computational network.
+          Empowering innovation with decentralized, scalable computational networks.
         </p>
       </div>
 

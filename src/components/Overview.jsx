@@ -11,7 +11,7 @@ const Overview = () => (
         Scaling Neural Network Training
       </h1>
       <p className={`${styles.landingText2} sm:px-10 text-lg dark:text-gray-300 text-black mb-5 mt-5`}>
-        Tensorlink is a decentralized platform designed to scale neural network training and inference in PyTorch by distributing models across a network of peers. This approach enables users to efficiently train and execute large models on consumer hardware without the use of centralized cloud services. By incentivizing individuals to contribute their idle compute power, Tensorlink aims to create a distributed network capable of rivaling supercomputers.
+        Tensorlink is a decentralized platform designed to scale neural network training and inference in PyTorch by distributing models across a network of peers. This approach enables users to efficiently train and execute large models on consumer hardware without the use of centralized cloud services. By incentivizing individuals to contribute their idle compute power, Tensorlink aims to create a distributed models capable of rivaling supercomputers.
       </p>
 
       <h2 className={`${styles.subheading2} mt-10 pt-10 border-t dark:border-t-white border-t-black`}>
@@ -36,7 +36,7 @@ const Overview = () => (
         Comparison with Existing Systems
       </h2>
       <p className={`${styles.landingText2} sm:px-10 text-lg dark:text-gray-300 text-black mb-5 mt-5`}>
-        While existing approaches to distributed computation have made strides, they present limitations in machine-learning specific tasks, often requiring custom distributed workflows, being constrained by the computational power of individual nodes, no pipeline poarallelism, or not optimized for touring-complete learning, a very costly endevour. In contrast, Tensorlink aims to create a universal framework for implementing neural network offloading and acceleration in PyTorch through a plug-and-play solution that automatically handles model distribution, including models from popular libraries like HuggingFace, enhancing accessibility and usability of these larger models.
+        While existing approaches to distributed computation have made strides, they present limitations in machine-learning specific tasks, often requiring custom distributed workflows, being constrained by the computational power of individual nodes, or lacking parallel acceleration. In contrast, Tensorlink aims to create a universal framework for implementing neural network offloading and acceleration in PyTorch through a plug-and-play solution that automatically handles model distribution, including models from popular libraries like HuggingFace, enhancing accessibility and usability of these larger models.
       </p>
 
       <h2 className={`${styles.subheading2} mt-10 pt-10 border-t dark:border-t-white border-t-black`}>

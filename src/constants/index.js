@@ -88,7 +88,7 @@ export const navLinks = [
   },
   {
     id: "app",
-    title: "Launch App",
+    title: "Dashboard",
   },
   {
     id: "git",

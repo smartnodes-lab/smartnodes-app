@@ -3,7 +3,7 @@ import { MdOutlineSupervisorAccount, MdOutlineSettings, MdVerifiedUser, MdBusine
 import { LineChart } from "@mui/x-charts/LineChart";
 import abiArtifact from "../assets/SmartnodesCore.json";
 import styles, { layout } from "../style";
-import { Button, UserDashboard } from "../components";
+import { Button, TensorlinkDashboard } from "../components";
 import { ethers } from 'ethers';
 import { CoinbaseWalletSDK } from "@coinbase/wallet-sdk";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
@@ -35,13 +35,13 @@ const SmartnodesApp = () => {
   ]);
 
   const dashboardOptions = [
-    { title: "User Dashboard", icon: <MdPerson style={{ color: "violet" }}/>, endpoint: "node", component: <UserDashboard /> },
-    { title: "Validator Dashboard", icon: <MdWebhook style={{ color: "lightPink" }}/>, endpoint: "/api/validator" },
-    { title: "Worker Dashboard", icon: <MdOutlineHub style={{ color: "lightBlue" }}/>, endpoint: "/api/worker" }
+    { title: "Tensorlink Dashboard", icon: <MdPerson style={{ color: "violet" }}/>, endpoint: "node", component: <TensorlinkDashboard /> },
+    // { title: "Validator Dashboard", icon: <MdWebhook style={{ color: "lightPink" }}/>, endpoint: "/api/validator" },
+    // { title: "Worker Dashboard", icon: <MdOutlineHub style={{ color: "lightBlue" }}/>, endpoint: "/api/worker" }
   ];
 
-  const RPC_ENDPOINT = "http://https://api.developer.coinbase.com/rpc/v1/base-sepolia";
-  const BASE_NETWORK_ID = 8;
+  const RPC_ENDPOINT = "https://api.developer.coinbase.com/rpc/v1/base-sepolia/kJ0ZU7UryXngsdHBLvmirNx9Mw2ZKAys";
+  const BASE_NETWORK_ID = 84532;
   const contractAddress = '0x06F8979dD0Ff1D79c24c95BbD749220fdc5D321d';
   const abi = abiArtifact.abi;
 
@@ -274,21 +274,58 @@ const SmartnodesApp = () => {
 
         <div className="flex flex-wrap m-2 justify-start gap-1 items-center w-full">
           {networkStats.map((item, index) => (
-            <div key={index} className="bg-slate-200 dark:bg-slate-800 h-44 dark:text-gray-200 dark:bg-secondary-dark-bg min-w-[250px] max-w-[90%] sm:max-w-[45%] md:max-w-[30%] p-4 pt-7 rounded-2xl m-1">
+            <div key={index} className="flex flex-row bg-slate-200 dark:bg-slate-800 h-30 dark:text-gray-200 dark:bg-secondary-dark-bg min-w-[250px] max-w-[90%] p-4 pt-7 rounded-2xl m-1">
               <button
                 type="button"
                 style={{ color: item.iconColor, backgroundColor: item.iconBg }}
-                className="text-3xl opacity-0.9 rounded-full p-3 border border-gray-300 hover:drop-shadow-xl"
+                className="text-3xl opacity-0.9 rounded-full max-h-[55px] p-3 border border-gray-300 hover:drop-shadow-xl"
               >
                 {item.icon}
               </button>
-              <p className="mt-3">
-                <span className="text-2xl font-semibold">{item.amount}</span>
-              </p>
-              <p className="text-md text-gray-400 mt-1">{item.title}</p>
+              <div className="ml-5">
+                <p className="mt-3">
+                  <span className="text-2xl font-semibold">{item.amount}</span>
+                </p>
+                <p className="text-md text-gray-400 mt-1">{item.title}</p>
+              </div>
             </div>
           ))}
         </div>
+
+        {/* <div className="flex flex-row bg-slate-500 mx-5 rounded-xl">
+          <div className="flex flex-col justify-center items-center">
+            <h2 className={`mt-3 text-center text-lg`}>
+              Active Validators
+            </h2>
+
+            <LineChart
+              xAxis={[{ data: [1, 2, 3, 5, 7, 12] }]}
+              series={[
+                {
+                  data: [0, 4.5, 2, 5.5, 3.5, 7],
+                },
+              ]}
+              width={500}
+              height={300}
+            />
+          </div>
+          <div className="flex flex-col justify-center items-center">
+            <h2 className={`mt-3 text-center ${styles.landingText}`}>
+              Users
+            </h2>
+
+            <LineChart
+              xAxis={[{ data: [1, 2, 3, 5, 10, 14] }]}
+              series={[
+                {
+                  data: [2, 5.5, 2, 8.5, 1.5, 5],
+                },
+              ]}
+              width={500}
+              height={300}
+            />
+          </div>
+        </div> */}
 
         <div className="flex my-8 pt-2 flex-wrap justify-start max-w-[1280px] border-t border-t-black dark:border-t-white">          
           <div className="flex flex-wrap sm:m-3 pt-0 justify-start gap-1 items-center w-full">
@@ -347,42 +384,6 @@ const SmartnodesApp = () => {
             )}
           </div>
         )}
-
-        {/* <div className="flex flex-row bg-slate-500 mx-5 rounded-xl">
-          <div className="flex flex-col justify-center items-center">
-            <h2 className={`mt-3 text-center ${styles.landingText}`}>
-              Validators
-            </h2>
-
-            <LineChart
-              xAxis={[{ data: [1, 2, 3, 5, 7, 12] }]}
-              series={[
-                {
-                  data: [0, 4.5, 2, 5.5, 3.5, 7],
-                },
-              ]}
-              width={500}
-              height={300}
-            />
-          </div>
-          <div className="flex flex-col justify-center items-center">
-            <h2 className={`mt-3 text-center ${styles.landingText}`}>
-              Users
-            </h2>
-
-            <LineChart
-              xAxis={[{ data: [1, 2, 3, 5, 10, 14] }]}
-              series={[
-                {
-                  data: [2, 5.5, 2, 8.5, 1.5, 5],
-                },
-              ]}
-              width={500}
-              height={300}
-            />
-          </div>
-        </div> */}
-
       </div>
     </section>
   );

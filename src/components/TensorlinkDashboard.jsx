@@ -2,7 +2,7 @@ import { BarChart } from "@mui/x-charts/BarChart";
 import styles from "../style"; 
 
 
-const UserDashboard = ({ nodeId, connectedValidators, connectedWorkers, job }) => {
+const TensorlinkDashboard = ({ nodeId, connectedValidators, connectedWorkers, job }) => {
     return (
       <section className={`xs:px-5 md:px-10 flex flex-col items-center py-5 mt-2`}>
         <h2>SHALLOM</h2>
@@ -20,4 +20,4 @@ const UserDashboard = ({ nodeId, connectedValidators, connectedWorkers, job }) =
     );
 }
 
-export default UserDashboard;
+export default TensorlinkDashboard;

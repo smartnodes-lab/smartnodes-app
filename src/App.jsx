@@ -18,9 +18,9 @@ const App = () => {
   return (
     <BrowserRouter >
       {activeMenu && (
-        <div className="fixed inset-y-0 left-0 z-20 w-72 bg-slate-50 dark:bg-gray-900 dark:bg-black-700 transition-transform">
+        <div className="fixed inset-y-0 left-0 z-50 w-72 bg-slate-50 dark:bg-gray-900 transition-transform">
           <Sidebar />
-        </div>
+        </div>      
       )}
       <div className={`flex-1 flex flex-col min-h-screen transition-margin ${activeMenu ? "ss:ml-72" : ""}`}>
         <div className={`flex-1 flex flex-col dark:bg-dark bg-gray-200 min-h-screen overflow-x-scroll overflow-y-hidden`}>
@@ -31,7 +31,7 @@ const App = () => {
             <Routes >
               <Route index element={<Smartnodes />} />
               <Route path="tensorlink" element={<TensorLinkLanding />} />
-              <Route path="*" element={<Smartnodes className="z-50" />}>
+              <Route path="*" element={<Smartnodes className="" />}>
                 <Route path="app" element={<SmartnodesApp />} />
               </Route>
               <Route path="docs/*" element={<Home />}>

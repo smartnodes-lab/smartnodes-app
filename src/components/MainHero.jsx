@@ -11,12 +11,12 @@ const MainHero = () => {
       <div className="dark:bg-gray-900 bg-gray-300 rounded-2xl px-5 flex sm:mx-10 md:flex-row flex-col z-20">
       
         {/* Left Column - Title & Description */}
-        <div className="flex-1 w-full flex-col items-center max-w-xl sm:min-w-[350px] z-0 mx-3 sm:mx-5 md:mx-10 md:py-10 py-7 mb-5">
+        <div className="flex-1 w-full flex-col items-center max-w-xl sm:min-w-[350px] z-0 mx-3 sm:mx-5 md:mx-10 md:py-10 py-6 mb-5">
         
           {/* Title */}
-          <h1 className="flex-1 font-poppins font-extrabold lg:text-[60px] xs:text-[38px] ss:text-[48px] text-[32px] text-gray-900 dark:text-gray-100 ss:leading-[80.8px] leading-[55px] mt-3">
+          <h1 className="flex-1 font-poppins font-extrabold lg:text-[56px] xs:text-[36px] ss:text-[46px] text-[32px] text-gray-900 dark:text-gray-100 ss:leading-[80.8px] leading-[55px] mt-3">
             <span className="block">Distributed</span>
-            <span className="block">Systems for</span>
+            <span className="block">Networks for</span>
             <span className="text-blue-800 dark:text-blue-400 block">Science & Compute.</span>
           </h1>
 

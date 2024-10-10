@@ -9,11 +9,11 @@ const Opportunity = () => (
     <div className="flex justify-between space-x-4 z-40 pt-20 sm:px-0 px-10">
       {/* Text content section */}
       <div className={'flex-1 w-full flex-col md:pl-20 items-center mb-10 max-w-xl'}>
-        <h2 className={`${styles.heading2} font-extrabold`}>
+        <h2 className={`${styles.heading} font-extrabold`}>
           Rewarding
           <br className="sm:block hidden" /> Users.
         </h2>
-        <p className={`${styles.paragraph} max-w-[470px] mt-10`} style={{ lineHeight: '1.75' }}>
+        <p className="text-gray-700 dark:text-gray-200 text-lg leading-relaxed max-w-xl mt-5" style={{ lineHeight: '1.75' }}>
           Smartnodes incentivizes participation for every contributor. By deploying nodes, 
           utilizing dedicated devices (coming soon), or sharing computational resources, users can earn SNO. 
           Join us in building a vibrant ecosystem of scientific advancements and collaborative innovation.
@@ -25,7 +25,7 @@ const Opportunity = () => (
 
     {/* Spline animation */}
     <Spline 
-      className="absolute z-0 left-[40vw] md:left-[25vw] lg:left-[20vw]"
+      className="absolute z-0 left-[50vw] md:left-[25vw] lg:left-[20vw]"
       scene="https://prod.spline.design/sZvfpvAoCKi8FOTv/scene.splinecode"
     />
     

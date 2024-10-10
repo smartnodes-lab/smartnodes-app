@@ -28,8 +28,8 @@ const GettingStarted = () => (
       </p>
       <p className={`${styles.landingText2} sm:px-10 text-lg dark:text-gray-300 text-black mb-5 mt-5`}>
         This guide will walk you through the complete process of leveraging distributed training with a Large Language Model (LLM) 
-        from the Hugging Face library. We will cover all the necessary steps to get you started with Tensorlink, including how to 
-        request free training jobs for sub-8Gb models on the network, as well as the preparations needed for training larger models.
+        from the HuggingFace library. We will cover all the necessary steps to get you started with Tensorlink, including how to 
+        request free training jobs for sub-X Gb (limitations vary with network demand) models on the network, as well as the preparations needed for training larger models.
       </p>
 
       <h1 className={`${styles.subheading2} mt-10 pt-10 border-t dark:border-t-white border-t-black`}>

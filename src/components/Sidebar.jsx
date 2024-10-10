@@ -18,7 +18,7 @@ const Sidebar = ({ open, close }) => {
     };
     
     return (
-        <div className="h-screen ml-3 lg:overflow-hidden border-r border-black overflow-auto md:hover:overflow-auto pb-10">
+        <div className="h-screen ml-3 lg:overflow-hidden border-r border-black overflow-auto md:hover:overflow-auto pb-10" style={{ zIndex: 1000000 }}>
             <div className="flex justify-between items-center">
                 <Link to="/" className="bg-gray-400 rounded-xl ml-2 mt-4 px-3">
                     <img className="w-40" src={logo}/>

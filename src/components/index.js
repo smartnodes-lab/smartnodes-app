@@ -21,11 +21,11 @@ import LaunchApp from "./LaunchApp";
 import ModelExample from "./ModelExample";
 import WalletSetup from "./WalletSetup";
 import Button from "./Button";
-import UserDashboard from "./UserDashboard";
+import TensorlinkDashboard from "./TensorlinkDashboard";
 
 export {
   Button,
-  UserDashboard,
+  TensorlinkDashboard,
   WalletSetup,
   Overview,
   ModelExample,

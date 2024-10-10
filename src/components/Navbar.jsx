@@ -127,7 +127,7 @@ const Navbar = () => {
                       Networks
                     </button>
                     {networksOpen && (
-                      <ul className="ml-4 mt-2 bg-white dark:bg-gray-800 rounded shadow-lg">
+                      <ul className="ml-4 mt-2 bg-gray-800 rounded shadow-lg">
                         {nav.networks.map((networkObj) => (
                             <a href={`/${networkObj.link}`} className="px-4 py-1 hover:bg-gray-100 dark:hover:bg-gray-700">{networkObj.network}</a>
                         ))}

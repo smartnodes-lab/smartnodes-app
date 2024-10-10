@@ -5,7 +5,7 @@ import { overview } from "../constants";
 import AnimatedLottie from "./AnimatedLottie";
 
 const MainHero = () => {
-  const words = ["", "Idle Hardware", "Distributed Systems"];
+  const words = ["Resource Sharing", "Idle Hardware", "Distributed Systems"];
   const animationDuration = 900; // Adjust the duration for typing and pause
   const [currentWord, setCurrentWord] = useState(" ");
   const [isTyping, setIsTyping] = useState(false);
@@ -68,17 +68,17 @@ const MainHero = () => {
           <div className="min-w-[305px] mr-10 hidden md:block">
             <AnimatedLottie animationData={data} loop={true} />
           </div>
-          <div className="max-w-2xl justify-center items-center" style={{ zIndex: 10000 }}>
-            <div className="py-10 justify-items-center bg-gray-100 dark:bg-gray-700 shadow-xl px-20 xs:px-10 rounded-2xl">
+          <div className="max-w-[310px] xs:max-w-2xl justify-center items-center" style={{ zIndex: 10000 }}>
+            <div className="py-10 justify-items-center bg-gray-100 dark:bg-gray-700 shadow-xl px-8 xs:px-20 rounded-2xl">
               
               {/* Title */}
-              <h2 className="text-[32px] md:text-[40px] font-extrabold text-gray-800 dark:text-gray-200 leading-tight">
+              <h2 className="text-[24px] ss:text-[32px] md:text-[40px] font-extrabold text-gray-800 dark:text-gray-200 leading-tight">
                 Unlocking  
                 <br /> Value From
               </h2>
 
               {/* Typing Animation */}
-              <div className="text-[32px] md:text-[40px] font-bold text-orange-500 mb-2">
+              <div className="text-[24px] ss:text-[32px] md:text-[40px] font-bold text-orange-500 mb-2">
                 <span className={`typing ${isTyping ? "animate-typing" : ""}`}>
                   {currentWord}
                   <span className="animate-pulse font-light leading-tight">|</span>
@@ -86,7 +86,7 @@ const MainHero = () => {
               </div>
 
               {/* Paragraph */}
-              <p className="text-gray-600 dark:text-gray-400 text-md md:text-lg lg:text-xl leading-relaxed py-2">
+              <p className="text-gray-600 dark:text-gray-400 text-md md:text-lg leading-relaxed py-2">
                 {overview.info}
               </p>
 
