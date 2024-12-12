@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
-import { Overview, WelcomeDocs, WalletSetup, GettingStarted, ModelExample} from "../components";
+import { Overview, WalletSetup, GettingStarted, ModelExample, Nodes } from "../components";
 import { useStateContext } from "../contexts/contextProvider";
 
 const Home = () => {
@@ -12,7 +12,9 @@ const Home = () => {
 
   const Disclaimer = () => (
     <div style={{ background: "lightgray", padding: "10px", marginBottom: "20px" }}>
-      Note: Documentation is not complete or ready for distribution/use.
+      <h2 className="ml-5">
+        🚨 Development Release: Documentation is not complete or ready for production use. 🚨
+      </h2>
     </div>
   );
 
@@ -20,10 +22,11 @@ const Home = () => {
     <div>
       <Disclaimer />
       <Routes>
-        <Route index element={<WelcomeDocs />} />
+        <Route index element={<Overview />} />
         <Route path="overview" element={<Overview />} />
         <Route path="install" element={<GettingStarted />} />
         <Route path="wallet" element={<WalletSetup />} />
+        <Route path="nodes" element={<Nodes />} />
         <Route path="model-example" element={<ModelExample />} />
       </Routes>
     </div>

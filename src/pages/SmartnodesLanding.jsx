@@ -18,8 +18,8 @@ const SmartnodesLanding = () => {
       </div>
       <div className="md:mt-1 mt-5 flex-col">
         <MainHero />
-        <MainHero2 />
         <Opportunity />
+        <MainHero2 />
         <Testimonials style={{ zIndex: 0 }} />
         <LaunchApp />
       </div>

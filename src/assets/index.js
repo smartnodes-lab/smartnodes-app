@@ -42,9 +42,12 @@ import ml_flow from "./ML_Flow_Chart.png";
 import blocks from "./block_animation.json";
 import community from "./community.json";
 import ai from "./ai.json";
-
+import discord from "./discord.png";
+import reddit from "./reddit.png";
 
 export {
+  reddit,
+  discord,
   real_dark_logo,
   ai,
   community,

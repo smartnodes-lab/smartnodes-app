@@ -11,12 +11,9 @@
   },
   "dependencies": {
     "@coinbase/wallet-sdk": "^4.0.4",
-    "@emotion/react": "^11.11.4",
-    "@emotion/styled": "^11.11.5",
-    "@mui/material": "^5.15.20",
-    "@mui/x-charts": "^7.7.0",
+    "@mui/x-charts": "^7.22.2",
     "@splinetool/react-spline": "^2.2.6",
-    "@splinetool/runtime": "^1.2.5",
+    "@splinetool/runtime": "^1.9.40",
     "d3": "^7.8.5",
     "ethers": "^6.13.0",
     "framer-motion": "^10.12.16",
@@ -29,7 +26,7 @@
     "react-router-dom": "^6.16.0",
     "react-syntax-highlighter": "^15.5.0",
     "react-tsparticles": "^2.10.1",
-    "three": "^0.157.0",
+    "three": "^0.170.0",
     "tsparticles": "^2.10.1"
   },
   "devDependencies": {

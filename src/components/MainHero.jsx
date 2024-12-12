@@ -1,6 +1,6 @@
 import { React } from "react";
 import styles from "../style";
-import AnimatedLottie from "./AnimatedLottie";
+import AnimatedLottie from "./animations/AnimatedLottie";
 import heroAnimation from "../assets/cloud-network.json";
 import { Link } from "react-router-dom";
 
@@ -8,7 +8,7 @@ const MainHero = () => {
 
   return (
     <section id="home" className={`${styles.section} rounded-xl xs:px-7 px-20`}>
-      <div className="dark:bg-gray-900 bg-gray-300 rounded-2xl px-5 flex sm:mx-10 md:flex-row flex-col z-20">
+      <div className="dark:bg-gray-900 bg-gray-300 rounded-2xl px-5 flex sm:mx-10 md:flex-row flex-col z-20 border border-gray-300 dark:border-black">
       
         {/* Left Column - Title & Description */}
         <div className="flex-1 w-full flex-col items-center max-w-xl sm:min-w-[350px] z-0 mx-3 sm:mx-5 md:mx-10 md:py-10 py-6 mb-5">
@@ -24,7 +24,8 @@ const MainHero = () => {
           <div className="mt-4">
             <p className="text-gray-700 dark:text-gray-200 text-lg leading-relaxed max-w-lg">
               Smartnodes is a hybrid smart contract platform designed to power and incentivize peer-to-peer resource sharing. 
-              By leveraging specialized off-chain networks, Smartnodes establishes a diverse web of distributed resources that drive innovation across a variety of fields.
+              By leveraging networks dedicated to aggregating and delivering data-driven resources, Smartnodes establishes a 
+              diverse web of distributed resources and tools that power computation and data acquisition across a variety of fields.
             </p>
           </div>
         </div>

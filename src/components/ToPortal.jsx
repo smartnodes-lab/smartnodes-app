@@ -1,10 +1,10 @@
 import styles from "../style";
 import { portals } from "../constants";
-import AnimatedLottie from "./AnimatedLottie";
+import AnimatedLottie from "./animations/AnimatedLottie";
 import { pingpong } from "three/src/math/MathUtils.js";
 
 const ToPortal = () => (
-  <section className={`flex pt-0 pb-20 flex-col items-center justify-center border-t dark:border-t-white border-t-black`}>
+  <section className={`flex pt-0 pb-20 flex-col items-center justify-center border-t dark:border-t-white border-t-black bg-slate-200 dark:bg-gray-950`}>
     <div className="w-full text-center pt-20 lg:pb-10 px-20 dark-grad-vertical">
       <h2 className={styles.heading2}>Get Started with Tensorlink.</h2>
     </div>

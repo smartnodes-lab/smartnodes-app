@@ -10,9 +10,9 @@ const NavButton = ({ title, subtitle, page }) => {
 
 
   return (
-    <button className={`${subtitle == "Previous" ? "text-left" : "text-right"} border border-black dark:border-white px-5 py-3 w-[350px] dark:text-white`} onClick={() => navigate(`/${page}`)}>
+    <button className={`${"Previous" === subtitle ? "text-left" : "text-right"} border border-white px-3 py-3 w-[325px] text-white bg-gray-700`} onClick={() => navigate(`/${page}`)}>
       <p>{subtitle}</p>
-      <h2>{title}</h2>
+      <h2 className="font-bold">{title}</h2>
     </button>
   );
 };

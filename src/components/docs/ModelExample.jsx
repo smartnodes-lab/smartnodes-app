@@ -1,8 +1,8 @@
 import React from "react";
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { vscDarkPlus } from 'react-syntax-highlighter/dist/esm/styles/prism';
-import styles, { layout } from "../style";
-import { NavButton } from ".";
+import styles, { layout } from "../../style";
+import { NavButton } from "..";
 
 const codeStringUser = `  from tensorlink.roles import User
 
@@ -119,7 +119,7 @@ const ModelExample = () => (
       </h1>
       <p className={`${styles.landingText2} sm:px-10 text-lg dark:text-gray-300 text-black mb-5 mt-5`}>
         Now that we have setup the basic model and dataset, we can now connect to Tensorlink and create our
-        distributed model request. Make sure the distributed reuqest comes after instantiating your model and 
+        distributed model request. Make sure the distributed request comes after instantiating your model and 
         before running the training segment of your code.
       </p>
       <div className="flex justify-center w-full">
@@ -170,8 +170,8 @@ const ModelExample = () => (
     </div>
 
     <div className="flex mt-10 mb-10 justify-between w-full">
-      <NavButton className="text-left" title="Wallet Config" subtitle="Previous" page="docs/wallet" />
-      <NavButton className="sm:mt-20" title="Running A Node" subtitle="Next" path="/docs/nodes" />
+      <NavButton className="text-left" title="Running a Node" subtitle="Previous" page="docs/nodes" />
+      {/* <NavButton className="sm:mt-20" title="" subtitle="Next" path="docs/nodes" /> */}
     </div>
   </section>
 )

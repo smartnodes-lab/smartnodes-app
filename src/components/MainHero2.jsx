@@ -2,7 +2,7 @@ import styles from "../style";
 import React, { useState, useEffect } from "react";
 import { data } from "../assets";
 import { overview } from "../constants";
-import AnimatedLottie from "./AnimatedLottie";
+import AnimatedLottie from "./animations/AnimatedLottie";
 
 const MainHero = () => {
   const words = ["Resource Sharing", "Idle Hardware", "Distributed Systems"];
@@ -62,15 +62,14 @@ const MainHero = () => {
   }, []);
 
   return (
-    <section className={styles.section} style={{ zIndex: 100000 }}>
+    <section className={`${styles.section}`} style={{ zIndex: 100000 }}>
       <div className={`items-center lg:px-0 px-20 rounded-xl mt-10 ${styles.content}`}>
         <div className={`${styles.contentBox} flex-row mt-2 mb-2`}>
           <div className="min-w-[305px] mr-10 hidden md:block">
             <AnimatedLottie animationData={data} loop={true} />
           </div>
           <div className="max-w-[310px] xs:max-w-2xl justify-center items-center" style={{ zIndex: 10000 }}>
-            <div className="py-10 justify-items-center bg-gray-100 dark:bg-gray-700 shadow-xl px-8 xs:px-20 rounded-2xl">
-              
+            <div className="py-10 justify-items-left bg-pink-50 dark:bg-gray-700 px-8 xs:px-14 rounded-2xl border border-gray-300 dark:border-black">
               {/* Title */}
               <h2 className="text-[24px] ss:text-[32px] md:text-[40px] font-extrabold text-gray-800 dark:text-gray-200 leading-tight">
                 Unlocking  

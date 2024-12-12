@@ -2,7 +2,7 @@ import { LineChart } from "@mui/x-charts/LineChart";
 import styles from "../style"; 
 
 
-const TensorlinkDashboard = ({ nodeId, connectedValidators, connectedWorkers, job }) => {
+const SmartnodesDashboard = ({ nodeId, connectedValidators, connectedWorkers, job }) => {
     return (
       <section className={`xs:px-5 md:px-10 flex flex-col md:flex-row items-center py-5 mt-2`}>
         {/* <h2>SHALLOM</h2> */}
@@ -32,4 +32,4 @@ const TensorlinkDashboard = ({ nodeId, connectedValidators, connectedWorkers, jo
     );
 }
 
-export default TensorlinkDashboard;
+export default SmartnodesDashboard;

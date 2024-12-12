@@ -14,9 +14,8 @@ const Opportunity = () => (
           <br className="sm:block hidden" /> Users.
         </h2>
         <p className="text-gray-700 dark:text-gray-200 text-lg leading-relaxed max-w-xl mt-5" style={{ lineHeight: '1.75' }}>
-          Smartnodes incentivizes participation for every contributor. By deploying nodes, 
-          utilizing dedicated devices (coming soon), or sharing computational resources, users can earn SNO. 
-          Join us in building a vibrant ecosystem of scientific advancements and collaborative innovation.
+          Users can leverage their computational resources or dedicated devices to complete tasks and earn SNO, the native payment
+          and rewards token. Join us in creating a vibrant ecosystem of technological advancement and resource sharing. 
         </p>
       </div>
     </div>

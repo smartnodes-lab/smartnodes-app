@@ -1,8 +1,8 @@
 import React from "react";
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { vscDarkPlus } from 'react-syntax-highlighter/dist/esm/styles/prism';
-import styles, { layout } from "../style";
-import { NavButton } from "../components";
+import styles, { layout } from "../../style";
+import { NavButton } from "..";
 
 const codeString = `from tensorlink.roles import User
 
@@ -16,7 +16,7 @@ Existing PyTorch code...
 
 const GettingStarted = () => (
   <section path="/docs/install" className="bg-slate-50 dark:bg-gray-900 px-5 md:px-10 flex flex-col border-t dark:border-t-white border-t-black items-center">
-    <div className="text-left px-20 xs:px-0 mt-20 max-w-[1280px] justify-center items-center">
+    <div className="text-left px-5 xs:px-0 mt-20 max-w-[1280px] justify-center items-center">
       <h1 className={`${styles.subheading}`}>
         Getting Started with Tensorlink
       </h1>

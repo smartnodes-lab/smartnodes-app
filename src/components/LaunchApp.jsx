@@ -4,7 +4,7 @@ import styles from '../style';
 
 const LaunchApp = () => {
   return (
-    <section className={`${styles.section} rounded-3xl ss:px-10 px-20 mt-5`}>
+    <section className={`${styles.section} rounded-3xl ss:px-10 px-20 mt-5 pb-20 py-10`}>
       <div className="dark:bg-gray-900 bg-gray-200 rounded-3xl px-3 flex sm:mx-10 md:flex-row flex-col z-20">
         <div className="flex-1 w-full flex-col items-center max-w-[1280px] z-0 mx-3 sm:mx-5 md:mx-10 md:py-10 xs:py-10 py-5 mb-5">
           <h1 className={`flex-1 ${styles.subheading}`}>

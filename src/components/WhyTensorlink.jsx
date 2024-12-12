@@ -6,13 +6,9 @@ const WhyTensorlink = () => {
   const [active, setActive] = useState(false);
 
   return (
-    <section className="relative z-20 blur-overlay items-center flex flex-col border-t border-b dark:border-white border-black ">
-      <Spline className="absolute z-50 rotate-0 opacity-100 dark:opacity-90 xs:ml-0 md:ml-32 xs:left-0 md:left-72 inset-0" 
-        scene="https://prod.spline.design/Xxt3bSypHSqTeDaz/scene.splinecode"
-        frameRate={30}
-      />
-      <div className="ss:ml-5 flex flex-row max-w-[1280px] items-center justify-center pt-5 relative">
-        <div className="flex-row mt-20 px-10 xs:mx-0 mx-5 z-20 mb-20 max-w-[1280px] relative">
+    <section className="relative z-20 items-center flex flex-col border-t border-b dark:border-white border-black bg-gradient-to-bl from-gray-200 to-transparent dark:from-gray-900 w-full overflow-hidden">
+      <div className="flex flex-row max-w-[1280px] items-center justify-center pt-5 relative z-20">
+        <div className="flex-row mt-20 px-10 xs:mx-0 mx-5 mb-20 max-w-[1280px] relative">
           <h2 className={`${styles.heading2} font-extrabold ss:text-left text-center md:min-w-[820px] lg:min-w-[1250px]`}>
             Why<br />Tensorlink?<br />
           </h2>
@@ -38,7 +34,6 @@ const WhyTensorlink = () => {
               Through on-chain reward mechanisms, workers are incentivized to complete jobs, reducing costs and making cutting-edge models more accessible to researchers, startups, and individual developers.
             </p>
           </div>
-          
           <div className="lg:pl-9 lg:ml-9 relative">
             <h3 className={`${styles.subheading} mt-10 sm:mt-20 text-left ml-4 md:min-w-[820px] lg:min-w-[1250px]`}>
               Power

@@ -7,32 +7,32 @@ import Footer from "./Footer";
 import Testimonials from "./Toolbox";
 import MainHero from "./MainHero";
 import Opportunity from "./Opportunity";
-import ParticleBackground from "./ParticleBackground";
-import AnimatedLottie from "./AnimatedLottie";
+import ParticleBackground from "./animations/ParticleBackground";
+import AnimatedLottie from "./animations/AnimatedLottie";
 import ThemeButton from "./ThemeButton";
 import MainHero2 from "./MainHero2";
-import GettingStarted from "./GettingStarted";
-import Overview from "./Overview";
-import WelcomeTensorlink from "./WelcomeTensorlink";
-import WelcomeDocs from "./WelcomeDocs";
 import Sidebar from "./Sidebar";
 import NavButton from "./NavButton";
 import LaunchApp from "./LaunchApp";
-import ModelExample from "./ModelExample";
-import WalletSetup from "./WalletSetup";
 import Button from "./Button";
 import TensorlinkDashboard from "./TensorlinkDashboard";
+import SmartnodesDashboard from "./SmartnodesDashboard";
+import ModelExample from "./docs/ModelExample";
+import WalletSetup from "./docs/WalletSetup";
+import GettingStarted from "./docs/GettingStarted";
+import Overview from "./docs/Overview";
+import Nodes from "./docs/Nodes";
 
 export {
   Button,
+  Nodes,
   TensorlinkDashboard,
+  SmartnodesDashboard,
   WalletSetup,
   Overview,
   ModelExample,
   LaunchApp,
-  WelcomeDocs,
   NavButton,
-  WelcomeTensorlink,
   GettingStarted,
   Sidebar,
   MainHero,

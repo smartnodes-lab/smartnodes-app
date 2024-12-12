@@ -1,6 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 
-const defaultTheme = "dark";
+const defaultTheme = "light";
 
 module.exports = {
   content: ["./index.html", "./src/**/*.{js,jsx}"],

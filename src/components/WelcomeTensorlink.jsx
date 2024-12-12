@@ -1,12 +1,13 @@
 import React, { useState } from "react";
 import styles from "../style";
 import { ml_flow } from "../assets";
+import Spline from "@splinetool/react-spline";
 
 const WelcomeTensorlink = () => {
   const [active, setActive] = useState(false);
 
   return (
-    <section className="bg-slate-50 dark:bg-gray-900 blur-overlay items-center flex flex-col">
+    <section className="items-center flex flex-col">
       <div className="flex flex-col mb-20 lg:flex-row items-center justify-center pt-5 max-w-[1280px] mx-auto">
         <div className="flex flex-col items-center mt-20 px-20">
           <h2 className={`${styles.heading} text-middle xs:max-w-[350px] max-w-[250px] sm:max-w-[1280px]`}>

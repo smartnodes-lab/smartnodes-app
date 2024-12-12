@@ -1,22 +1,10 @@
 import { useState, useEffect } from "react";
+import { FaChevronDown } from "react-icons/fa"; // Import FaChevronDown
 import ThemeButton from "./ThemeButton";
 import { close, logo, menu, dark_logo, logo_small, logo_dark_small } from "../assets";
 import { navLinks } from "../constants";
-import { HiOutlineMenu } from 'react-icons/hi';
+import { HiOutlineMenu } from "react-icons/hi";
 import { useStateContext } from "../contexts/contextProvider";
-
-const NavButton = ({ title, customFunc, icon }) => {
-  return (
-    <button
-      type="button"
-      onClick={() => customFunc()}
-      className="relative text-xl rounded-full p-3 hover:bg-light-gray"
-    >
-      <span className="absolute inline-flex rounded-full h-2 w-2 right-2 top-2" />
-      {icon}
-    </button>
-  );
-};
 
 const Navbar = () => {
   const [active, setActive] = useState(false);
@@ -44,13 +32,15 @@ const Navbar = () => {
       {/* Logo and menu for desktop */}
       {!activeMenu ? (
         <div
-          className="flex flex-row bg-gray-400 rounded-xl px-3 py-0"
+          className={`flex flex-row bg-gray-400 rounded-xl px-3 py-0 cursor-pointer`}
           style={{ zIndex: 100000 }}
-          onClick={() => setActiveMenu(!activeMenu)}
+          onClick={() => {
+              setActiveMenu(!activeMenu);
+          }}
         >
-          <img src={logoSrc} alt="task" className="w-auto h-auto max-w-[325px] max-h-[160px] opacity-100 hidden md:block cursor-pointer" />
-          <img src={smallLogoSrc} alt="task" className="w-[70px] h-[70px] opacity-100 md:hidden mb-1 my-1.5 cursor-pointer" />
-        </div>
+          <img src={logoSrc} alt="task" className="w-auto h-auto max-w-[325px] max-h-[160px] hidden md:block" />
+          <img src={smallLogoSrc} alt="task" className="w-[70px] h-[70px] md:hidden mb-1 my-1.5" />
+        </div>      
       ) : (
         <div></div>
       )}
@@ -60,23 +50,33 @@ const Navbar = () => {
         {navLinks.map((nav, index) => (
           <li
             key={nav.id}
-            className={`font-poppins font-normal cursor-pointer text-[16px] ${active === nav.title ? "dark:text-white text-black" : "dark:text-dimWhite text-gray-500"} ${index === navLinks.length - 1 ? "mr-0" : "mr-10"}`}
+            className={`font-poppins font-normal cursor-pointer text-[16px] ${
+              active === nav.title ? "dark:text-white text-black" : "dark:text-dimWhite text-gray-500"
+            } ${index === navLinks.length - 1 ? "mr-0" : "mr-10"}`}
             onClick={() => setActive(nav.title)}
             style={{ zIndex: 10000 }}
           >
             {nav.title === "GitHub" ? (
               <a href="https://github.com/smartnodes-lab">{nav.title}</a>
-            ) : nav.title === "tensorlink" ? (
-              <a href="/tensorlink">{nav.title}</a>
             ) : nav.title === "Networks" ? (
               <div className="relative">
-                <button onClick={() => setNetworksOpen(!networksOpen)}>
+                <button
+                  className="flex items-center"
+                  onClick={() => setNetworksOpen(!networksOpen)}
+                >
                   Networks
+                  <FaChevronDown className={`ml-2 transition-transform duration-200 ${networksOpen ? "rotate-180" : ""}`}/>
                 </button>
                 {networksOpen && (
-                  <ul className="absolute top-full mt-2 bg-white dark:bg-gray-800 rounded shadow-lg">
+                  <ul className="absolute top-full mt-2 bg-white dark:bg-gray-800 rounded-lg shadow-lg px-2 py-2 transition-transform duration-1000">
                     {nav.networks.map((networkObj) => (
-                        <a href={`/${networkObj.link}`} className="px-4 py-1 hover:bg-gray-100 dark:hover:bg-gray-700">{networkObj.network}</a>
+                      <a
+                        key={networkObj.link}
+                        href={`/${networkObj.link}`}
+                        className="block px-4 py-1 hover:bg-gray-100 dark:hover:bg-gray-700"
+                      >
+                        {networkObj.network}
+                      </a>
                     ))}
                   </ul>
                 )}
@@ -92,14 +92,11 @@ const Navbar = () => {
       </ul>
 
       {/* Mobile menu */}
-      <div className="md:hidden flex flex-1 px-5 justify-end items-center" style={{ zIndex: 10000 }}>
-        {/* <div className="mr-4" style={{ zIndex: 100000 }}>
-          <ThemeButton className="px-20" />
-        </div> */}
+      <div className="md:hidden flex flex-1 px-5 justify-end items-center" style={{ zIndex: 40 }}>
         <img
           src={toggle ? close : menu}
           alt="menu"
-          className="w-[28px] h-[28px] min-w-[28px] object-contain cursor-pointer"
+          className="w-[28px] h-[28px] object-contain cursor-pointer"
           onClick={() => setToggle(!toggle)}
         />
 
@@ -108,28 +105,40 @@ const Navbar = () => {
             !toggle ? "hidden" : "flex"
           } p-6 bg-slate-500 absolute z-10 top-20 right-0 mx-4 mt-10 min-w-[140px] rounded-xl sidebar`}
         >
-          <ul className="list-none flex justify-end items-start flex-1 flex-col">
+          <ul className="list-none flex flex-col items-start">
             <div className="mb-3" style={{ zIndex: 100000 }}>
               <ThemeButton className="px-20" />
             </div>
 
-            {navLinks.map((nav, index) => (
+            {navLinks.map((nav) => (
               <li
                 key={nav.id}
-                className={`font-poppins font-medium cursor-pointer text-[16px] ${active === nav.title ? "text-white" : "text-dimWhite"} ${index === navLinks.length - 1 ? "mb-0" : "mb-4"}`}
+                className={`font-poppins font-medium cursor-pointer text-[16px] ${
+                  active === nav.title ? "text-white" : "text-dimWhite"
+                } mb-4`}
                 onClick={() => setActive(nav.title)}
               >
                 {nav.title === "GitHub" ? (
                   <a href="https://github.com/smartnodes-lab">{nav.title}</a>
                 ) : nav.title === "Networks" ? (
                   <div className="relative">
-                    <button onClick={() => setNetworksOpen(!networksOpen)}>
+                    <button
+                      className="flex items-center"
+                      onClick={() => setNetworksOpen(!networksOpen)}
+                    >
                       Networks
+                      <FaChevronDown className={`ml-2 transition-transform duration-200 ${networksOpen ? "rotate-180" : ""}`}/>
                     </button>
                     {networksOpen && (
                       <ul className="ml-4 mt-2 bg-gray-800 rounded shadow-lg">
                         {nav.networks.map((networkObj) => (
-                            <a href={`/${networkObj.link}`} className="px-4 py-1 hover:bg-gray-100 dark:hover:bg-gray-700">{networkObj.network}</a>
+                          <a
+                            key={networkObj.link}
+                            href={`/${networkObj.link}`}
+                            className="block px-4 py-1 hover:bg-gray-100 dark:hover:bg-gray-700"
+                          >
+                            {networkObj.network}
+                          </a>
                         ))}
                       </ul>
                     )}
