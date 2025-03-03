@@ -9,7 +9,7 @@ import { sideLinks } from "../constants";
 
 const Sidebar = ({ open, close }) => {
     const { activeMenu, setActiveMenu } = useStateContext();
-    const [openMenuId, setOpenMenuId] = useState(null);  // Track which menu is open
+    const [openMenuId, setOpenMenuId] = useState("docs");  // Track which menu is open
     const navigate = useNavigate();
 
     const toggleMenu = (id) => {
@@ -67,7 +67,7 @@ const Sidebar = ({ open, close }) => {
                                 </div>
                                 {link.sublinks && openMenuId === link.id && (
                                     <div
-                                        className="ml-10"
+                                        className="ml-6"
                                         onClick={(e) => e.stopPropagation()} // Prevent collapse when clicking sublinks
                                     >
                                         {link.sublinks.map((subLink) => (

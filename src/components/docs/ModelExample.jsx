@@ -169,8 +169,8 @@ const ModelExample = () => (
 
     </div>
 
-    <div className="flex mt-10 mb-10 justify-between w-full">
-      <NavButton className="text-left" title="Running a Node" subtitle="Previous" page="docs/nodes" />
+    <div className="flex mt-10 mb-10 justify-between max-w-[1300px] w-full">
+      <NavButton className="text-left" title="Wallet Setup" subtitle="Previous" page="docs/wallet" />
       {/* <NavButton className="sm:mt-20" title="" subtitle="Next" path="docs/nodes" /> */}
     </div>
   </section>

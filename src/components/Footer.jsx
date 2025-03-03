@@ -26,7 +26,7 @@ const Footer = () => (
               {footerlink.links.map((link, index) => (
                 <li
                   key={link.name}
-                  onClick={footerlink.title === "Useful Links" ? () => window.open(link.link) : undefined}
+                  onClick={footerlink.title === "Useful Links" | link.name === "Buy us a Coffee" ? () => window.open(link.link) : undefined}
                   className={`font-poppins font-normal text-[16px] leading-[24px] text-grey-700 dark:text-dimWhite hover:text-secondary cursor-pointer overflow-scroll ${
                     index !== footerlink.links.length - 1 ? "mb-4" : "mb-0"
                   }`}

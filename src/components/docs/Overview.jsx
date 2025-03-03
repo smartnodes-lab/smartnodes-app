@@ -5,9 +5,9 @@ import styles, { layout } from "../../style";
 import { NavButton } from "..";
 
 const Overview = () => (
-<section className="bg-slate-50 dark:bg-gray-900 px-5 sm:px-5 md:px-10 flex flex-col border-t dark:border-t-white border-t-black items-center">
-  <div className="text-left justify-center items-center sm:max-w-[1280px]">
-    <h1 className={`${styles.subheading} mt-10 pt-10`}>
+<section path="/docs/install" className="bg-slate-50 dark:bg-gray-900 px-5 md:px-10 flex flex-col border-t dark:border-t-white border-t-black items-center">
+  <div className="text-left px-5 xs:px-0 md:mt-10 max-w-[1280px] justify-center items-center">
+    <h1 className={`${styles.subheading} mt-10`}>
       Scaling Neural Networks with Tensorlink
     </h1>
     <p className={`${styles.landingText2} sm:px-5 md:px-10 text-lg dark:text-gray-300 text-black mb-5 mt-5`}>
@@ -44,7 +44,7 @@ const Overview = () => (
       </li>
     </ul>
 
-    <h2 className={`${styles.subheading2} mt-10 pt-10 border-t dark:border-t-white border-t-black`}>
+    {/* <h2 className={`${styles.subheading2} mt-10 pt-10 border-t dark:border-t-white border-t-black`}>
       Privacy-Preserved Training
     </h2>
     <p className={`${styles.landingText2} sm:px-5 md:px-10 text-lg dark:text-gray-300 text-black mb-5 mt-5`}>
@@ -56,9 +56,9 @@ const Overview = () => (
     </h2>
     <p className={`${styles.landingText2} sm:px-5 md:px-10 text-lg dark:text-gray-300 text-black mb-5 mt-5`}>
       The PoL protocol ensures system integrity through efficient checks between WorkerNodes and thorough audits by ValidatorNodes. This dual-layered approach enhances reliability and transparency across distributed learning processes.
-    </p>
+    </p> */}
   </div>
-  <div className="flex mt-10 mb-10 justify-between w-full">
+  <div className="flex mt-10 mb-10 justify-between max-w-[1300px] w-full">
     <NavButton className="text-left" title="Home" subtitle="Previous" page="" />
     <NavButton className="text-right" title="Installation" subtitle="Next" page="docs/install" />
   </div>

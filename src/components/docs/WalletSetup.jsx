@@ -6,8 +6,8 @@ import { NavButton } from "../../components";
 import { Link } from "react-router-dom";
 
 const WalletSetup = () => (
-  <section className="bg-slate-50 dark:bg-gray-900 px-5 sm:px-5 md:px-10 flex flex-col border-t dark:border-t-white border-t-black items-center max-w-[1280px]">
-    <div className="text-left justify-center items-center">
+  <section className="bg-slate-50 dark:bg-gray-900 px-5 sm:px-5 md:px-10 flex flex-col border-t dark:border-t-white border-t-black items-center">
+    <div className="text-left justify-center items-center max-w-[1280px]">
       <h1 className={`${styles.subheading} mt-10 pt-10`}>  
         Wallet config
       </h1>
@@ -37,9 +37,9 @@ const WalletSetup = () => (
       </p>
     </div>
 
-    <div className="flex mt-10 mb-10 justify-between w-full">
-      <NavButton className="text-left" title="Installation" subtitle="Previous" page="docs/install" />
-      <NavButton className="text-right" title="Node Setup" subtitle="Next" page="docs/nodes" />
+    <div className="flex mt-10 mb-10 justify-between max-w-[1300px] w-full">
+      <NavButton className="text-left" title="Node Setup" subtitle="Previous" page="docs/nodes" />
+      <NavButton className="text-right" title="Runnig a Model" subtitle="Next" page="docs/model-example" />
     </div>
   </section>
 );

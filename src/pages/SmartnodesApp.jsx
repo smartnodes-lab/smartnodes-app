@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import { MdOutlineSupervisorAccount, MdOutlineSettings, MdVerifiedUser, MdBusinessCenter, MdOutlineHub, MdPerson, MdWebhook } from 'react-icons/md';
+import { MdOutlineSupervisorAccount, MdOutlineSettings, MdVerifiedUser, MdBusinessCenter, MdPerson } from 'react-icons/md';
 import abiArtifact from "../assets/SmartnodesCore.json";
+import multisigAbiArtifact from '../assets/SmartnodesMultiSig.json';
 import styles, { layout } from "../style";
-import { Button, TensorlinkDashboard, SmartnodesDashboard } from "../components";
+import { Button, TensorlinkDashboard, SmartnodesDashboard, SupplyStatsCard, ConnectWalletButton } from "../components";
 import { ethers } from 'ethers';
 import { CoinbaseWalletSDK } from "@coinbase/wallet-sdk";
+import { PieChart } from "@mui/x-charts/PieChart";
 
 
 const SmartnodesApp = () => {
@@ -16,18 +18,22 @@ const SmartnodesApp = () => {
   const [activeDashboard, setActiveDashboard] = useState(null);
   const [status, setStatus] = useState('-');
   const [contract, setContract] = useState(null);
+  const [multisig, setMultisig] = useState(null);
   const [userAddress, setUserAddress] = useState('-');
   const [userBalance, setUserBalance] = useState("-");
+  const [userLocked, setUserLocked] = useState("-");
+  const [userUnclaimed, setUserUnclaimed] = useState("-");
   const [error, setError] = useState(''); // State for error message
   const [networkStats, setNetworkStats] = useState([
-    { title: "Users", amount: "-", iconColor: "black", iconBg: "violet", icon: <MdOutlineSupervisorAccount/> },
     { title: "Jobs Completed", amount: "-", iconColor: "black", iconBg: "red", icon: <MdBusinessCenter /> },
     { title: "Active Validators", amount: "-", iconColor: "black", iconBg: "lightBlue", icon: <MdVerifiedUser/> },
-    { title: "Active Workers", amount: "-", iconColor: "black", iconBg: "grey", icon: <MdOutlineSettings/> }
+    { title: "Active Workers", amount: "-", iconColor: "black", iconBg: "grey", icon: <MdOutlineSettings/> },
+    { title: "Users", amount: "-", iconColor: "black", iconBg: "violet", icon: <MdOutlineSupervisorAccount/> },
   ]);
   const [supplyStats, setSupplyStats] = useState([
-    { title: "Total Locked", amount: "-" },
-    { title: "Current Supply", amount: "-" },
+    { title: "Total Supply", amount: "-" },
+    { title: "Locked", amount: "-" },
+    { title: "Unclaimed Rewards", amount: "-" },
     { title: "State Reward", amount: "-" },
     { title: "State Time (s)", amount: "-" }
   ]);
@@ -38,10 +44,14 @@ const SmartnodesApp = () => {
     // { title: "Worker Dashboard", icon: <MdOutlineHub style={{ color: "lightBlue" }}/>, endpoint: "/api/worker" }
   ];
 
-  const RPC_ENDPOINT = "https://sepolia.base.org";
-  const BASE_NETWORK_ID = 84532;
-  const contractAddress = '0x48a2619d92576915A0b543084FDf0aa13D77Db71';
+  // const RPC_ENDPOINT = "https://sepolia.base.org";
+  const RPC_ENDPOINT = "http://127.0.0.1:7545"
+  // const BASE_NETWORK_ID = 84532;
+  const BASE_NETWORK_ID = 5777;
+  const contractAddress = '0x64eC74C9370F684783cBf606eEDdd4Ba7fDFc338';
+  const multisigAddress = '0x63592eA5012A660308A82b4cCDcA05f5C4d357Fa';
   const abi = abiArtifact.abi;
+  const multisigAbi = multisigAbiArtifact.abi;
 
   const sdk = new CoinbaseWalletSDK({
     appName: 'Smartnodes'
@@ -54,12 +64,12 @@ const SmartnodesApp = () => {
       const provider = new ethers.providers.Web3Provider(coinbaseWallet);
       const signer = provider.getSigner();
       const contractInstance = new ethers.Contract(contractAddress, abi, signer);
+      const multisigContractInstance = new ethers.Contract(multisigAddress, multisigAbi, signer);
       setContract(contractInstance);
+      setMultisig(multisigContractInstance);
       setUserAddress(accounts[0]);
       setStatus('Coinbase Wallet connected successfully.');
       setError('');
-      const balance = await contractInstance.balanceOf(accounts[0]);
-      setUserBalance(Number(ethers.formatUnits(balance, 18)).toFixed(1));
     } catch (error) {
       console.error(error);
       setStatus('Error connecting to Coinbase Wallet.');
@@ -67,21 +77,38 @@ const SmartnodesApp = () => {
     }
   };
 
-  // Function to connect to the user's MetaMask wallet
   const connectToContract = async () => {
     if (typeof window.ethereum !== 'undefined') {
       try {
         const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
-        const chainId = await window.ethereum.request({ method: 'eth_chainId' });
+        
+        // Create provider and signer using ethers v6 syntax
         const provider = new ethers.BrowserProvider(window.ethereum);
         const signer = await provider.getSigner();
-        const contractInstance = new ethers.Contract(contractAddress, abi, signer);
+        
+        // Create contract instances after getting signer
+        const contractInstance = new ethers.Contract(
+          contractAddress,
+          abi,
+          signer  // Pass signer directly here
+        );
+        
+        const multisigContractInstance = new ethers.Contract(
+          multisigAddress,
+          multisigAbi,
+          signer  // Pass signer directly here
+        );
+  
+        console.log("Contract provider:", contractInstance.runner?.provider);
+        console.log("Contract signer:", contractInstance.runner);
+        console.log("MSContract provider:", multisigContractInstance.runner?.provider);
+        console.log("MSContract signer:", multisigContractInstance.runner);
+        
         setContract(contractInstance);
-        setUserAddress(accounts[0]); // Save the connected user's address
+        setMultisig(multisigContractInstance);
+        setUserAddress(accounts[0]);
         setStatus('Wallet connected successfully.');
         setError('');
-        const balance = await contractInstance.balanceOf(accounts[0]);
-        setUserBalance(Number(ethers.formatUnits(balance, 18)).toFixed(1)); // Set user token balance
       } catch (error) {
         console.error(error);
         setStatus('Error connecting to wallet.');
@@ -91,39 +118,102 @@ const SmartnodesApp = () => {
     }
   };
 
+  // Add this function to the SmartnodesApp component
+  const claimRewards = async () => {
+    if (!contract) {
+      setStatus('Connect to the wallet first.');
+      return;
+    }
+    
+    try {
+      // Check if we need to reconnect the signer
+      const provider = contract.runner?.provider;
+      const signer = await provider.getSigner();
+      const contractWithSigner = contract.connect(signer);
+      const tx = await contractWithSigner.claimRewards();
+      await tx.wait();
+
+      setStatus('Rewards claimed successfully!');
+      
+      // Refresh the user's balance and unclaimed rewards
+      getNetworkStats();
+    } catch (error) {
+      console.error('Error claiming rewards:', error);
+      setStatus('Error claiming rewards: ' + error.message);
+    }
+  };
+  
   // Function to fetch network stats from the smart contract
   const getNetworkStats = async () => {
     if (contract) {
       try {
-        let supply = await contract.totalSupply();
+        // Fetch values from contract
+        let result = await contract.getSupply();
+        let [supply, locked, unclaimed] = result.map(val => BigInt(val));
         let emissionRate = await contract.emissionRate();
         let totalJobs = (await contract.jobCounter()) - BigInt(1); // Subtract using BigInt
         let activeValidators = await contract.getActiveValidatorCount();
         let users = await contract.userCounter();
-        let lockedTokens = await contract.totalLocked();
-        // let stateTime = await contract.
-        
-        // Convert to regular numbers after formatting, if safe
-        supply = round(Number(ethers.formatUnits(supply, 18)), 2);
+  
+        // Function to round numbers to 2 decimal places
+        const round = (num, decimals = 2) => Number(num.toFixed(decimals));
+  
+        // Convert to regular numbers and round
+        supply = round(Number(ethers.formatUnits(supply, 18)));
+        locked = round(Number(ethers.formatUnits(locked, 18)));
+        unclaimed = round(Number(ethers.formatUnits(unclaimed, 18)));
+  
         totalJobs = ethers.formatUnits(totalJobs, 0); // No decimals needed for job count
         activeValidators = ethers.formatUnits(activeValidators, 0); // No decimals needed for validator count
         users = ethers.formatUnits(users, 0); // No decimals needed for user count
         emissionRate = round(Number(ethers.formatUnits(emissionRate, 18)), 2);
-        lockedTokens = round(Number(ethers.formatUnits(lockedTokens, 18)), 2);
+  
+        // Fetch the most recent 'StateUpdate' event
+        const provider = contract.runner?.provider;
+        const currentBlock = await provider.getBlockNumber();
+        const events = await contract.queryFilter("StateUpdate", currentBlock - 200, currentBlock); // Fetch events from the last block
+  
+        let mostRecentStateUpdate = events[events.length - 1]; // Get the most recent event
+        const stateUpdateData = {
+          networkCapacities: [0],
+          networkWorkers: [0],
+        };  
+
+        // Extract relevant data from the most recent event
+        try {
+          const stateUpdateData = {
+            networkCapacities: mostRecentStateUpdate.args.networkCapacities.map(capacity => Number(capacity)),
+            networkWorkers: mostRecentStateUpdate.args.networkWorkers.map(workers => Number(workers)),
+          };  
+        } catch (error) {
+          console.log(error);
+        }
         
+        // Set network stats and supply stats based on contract data
         setNetworkStats([
           { title: "Jobs Completed", amount: totalJobs, iconColor: "black", iconBg: "red", icon: <MdBusinessCenter /> },
-          { title: "Active Validators", amount: activeValidators, iconColor: "black", iconBg: "lightBlue", icon: <MdVerifiedUser/> },
-          { title: "Users", amount: "-", iconColor: "black", iconBg: "violet", icon: <MdOutlineSupervisorAccount/> },
-          { title: "Active Workers", amount: "-", iconColor: "black", iconBg: "grey", icon: <MdOutlineSettings/> },
+          { title: "Active Validators", amount: activeValidators, iconColor: "black", iconBg: "lightBlue", icon: <MdVerifiedUser /> },
+          { title: "Active Workers", amount: stateUpdateData.networkWorkers[0], iconColor: "black", iconBg: "grey", icon: <MdOutlineSettings /> },
+          { title: "Users", amount: "-", iconColor: "black", iconBg: "violet", icon: <MdOutlineSupervisorAccount /> },
         ]);
+  
         setSupplyStats([
-          { title: "Total Locked", amount: round(lockedTokens, 2) },
-          { title: "Current Supply", amount: supply },
+          { title: "Total Supply", amount: supply + unclaimed },
+          { title: "Circulating Supply", amount: supply - locked },
+          { title: "Locked", amount: locked },
+          { title: "Unclaimed Rewards", amount: unclaimed },
           { title: "State Reward", amount: emissionRate },
-          { title: "State Time (mins)", amount: 30 },
+          { title: "State Time (mins)", amount: 60 },
         ]);
-
+        
+        let userBalance = await contract.balanceOf(userAddress);
+        let userUnclaimed = await contract.getUnclaimedRewards(userAddress);
+        let userLocked = await contract.getLockedBalance(userAddress);
+        
+        setUserBalance(Number(ethers.formatUnits(userBalance, 18)).toFixed(2));
+        setUserUnclaimed(Number(ethers.formatUnits(userUnclaimed, 18)).toFixed(1));
+        setUserLocked(Number(ethers.formatUnits(userLocked, 18)).toFixed(1));
+  
         setStatus('Network stats fetched successfully!');
       } catch (error) {
         console.error(error);
@@ -132,7 +222,7 @@ const SmartnodesApp = () => {
     } else {
       setStatus('Connect to the wallet first.');
     }
-  };
+  };  
 
   // Function to check if Flask instance is running
   const checkFlaskInstance = async (endpoint) => {
@@ -183,23 +273,7 @@ const SmartnodesApp = () => {
       setStatus('Connect to the wallet first.');
     }
   };
-
-  const createUser = async (input) => {
-    if (contract) {
-      try {
-        const bytes32Input = toBytes32(input);
-        const tx = await contract.createUser(bytes32Input);
-        await tx.wait();
-        setStatus('User created successfully.');
-      } catch (error) {
-        console.error('Error creating user:', error);
-        setStatus('Error creating user.');
-      }
-    } else {
-      setStatus('Connect to the wallet first.');
-    }
-  };
-
+  
   // Fetch network stats when the component mounts or the contract updates
   useEffect(() => {
     if (contract) {
@@ -209,84 +283,78 @@ const SmartnodesApp = () => {
 
   return (
     <section className={`bg-slate-100 dark:bg-gray-900 xs:px-5 md:px-10 px-10 flex flex-col border-t dark:border-t-white border-t-black items-center pb-10
-                          border-b border-b-black dark:border-b-white`}>
+                          border-b border-b-black dark:border-b-white xs:-ml-5 sm:-ml-0 -ml-10 xs:-mr-0 -mr-4`}>
+        <div className="text-red-500 text-middle bg-gray-300 w-screen text-center md:-mr-0 -mr-5 border border-b-gray-700">
+          {userAddress === '-' ? (
+            <p className="p-2 underline text-lg">
+              Connect Web Wallet to Access Dashboard
+            </p>
+          ) : (
+            <div></div>
+          )}
+        </div>
       <div className="w-full flex flex-col items-end mt-5 md:mt-10">
         <div className="flex space-x-4">
-          <Button
-            color="black"
-            bgColor="lightGrey"
-            text={contract ? "Connected" : "Connect Wallet"}
-            borderRadius="10px"
-            onClick={connectToContract}
-          />
-          <Button
-            color="black"
-            bgColor="lightGrey"
-            text={contract ? "Connected to Base" : "Connect Coinbase"}
-            borderRadius="10px"
-            onClick={connectToCoinbaseWallet}
-          />
+        <ConnectWalletButton 
+          connectToContract={connectToContract} 
+          connectToCoinbaseWallet={connectToCoinbaseWallet} 
+          contract={contract} 
+        />
+
         </div>
       </div>
 
       <div className="max-w-[1280px] items-center w-full flex-wrap">
-        <h1 className={`${styles.heading} text-left sm:px-10 md:px-0 xs:px-0 mt-10 md:mt-0 max-w-[1280px] mb-5`}>
-          Smartnodes Dashboard
+        <h1 className={`${styles.subheading} text-left xs:ml-4 sm:ml-0 px-3 xs:px-0 mt-10 md:mt-0 max-w-[1280px] mb-5`}>
+          Smartnodes <span className="font-normal text-gray-400">(testnet)</span> Dashboard
         </h1>
 
-        <div className="bg-slate-200 dark:bg-slate-800 dark:text-gray-200 rounded-xl max-w-[700px] p-4 xs:p-8 pt-7 m-3 mb-4 overflow-x-scroll">
-          <div className="mb-5">
+        <div className="bg-slate-200 dark:bg-slate-800 xs:-mr-0 -mr-5 dark:text-gray-200 rounded-xl max-w-[700px] p-4 xs:p-8 pt-7 m-3 mb-4 overflow-x-scroll mt-5 border border-gray-600">
+          <div className="mb-5 px-1 mt-2 xs:mt-3">
             <h2 className={`font-bold text-xl text-gray-400`}>Account</h2>
-            <p className="text-2xl overflow-auto font-semibold">{userAddress ? userAddress : "No address connected"}</p>
+            <p className="text-lg xs:text-2xl overflow-auto font-semibold">{userAddress ? userAddress : "No address connected"}</p>
           </div>  
-          <div className="flex flex-wrap">
-            <div className="pr-20">
-              <p className="font-bold text-xl text-gray-400">Token Balance</p>
-              <p className="text-3xl">{userBalance}</p>
+          <div className="flex flex-wrap px-1 mb-3">
+            <div className="mt-1 pr-20">
+              <p className="font-bold text-xl text-gray-400">Balance</p>
+              <p className="text-xl xs:text-2xl">
+                {(isNaN(Number(userBalance)) ? '-' : Number(userBalance).toLocaleString(undefined, { minimumFractionDigits: 0, maximumFractionDigits: 1 }))}
+              </p>
             </div>  
+            <div className="pr-20 mt-1">
+              <p className="font-bold text-xl text-gray-400">Locked</p>
+              <p className="text-xl xs:text-2xl">
+                {(isNaN(Number(userLocked)) ? '-' : Number(userLocked).toLocaleString(undefined, { minimumFractionDigits: 0, maximumFractionDigits: 1 }))}
+              </p>
+            </div>  
+            <div className="pr-5 mt-1">
+              <p className="font-bold text-xl text-gray-400">Unclaimed Rewards</p>
+              <p className="text-xl xs:text-2xl">
+                {(isNaN(Number(userUnclaimed)) ? '-' : Number(userUnclaimed).toLocaleString(undefined, { minimumFractionDigits: 0, maximumFractionDigits: 1 }))}
+              </p>
+            </div>  
+            <a
+              onClick={claimRewards}
+              className="mt-7 inline-block px-6 py-3 text-white bg-blue-500 hover:bg-blue-600 rounded-md text-sm md:text-base font-semibold cursor-pointer"
+            >
+              Claim Rewards
+            </a>
           </div>
         </div>
-
-        <div className="bg-gray-200 max-w-[500px] dark:bg-slate-800 dark:text-gray-200 dark:bg-secondary-dark-bg rounded-xl w-full p-8 pt-10 m-3">
-          {/* Display "Current Supply" on top */}
-          {supplyStats.map((item, index) => (
-            item.title === "Total Locked" && (
-              <div className="mb-4 mt-1">
-                <p className="font-bold text-xl text-gray-400">{item.title}</p>
-                <div className="flex items-baseline">
-                  <p className="text-4xl font-semibold">{item.amount}</p>
-                  <p className="text-2xl ml-2">SNO</p>
-                </div>
-              </div>
-            )
-          ))}
-          
-          {/* Display the rest of the values in the row beneath */}
-          <div className="flex flex-wrap justify-start mb-3 items-center">
-            {supplyStats.map((item, index) => (
-              item.title !== "Total Locked" && (
-                <div key={index} className="mr-5">
-                  <div key={index} className="">
-                    <p className="font-bold text-gray-400">{item.title}</p>
-                    <p className="text-2xl">{item.amount}</p>
-                  </div>
-                </div>
-              )
-            ))}
-          </div>       
-        </div>
-
+        
+        <SupplyStatsCard supplyStats={supplyStats}/>
+    
         <div className="flex flex-wrap m-2 justify-start gap-1 items-center w-full">
           {networkStats.map((item, index) => (
-            <div key={index} className="flex flex-row bg-slate-200 dark:bg-slate-800 h-30 dark:text-gray-200 dark:bg-secondary-dark-bg min-w-[250px] max-w-[90%] p-4 pt-7 rounded-2xl m-1">
+            <div key={index} className="flex flex-row bg-slate-200 dark:bg-slate-800 h-30 dark:text-gray-200 dark:bg-secondary-dark-bg min-w-[245px] max-w-[90%] p-4 pt-7 rounded-2xl m-1 border border-gray-600">
               <button
                 type="button"
                 style={{ color: item.iconColor, backgroundColor: item.iconBg }}
-                className="text-3xl opacity-0.9 rounded-full max-h-[55px] p-3 border border-gray-300 hover:drop-shadow-xl"
+                className="text-3xl opacity-0.9 rounded-full max-h-[55px] p-3 border border-gray-300 hover:drop-shadow-xl xs:-ml-0 -ml-0"
               >
                 {item.icon}
               </button>
-              <div className="ml-5 my-1">
+              <div className="xs:ml-5 ml-1 my-1">
                 <p>
                   <span className="text-2xl font-semibold">{item.amount}</span>
                 </p>
@@ -296,49 +364,15 @@ const SmartnodesApp = () => {
           ))}
         </div>
 
-        {/* <div className="flex flex-row bg-slate-500 mx-5 rounded-xl">
-          <div className="flex flex-col justify-center items-center">
-            <h2 className={`mt-3 text-center text-lg`}>
-              Active Validators
-            </h2>
-
-            <LineChart
-              xAxis={[{ data: [1, 2, 3, 5, 7, 12] }]}
-              series={[
-                {
-                  data: [0, 4.5, 2, 5.5, 3.5, 7],
-                },
-              ]}
-              width={500}
-              height={300}
-            />
-          </div>
-          <div className="flex flex-col justify-center items-center">
-            <h2 className={`mt-3 text-center ${styles.landingText}`}>
-              Users
-            </h2>
-
-            <LineChart
-              xAxis={[{ data: [1, 2, 3, 5, 10, 14] }]}
-              series={[
-                {
-                  data: [2, 5.5, 2, 8.5, 1.5, 5],
-                },
-              ]}
-              width={500}
-              height={300}
-            />
-          </div>
-        </div> */}
-        <SmartnodesDashboard />
-
         <div className="flex my-8 pt-2 flex-wrap justify-start max-w-[1280px] border-t border-t-black dark:border-t-white">   
-          <h1 className={`${styles.subheading} text-left sm:px-10 md:px-0 xs:px-0 mt-10 max-w-[1280px] mb-5`}>
-            Tensorlink Statistics
+          <h1 className={`${styles.subheading} text-left sm:px-10 md:px-0 xs:px-0 mt-10 max-w-[1280px]`}>
+            Networks
           </h1>    
-          <p className={`${styles.paragraph} ml-5`}>
-            API coming soon... 
-          </p>
+        </div>
+
+        <SmartnodesDashboard contract={contract} multisig={multisig}/>
+        
+        {/* <TensorlinkDashboard /> */}
           {/* <div className="flex flex-wrap sm:m-3 pt-0 justify-start gap-1 items-center w-full">
             {dashboardOptions.map((item, index) => (
               <button 
@@ -367,9 +401,6 @@ const SmartnodesApp = () => {
               </button>
             ))}
           </div> */}
-        </div>
-        <TensorlinkDashboard />
-
         {/* {activeDashboard && (
           <div className="mt-10 w-full p-5 bg-white dark:bg-slate-800 rounded-xl shadow-sm">
             <div className="space-x-3">

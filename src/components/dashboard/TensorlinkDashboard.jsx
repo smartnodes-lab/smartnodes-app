@@ -1,11 +1,11 @@
 import { LineChart } from "@mui/x-charts/LineChart";
-import styles from "../style"; 
+import styles from "../../style"; 
 
 
 const TensorlinkDashboard = ({ nodeId, connectedValidators, connectedWorkers, job }) => {
     return (
       <section className={`xs:px-5 md:px-10 flex flex-col md:flex-row items-center py-5 mt-2`}>
-        {/* <h2>SHALLOM</h2> */}
+        <h2>SHALLOM</h2>
         <LineChart 
           xAxis={[{ data: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10] }]}
           series={[

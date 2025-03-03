@@ -18,7 +18,7 @@ const App = () => {
   return (
     <BrowserRouter>
       {activeMenu && (
-        <div className="fixed inset-y-0 left-0 z-50 w-[265px] bg-blue-50 dark:bg-gray-800 transition-transform">
+        <div className="fixed inset-y-0 left-0 z-50 w-[265px] bg-blue-50 dark:bg-gray-700 transition-transform">
           <Sidebar />
         </div>      
       )}

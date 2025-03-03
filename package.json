@@ -11,10 +11,12 @@
   },
   "dependencies": {
     "@coinbase/wallet-sdk": "^4.0.4",
+    "@mui/icons-material": "^6.4.6",
     "@mui/x-charts": "^7.22.2",
     "@splinetool/react-spline": "^2.2.6",
     "@splinetool/runtime": "^1.9.40",
     "d3": "^7.8.5",
+    "dayjs": "^1.11.13",
     "ethers": "^6.13.0",
     "framer-motion": "^10.12.16",
     "lottie-react": "^2.4.0",

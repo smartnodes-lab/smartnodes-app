@@ -38,7 +38,7 @@ const Navbar = () => {
               setActiveMenu(!activeMenu);
           }}
         >
-          <img src={logoSrc} alt="task" className="w-auto h-auto max-w-[325px] max-h-[160px] hidden md:block" />
+          <img src={logoSrc} alt="task" className="w-auto h-auto max-w-[285px] max-h-[160px] hidden md:block" />
           <img src={smallLogoSrc} alt="task" className="w-[70px] h-[70px] md:hidden mb-1 my-1.5" />
         </div>      
       ) : (

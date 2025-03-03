@@ -52,7 +52,7 @@ export const sideLinks = [
         icon: MdHome,
       },
       {
-        name: "Docs",
+        name: "Learn",
         id: "docs",
         icon: MdHome,
         sublinks: [
@@ -101,12 +101,12 @@ export const navLinks = [
   },
   {
     id: "app",
-    title: "Dashboard",
+    title: "Dashboard"
   },
   {
-    id: "git",
-    title: "GitHub"
-  },
+    id: "docs",
+    title: "Docs",
+  }
 ];
 
 export const features = [
@@ -210,14 +210,14 @@ export const footerLinks = [
   {
     title: "About",
     links: [
-      // {
-      //   name: "Content",
-      //   link: "https://www.framework.exchange/content/",
-      // },
-      // {
-      //   name: "How it Works",
-      //   link: "https://www.framework.exchange/how-it-works/",
-      // },
+      {
+        name: "Home",
+        link: "https://www.smartnodes.ca",
+      },
+      {
+        name: "Papers",
+        link: "https://www.framework.exchange/how-it-works/",
+      },
       // {
       //   name: "Create",
       //   link: "https://www.framework.exchange/create/",
@@ -280,6 +280,10 @@ export const footerLinks = [
   {
     title: "Donate",
     links: [
+      {
+        name: "Buy us a Coffee",
+        link: "https://buymeacoffee.com/smartnodes"
+      },
       {
         name: "Bitcoin: bc1qg6klkt3z77wdlgusz5lujulr5ezayvqsw8m4r5",
         link: "bc1qg6klkt3z77wdlgusz5lujulr5ezayvqsw8m4r5",

@@ -15,13 +15,15 @@ import Sidebar from "./Sidebar";
 import NavButton from "./NavButton";
 import LaunchApp from "./LaunchApp";
 import Button from "./Button";
-import TensorlinkDashboard from "./TensorlinkDashboard";
-import SmartnodesDashboard from "./SmartnodesDashboard";
+import TensorlinkDashboard from "./dashboard/TensorlinkDashboard";
+import SmartnodesDashboard from "./dashboard/SmartnodesDashboard";
+import SupplyStatsCard from "./dashboard/SupplyStatsCard";
 import ModelExample from "./docs/ModelExample";
 import WalletSetup from "./docs/WalletSetup";
 import GettingStarted from "./docs/GettingStarted";
 import Overview from "./docs/Overview";
 import Nodes from "./docs/Nodes";
+import ConnectWalletButton from "./dashboard/ConnectWallet";
 
 export {
   Button,
@@ -47,5 +49,7 @@ export {
   Footer,
   Testimonials,
   MainHero2,
-  ParticleBackground
+  ParticleBackground,
+  ConnectWalletButton,
+  SupplyStatsCard
 };

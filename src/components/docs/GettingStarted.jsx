@@ -52,9 +52,9 @@ const GettingStarted = () => (
       </p>
     </div>
 
-    <div className="flex mt-10 mb-10 justify-between w-full">
+    <div className="flex mt-10 mb-10 justify-between max-w-[1300px] w-full">
       <NavButton className="text-left" title="Overview" subtitle="Previous" page="docs/overview" />
-      <NavButton className="text-right" title="Wallet Config" subtitle="Next" page="docs/wallet" />
+      <NavButton className="text-right" title="Node Setup" subtitle="Next" page="docs/nodes" />
     </div>
 
     {/* <SyntaxHighlighter language="python" style={vscDarkPlus} className="syntax-highlighter">
