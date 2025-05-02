@@ -44,8 +44,10 @@ import community from "./community.json";
 import ai from "./ai.json";
 import discord from "./discord.png";
 import reddit from "./reddit.png";
+import python_logo from "./python_logo.png";
 
 export {
+  python_logo,
   reddit,
   discord,
   real_dark_logo,

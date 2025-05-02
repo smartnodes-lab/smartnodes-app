@@ -30,8 +30,9 @@ const Sidebar = ({ open, close }) => {
                     onClick={() => setActiveMenu(!activeMenu)}
                     className="rounded-full px-3 mt-10 mr-3 sm:mt-4 p-6 cursor-pointer"
                 >
-                    <MdOutlineCancel color="grey" />
+                    <MdOutlineCancel size={20} color="grey" /> {/* Increased from default to 36px */}
                 </button>
+
             </div>
             <div className="mt-10">
                 {sideLinks.map((item) => (
@@ -51,7 +52,7 @@ const Sidebar = ({ open, close }) => {
                                     } else {
                                         navigate(`/${link.id}`);
                                     }
-                                }}
+                                }}                                
                             >
                                 <div className="flex items-center">
                                     <span className="ml-5 font-poppins font-xl dark:text-gray-300 text-gray-900">

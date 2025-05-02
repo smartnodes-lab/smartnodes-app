@@ -28,7 +28,7 @@ const Navbar = () => {
   const handleActiveMenu = () => setActiveMenu(!activeMenu);
 
   return (
-    <nav className="w-full flex z-20 pt-5 px-5 ml-1 md:ml-5 justify-between items-center" style={{ maxWidth: "1440px", margin: "0 auto" }}>
+    <nav className="w-full flex z-20 pt-5 px-5 ml-1 md:ml-5 justify-between items-center" style={{ maxWidth: "1440px", margin: "0 auto", zIndex: 100000 }}>
       {/* Logo and menu for desktop */}
       {!activeMenu ? (
         <div
@@ -38,7 +38,7 @@ const Navbar = () => {
               setActiveMenu(!activeMenu);
           }}
         >
-          <img src={logoSrc} alt="task" className="w-auto h-auto max-w-[285px] max-h-[160px] hidden md:block" />
+          <img src={logoSrc} alt="task" className="w-auto h-auto max-w-[325px] max-h-[160px] hidden md:block" />
           <img src={smallLogoSrc} alt="task" className="w-[70px] h-[70px] md:hidden mb-1 my-1.5" />
         </div>      
       ) : (
@@ -115,7 +115,7 @@ const Navbar = () => {
                 key={nav.id}
                 className={`font-poppins font-medium cursor-pointer text-[16px] ${
                   active === nav.title ? "text-white" : "text-dimWhite"
-                } mb-4`}
+                } mb-4 z-50`}
                 onClick={() => setActive(nav.title)}
               >
                 {nav.title === "GitHub" ? (

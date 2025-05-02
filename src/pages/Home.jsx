@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
-import { Overview, WalletSetup, GettingStarted, ModelExample, Nodes } from "../components";
+import { Overview, WalletSetup, Community, Mining, GettingStarted, ModelExample, Nodes } from "../components";
 import { useStateContext } from "../contexts/contextProvider";
 
 const Home = () => {
@@ -11,10 +11,10 @@ const Home = () => {
   }, []); 
 
   const Disclaimer = () => (
-    <div style={{ background: "lightgray", padding: "10px", marginBottom: "20px" }}>
-      <h2 className="ml-5">
-        🚨 Development Release: Documentation is not complete or ready for production use. 🚨
-      </h2>
+    <div className="bg-yellow-100 mt-7 p-4 rounded-lg border-l-4 border-yellow-500">
+      <p className="text-yellow-800 dark:text-black font-medium">
+        ⚠️ <strong>Tensorlink is under development,</strong> and is not recommended for production environments.
+      </p>
     </div>
   );
 
@@ -25,35 +25,14 @@ const Home = () => {
         <Route index element={<Overview />} />
         <Route path="overview" element={<Overview />} />
         <Route path="install" element={<GettingStarted />} />
-        <Route path="wallet" element={<WalletSetup />} />
+        <Route path="model-setup" element={<ModelExample />} />
         <Route path="nodes" element={<Nodes />} />
-        <Route path="model-example" element={<ModelExample />} />
+        <Route path="mining" element={<Mining />} />
+        <Route path="community" element={<Community />} />
+        <Route path="wallet" element={<WalletSetup />} />
       </Routes>
     </div>
   );
 };
 
 export default Home;
-
-
-// const Home = () => {
-//   const { setActiveMenu } = useStateContext();
-
-//   // Use useEffect to call setActiveMenu only once after the component mounts
-//   useEffect(() => {
-//     setActiveMenu(true);
-//   }, []); 
-
-//   return (
-//     <div className={`z-20 min-h-screen flex-col ${styles.flexCenter} min-w-full`}>
-//       <div className="z-10 mt-2 sm:mt-5 flex-col min-w-full">
-//         <h2 className={`${styles.heading} text-middle xs:max-w-[350px] max-w-[250px] sm:max-w-[1280px]`}>
-//           Coming soon...<br />
-//         </h2>
-//         {/* <GettingStarted /> */}
-//       </div>
-//     </div>
-//   )
-// }
-
-// export default Home;

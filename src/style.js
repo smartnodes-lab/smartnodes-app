@@ -5,7 +5,7 @@ const styles = {
   heading2: "font-poppins font-bold text-[30px] xs:text-[38px] sm:text-[50px] lg:text-[70px] text-gray-700 dark:text-white w-full ",
   subheading: "font-poppins font-bold text-[24px] xs:text-[30px] md:text-[40px] lg:text-[45px] text-gray-700 dark:text-white w-full ",
   subheading2: "font-poppins font-bold text-[18px] xs:text-[24px] sm:text-[32px] lg:text-[40px] text-gray-700 dark:text-white w-full ",
-  paragraph: "font-poppins font-normal dark:text-white text-gray-900 sm:text-[18px] md:text-[20px] lg:text-[21px] leading-[30.8px]",
+  paragraph: "font-poppins font-normal dark:text-white text-gray-900 sm:text-[16px] md:text-[18px] leading-[30.8px]",
 
   content: "flex flex-col max-w-[1440px] px-5 md:px-10 lg:px-20",
   contentBox: "flex items-center bg-primary border-radius-50",
@@ -22,14 +22,14 @@ const styles = {
   marginY: "sm:my-16 my-6",
 
   section: "sm:mt-10 px-2 md:px-5 flex md:flex-row flex-col items-center justify-center",
-  section2: "sm:py-16 py-15 px-10 flex md:flex-row flex-col items-center justify-center bg-black-gradient rounded-2xl z-0 max-w-[1250px] mx-auto",
+  section2: "sm:py-16 py-15 px-10 flex md:flex-row flex-col items-center justify-center bg-black-gradient rounded-xl z-0 max-w-[1250px] mx-auto",
   animatedIcon: "flex h-full w-full hidden xs:block block",
   landingText: "text-[16px] md:text-[20px] lg:text-[22px] text-black dark:text-white leading-8",
-  landingText2: "text-[15px] md:text-[18px] lg:text-[20px] text-black dark:text-white leading-8"
+  landingText2: "text-[14px] md:text-[18px] lg:text-[20px] text-black dark:text-white leading-8"
 };
 
 export const layout = {
-  section: `flex md:flex-row flex-col ${styles.paddingY} items-center justify-center mb-10`,
+  section: `flex md:flex-row flex-col ${styles.paddingY} items-center justify-center pb-10`,
   sectionReverse: `flex md:flex-row flex-col-reverse ${styles.paddingY}`,
 
   sectionImgReverse: `flex-1 flex ${styles.flexCenter} md:mr-10 mr-0 md:mt-0 mt-10 relative`,

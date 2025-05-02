@@ -24,8 +24,13 @@ import GettingStarted from "./docs/GettingStarted";
 import Overview from "./docs/Overview";
 import Nodes from "./docs/Nodes";
 import ConnectWalletButton from "./dashboard/ConnectWallet";
+import LocalhostGPT from "./LocalhostGPT";
+import Mining from "./docs/Mining";
+import Community from "./docs/Community";
 
 export {
+  Mining,
+  LocalhostGPT,
   Button,
   Nodes,
   TensorlinkDashboard,
@@ -51,5 +56,6 @@ export {
   MainHero2,
   ParticleBackground,
   ConnectWalletButton,
-  SupplyStatsCard
+  SupplyStatsCard,
+  Community
 };

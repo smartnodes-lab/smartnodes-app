@@ -1,19 +1,19 @@
-import { ai, workflow, job, telescope, blocks , community, linkedin, twitter, airbnb, binance, discord, coinbase, dropbox } from "../assets";
+import { ai, reddit, job, telescope, blocks , community, linkedin, twitter, airbnb, binance, discord, coinbase, dropbox } from "../assets";
 import { MdHome } from "react-icons/md";
 
 export const overview = {
-  info: "Smartnodes fuels distributed networks and tools designed to parallelize workflows and aggregate resources, seamlessly merging the capabilities of smaller devices into powerful super-networks that harness their collective strengths. The result is a suite of cost-effective, user-friendly tools tailored for advanced computational and data-intensive tasks, including machine learning, computational physics, and much more."
+  info: "Smartnodes fuels distributed networks and tools designed to parallelize workflows and aggregate resources, seamlessly merging the capabilities of smaller devices into much more powerful data processors. The result is a suite of cost-effective, user-friendly tools tailored for advanced computational and data-intensive tasks, including machine learning, computational physics, and much more."
 }
 
 export const portals = [
   {
     title: "Tensorlink Docs",
-    link: "docs/overview",
+    link: "docs",
     img: blocks,
   },
   {
-    title: "Running a Node",
-    link: "docs/nodes",
+    title: "Running a Node (mining)",
+    link: "docs/mining",
     img: ai,
   },
   // {
@@ -23,7 +23,7 @@ export const portals = [
   // },
   {
     title: "Join the Community",
-    link: "tensorlink/community",
+    link: "docs/community",
     img: community,
   }
 ]
@@ -52,17 +52,23 @@ export const sideLinks = [
         icon: MdHome,
       },
       {
-        name: "Learn",
+        name: "localhostGPT",
+        id: "localhostGPT",
+        icon: MdHome
+      },
+      {
+        name: "Documentation",
         id: "docs",
         icon: MdHome,
         sublinks: [
           { id: "overview", name: "Overview"},
           { id: "install", name: "Installation"},
-          { id: "wallet", name: "Wallet Config"},
+          { id: "model-example", name: "Models & APIs"},
           { id: "nodes", name: "Nodes"},
-          { id: "model-example", name: "Model Setup"}
+          { id: "mining", name: "Mining"},
+          // { id: "wallet", name: "Wallet Config"},
         ]
-      }
+      },
     ]
   },
   {
@@ -113,18 +119,20 @@ export const features = [
   {
     id: "1",
     title: "Plug-and-Play Integration",
-    content: "Seamlessly leverage distributed computational resources in PyTorch for model training and inference-no complex setup required."
+    content: "Easily tap into distributed computational resources for training and inference in PyTorch. Tensorlink provides wrappers that integrate with existing workflows, along with APIs to connect your applications to advanced AI models."
   },
   {
     id: "2",
-    title: "Decentralized Model Training",
-    content: "Tensorlink distributes models across a network of peers, reducing reliance on costly centralized data centers and minimizing potential bottlenecks through parallelization."
+    title: "Distributed Execution Engine",
+    content: "Scale effortlessly across a decentralized mesh of worker nodes. Tensorlink shards and distributes workloads to handle larger models, reduce training time, and adapt dynamically to node availability."
   },
   {
     id: "3",
-    title: "Security",
-    content: "Tensorlink leverages Ethereum to ensure network integrity while incentivizing user participation. Validator nodes and proof-of-learning mechanisms enhance reliability and trust within the ecosystem.",
-  },
+    title: "Autonomous Coordination",
+    content: "Validator nodes coordinate and verify job execution across worker nodes. A rotating network state management system promotes reliable validator behavior and ensures decentralized oversight."
+  }
+  
+  
   // {
   //   id: "",
   //   title: "Accessibility",
@@ -148,14 +156,14 @@ export const feedback = [
       "Optimize your machine learning workflows with Tensorlink, our cutting-edge solution for PyTorch model offloading. Seamlessly distribute training and inference tasks to maximize model scalability while significantly reducing costs.",
     name: "Distributed PyTorch Models",
     title: "Tensorlink",
-    img: ai,
+    img: blocks,
     blur: false,
     link: "/tensorlink"
   },
   {
     id: "feedback-2",
-    content: "Nice try buddy, you're not getting this information just yet!",
-    name: "Something very cool.",
+    content: "",
+    name: "",
     title: "",
     // content: 
     //   "Explore the depths of space with StarNet, a groundbreaking distributed radio telescope array positioned to be the world's largest and highest-resolution radio telescope, capturing unparalleled imaging and even potential transmission capabilities. (In Progress)",
@@ -167,8 +175,8 @@ export const feedback = [
   },
   {
     id: "feedback-3",
-    content: "Nice try buddy, you're not getting this information just yet!",
-    name: "Something very cool.",
+    content: "",
+    name: "",
     title: "",
     // content:
     //   "Tailored machine-human APIs for empowering decentralized and automated systems with trust-minimized workflow management and decision-making. (TBD)",
@@ -212,11 +220,16 @@ export const footerLinks = [
     links: [
       {
         name: "Home",
-        link: "https://www.smartnodes.ca",
+        link: "/",
       },
       {
-        name: "Papers",
-        link: "https://www.framework.exchange/how-it-works/",
+        name: "Litepaper",
+        link: "https://github.com/smartnodes-lab/smartnodes",
+      },
+      {
+        name: "GitHub",
+        icon: linkedin,
+        link: "https://github.com/smartnodes-lab"
       },
       // {
       //   name: "Create",
@@ -233,50 +246,25 @@ export const footerLinks = [
     ],
   },
   {
-    title: "Useful Links",
+    title: "Community",
     links: [
       {
-        name: "Twitter",
+        name: "X",
         icon: twitter,
-        link: "https://www.twitter.com/smartnodes_lab",
+        link: "https://www.x.com/smartnodes_lab",
       },
       {
         name: "Discord",
         icon: discord,
-        link: "",
+        link: "https://discord.gg/aCW2kTNzJ2",
       },
-      {
-        name: "GitHub",
-        icon: linkedin,
-        link: "https://github.com/smartnodes-lab"
-      }
+      // {
+      //   name: "LinkedIn",
+      //   icon: linkedin,
+      //   link: "https://www.linkedin.com/company/smartnodes-lab",
+      // }
     ]
   },
-  // {
-  //   title: "Community",
-  //   links: [
-  //     // {
-  //     //   name: "Help Center",
-  //     //   link: "https://www.framework.exchange/help-center/",
-  //     // },
-  //     // {
-  //     //   name: "Partners",
-  //     //   link: "https://www.framework.exchange/partners/",
-  //     // },
-  //     // {
-  //     //   name: "Suggestions",
-  //     //   link: "https://www.framework.exchange/suggestions/",
-  //     // },
-  //     // {
-  //     //   name: "Blog",
-  //     //   link: "https://www.framework.exchange/blog/",
-  //     // },
-  //     // {
-  //     //   name: "Newsletters",
-  //     //   link: "https://www.framework.exchange/newsletters/",
-  //     // },
-  //   ],
-  // },
   {
     title: "Donate",
     links: [
@@ -300,11 +288,6 @@ export const footerLinks = [
 ];
 
 export const socialMedia = [
-  // {
-  //   id: "social-media-1",
-  //   icon: instagram,
-  //   link: "https://www.instagram.com/",
-  // },
   {
     id: "social-media-4",
     icon: discord,
@@ -315,11 +298,11 @@ export const socialMedia = [
     icon: twitter,
     link: "https://www.twitter.com/smartnodes_lab",
   },
-  // {
-  //   id: "social-media-4",
-  //   icon: linkedin,
-  //   link: "https://www.linkedin.com/company/tensorlink/",
-  // }
+  {
+    id: "social-media-4",
+    icon: linkedin,
+    link: "https://www.linkedin.com/company/smartnodes-lab",
+  }
 ];
 
 export const clients = [

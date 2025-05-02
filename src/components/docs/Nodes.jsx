@@ -1,107 +1,80 @@
 import React from "react";
-import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
-import { vscDarkPlus } from 'react-syntax-highlighter/dist/esm/styles/prism';
+import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
+import { vscDarkPlus } from "react-syntax-highlighter/dist/esm/styles/prism";
 import styles, { layout } from "../../style";
 import { NavButton } from "..";
 
-const exampleCode = `
-"""
-Example of running Tensorlink node types on a local network to distribute a machine learning task.
+const privateNetworkExample = `from tensorlink import UserNode, ValidatorNode, WorkerNode, DistributedModel
+import torch, logging, time
+from transformers import AutoTokenizer
 
-This script shows how three nodes—ValidatorNode, UserNode, and WorkerNode—work together on a local network.
-  - ValidatorNode: Validates jobs.
-  - UserNode: Initiates and coordinates jobs.
-  - WorkerNode: Processes and trains the model.
+# Local setup parameters
+LOCAL = True          # Force localhost-only connections (127.0.0.1)
+UPNP = not LOCAL      # Disable UPnP to prevent external exposure
+OFFCHAIN = LOCAL      # Use off-chain job coordination (fully private)
 
-You can use binaries or the tensorlink.nodes contents to set up this workflow on multiple devices. This example runs in a single environment for simplicity.
-"""
+model_name = 'TinyLlama/TinyLlama-1.1B-Chat-v1.0'
 
-if __name__ == "__main__":
-    # Launch Nodes
-    validator = ValidatorNode(upnp=False, off_chain_test=True, local_test=True, print_level=logging.DEBUG)
-    user = UserNode(upnp=False, off_chain_test=True, local_test=True, print_level=logging.INFO)
-    worker = WorkerNode(upnp=False, off_chain_test=True, local_test=True, print_level=logging.DEBUG)
+# Run on Device 1
+user = UserNode(upnp=UPNP, off_chain_test=OFFCHAIN, local_test=LOCAL, print_level=logging.DEBUG)
 
-    # Connect roles
-    val_key, val_host, val_port = validator.send_request("info", None)
-    worker.send_request("connect_node", (val_key, val_host, val_port))
-    user.send_request("connect_node", (val_key, val_host, val_port))
+# Run on Device 1 (will remove the need for also spawning a validator soon!)
+validator = ValidatorNode(upnp=UPNP, off_chain_test=OFFCHAIN, local_test=LOCAL, print_level=logging.DEBUG)
 
-    device = "cuda" if torch.cuda.is_available() else "cpu"
-    model = Dummy()
+# Run on Device 2+
+worker = WorkerNode(upnp=UPNP, off_chain_test=OFFCHAIN, local_test=LOCAL, print_level=logging.DEBUG)
 
-    distributed_model, distributed_optimizer = user.create_distributed_model(
-        model=model,
-        n_pipelines=PIPELINES,
-        optimizer_type=torch.optim.Adam,
-        dp_factor=1
-    )
-    distributed_optimizer = distributed_optimizer(lr=0.001, weight_decay=0.01)
+# Connect worker and user to validator manually
+val_key, val_host, val_port = validator.send_request("info", None)  # Get device information
 
-    # Train model
-    for _ in range(10):
-        distributed_optimizer.zero_grad()
-        x = torch.zeros((1, 10), dtype=torch.float)
-        outputs = distributed_model(x)
-        loss = mse_loss(outputs, outputs)
-        loss.backward()
-        distributed_optimizer.step()
+# Connected to main device for each other device
+worker.connect_node(val_host, val_port, node_id=val_key)
+user.connect_node(val_host, val_port, node_id=val_key)
 
-    user.cleanup()
-    validator.cleanup()
-    worker.cleanup()
-`;
+# Request a distributed inference model
+distributed_model = DistributedModel(model_name, training=False, node=user)
+tokenizer = AutoTokenizer.from_pretrained(model_name)
+
+# Perform local inference loop on the user's device
+for _ in range(5):
+    input_text = "You: Hello Bot."
+    inputs = tokenizer(input_text, return_tensors="pt", padding=True, truncation=True)
+    with torch.no_grad():
+        outputs = distributed_model.generate(
+            inputs,
+            max_new_tokens=256,
+            temperature=0.7,
+            eos_token_id=tokenizer.eos_token_id,
+            do_sample=True
+        )
+    print("Bot:", tokenizer.decode(outputs[0], skip_special_tokens=True))
+
+# Shutdown
+user.cleanup()
+worker.cleanup()
+validator.cleanup()`;
 
 const Nodes = () => (
-  <section className="bg-slate-50 dark:bg-gray-900 px-5 sm:px-5 md:px-10 flex flex-col border-t dark:border-t-white border-t-black items-center">
+  <section className="px-5 sm:px-5 md:px-10 flex flex-col border-t dark:border-t-white border-t-black items-center">
     <div className="text-left justify-center items-center sm:max-w-[1280px]">
-      <h1 className={`${styles.subheading} mt-10`}>Running a Node</h1>
+      <div className="flex items-center ml-1 mb-6 mt-16">
+        <div className="bg-blue-600 h-8 w-2 mr-4 rounded-lg"></div>
+        <h1 className="text-xl sm:text-3xl dark:text-zinc-100 font-bold">Nodes & Communication</h1>
+      </div>
+      
       <p className={`${styles.landingText2} sm:px-5 md:px-10  dark:text-gray-300 text-black mb-5 mt-5`}>
-        Tensorlink is designed for deployment on local, private, and public networks. Its greatest potential lies in the public network, 
-        where contributors from around the globe share computational resources to drive innovation. By running a <strong>Worker Node</strong>, 
-        you contribute to cutting-edge machine learning and computational projects while earning rewards for your contributions.
+        Tensorlink enables secure, distributed computing across local, private, and public networks. Each node, whether a 
+        <strong> User</strong>, <strong>Worker</strong>, or <strong>Validator</strong>, plays a role in powering collaborative machine learning workflows.
+        By default, the DistributedModel processes spawns a User node in the background, which automatically connects your workflow 
+        to tensorlink's public GPU resources. However, these nodes can be customized for running local and private workloads.
       </p>
 
-      <h2 className={`${styles.subheading2} mt-10`}>Why Run a Tensorlink Node?</h2>
-      <ul className={`${styles.landingText2} sm:px-5 md:px-10  dark:text-gray-300 text-black mb-5 mt-5 list-disc ml-5`}>
-        <li><strong>Support Innovation:</strong> Join a global effort to power machine learning and computational research.</li>
-        <li><strong>Earn Rewards:</strong> Monetize your idle GPU power by running PyTorch jobs for others.</li>
-        <li><strong>Be Part of the Community:</strong> Collaborate with a decentralized network pushing the limits of technology.</li>
-      </ul>
-
-      <h2 className={`${styles.subheading2} mt-10`}>Getting Started</h2>
-
-      <h3 className={`${styles.landingText2} mt-5`}>1. Download the Node Binary</h3>
-      <p className={`${styles.landingText} sm:px-5 md:px-10 dark:text-gray-300 text-black mb-5 mt-5`}>
-        Visit the <a href="https://github.com/smartnodes-lab/tensorlink/releases" className="text-blue-500 underline">Tensorlink GitHub Releases </a>
-        to download the latest <code>tensorlink-miner</code> binary for your operating system. Ensure you have <strong>Python 3</strong> and a 
-        <strong> CUDA-enabled GPU </strong> installed. <br /><em>Note:</em> Multi-GPU utilization and Windows support are not yet available.
-      </p>
-
-      <h3 className={`${styles.landingText} mt-5`}>2. Set Up the Configuration</h3>
+      <div className="flex items-center ml-1 mb-6 mt-16">
+        <h2 className="text-lg sm:text-2xl ml-3 dark:text-zinc-100 font-bold">Node Types</h2>
+      </div>
+      
       <p className={`${styles.landingText2} sm:px-5 md:px-10 dark:text-gray-300 text-black mb-5 mt-5`}>
-        Open the <code>config.json</code> file included in the downloaded release and add the following details:
-      </p>
-      <ul className={`${styles.landingText2} sm:px-5 md:px-10 dark:text-gray-300 text-black mb-5 mt-5 list-disc ml-5`}>
-        <li><strong>Your Base Wallet Address:</strong> Used to receive rewards.</li>
-        <li><strong>Optional Idle Script Path:</strong> Specify a GPU mining script or other process to run while the worker is idle.</li>
-        <li>Set <code>"mining": "true"</code> to enable mining mode if desired.</li>
-      </ul>
-
-      <h3 className={`${styles.landingText} mt-5`}>3. Run the Worker</h3>
-      <p className={`${styles.landingText2} sm:px-5 md:px-10 dark:text-gray-300 text-black mb-5 mt-5`}>
-        Use the provided script to launch your node:
-      </p>
-      <SyntaxHighlighter language="bash" className="max-w-[500px]" style={vscDarkPlus}>
-        {`./run-worker.sh`}
-      </SyntaxHighlighter>
-      <p className={`${styles.landingText2} sm:px-5 md:px-10 dark:text-gray-300 text-black mb-5 mt-5`}>
-        Once started, your node will begin participating in the Tensorlink network, contributing computational resources and earning rewards.
-      </p>
-    
-      <h2 className={`${styles.subheading2} md:pt-10 pt-5 border-t border-t-black dark:border-t-white mt-10`}>Node Types</h2>
-      <p className={`${styles.landingText2} sm:px-5 md:px-10 dark:text-gray-300 text-black mb-5 mt-5`}>
-      Tensorlink utilizes three primary node classes, each tailored to fulfill distinct roles within a distributed machine learning workflow. 
+        Tensorlink utilizes three primary node classes, each tailored to fulfill distinct roles within a distributed machine learning workflow. 
         These nodes collaborate to ensure efficient coordination, resource sharing, and job validation. Nodes can operate on a public, smart 
         contract-secured network for shared access or on a private network for localized jobs on dedicated machines.
       </p>
@@ -117,23 +90,26 @@ const Nodes = () => (
         </li>
       </ul>
 
-      <h2 className={`${styles.subheading2} mt-10`}>Network</h2>
-      <p className={`${styles.landingText2} sm:px-5 md:px-10  dark:text-gray-300 text-black mb-5 mt-5`}>
-        Tensorlink nodes by default operate on a public network, providing users access to GPUs. For specialized use cases, 
-        nodes can be configured to operate on private networks, enabling custom workflows for local or organization-specific jobs.
-        For most use-cases, all that is required is a <code>UserNode</code>, whose usage is described in the upcoming{" "}
-        <a href="model-example" className="text-blue-500 underline">Running a Model section</a>.
-      </p>
+      <div className="flex items-center ml-1 mb-6 mt-16">
+        <div className="bg-blue-600 h-8 w-2 mr-4 rounded-lg"></div>
+        <h2 className="text-lg sm:text-2xl ml-3 dark:text-zinc-100 font-bold">Private Workload Example</h2>
+      </div>
 
+      <p className={`${styles.landingText2} sm:px-5 md:px-10  dark:text-gray-300 text-black mb-5 mt-5`}>
+        The following example demonstrates how nodes could interact for fully closed job on a group of devices,
+        all simulated in the same script for this example:
+      </p>    
+
+      <div className="max-w-[250px] xs:max-w-[400px] sm:max-w-[600px] md:max-w-full">
+        <SyntaxHighlighter language="python" className="flex overflow-scroll max-w-full" style={vscDarkPlus}>
+          {privateNetworkExample}
+        </SyntaxHighlighter>
+      </div>
     </div>
 
-    <SyntaxHighlighter language="python" className="flex overflow-scroll max-w-full" style={vscDarkPlus}>
-      {exampleCode}
-    </SyntaxHighlighter>
-
     <div className="flex mt-10 mb-10 justify-between max-w-[1300px] w-full">
-      <NavButton title="Installation" subtitle="Previous" page="docs/install" />
-      <NavButton title="Wallet Config" subtitle="Next" page="docs/wallet" />
+      <NavButton title="Model Setup" subtitle="Previous" page="docs/model-setup" />
+      <NavButton title="Mining" subtitle="Next" page="docs/mining" />
     </div>
   </section>
 );

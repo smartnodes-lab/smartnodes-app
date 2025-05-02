@@ -1,8 +1,7 @@
 import styles from "../style";
 import React, { useEffect } from "react";
 import { useStateContext } from "../contexts/contextProvider";
-
-import { Example, ToPortal, WhyTensorlink, Stats, ParticleBackground } from '../components';
+import { Example, ToPortal, WhyTensorlink, ParticleBackground } from '../components';
 
 const TensorLinkLanding = () => {
   const { setActiveMenu } = useStateContext();

@@ -6,7 +6,7 @@ import { NavButton } from "../../components";
 import { Link } from "react-router-dom";
 
 const WalletSetup = () => (
-  <section className="bg-slate-50 dark:bg-gray-900 px-5 sm:px-5 md:px-10 flex flex-col border-t dark:border-t-white border-t-black items-center">
+  <section className="px-5 md:px-10 flex flex-col border-t dark:border-t-white border-t-black items-center h-full">
     <div className="text-left justify-center items-center max-w-[1280px]">
       <h1 className={`${styles.subheading} mt-10 pt-10`}>  
         Wallet config

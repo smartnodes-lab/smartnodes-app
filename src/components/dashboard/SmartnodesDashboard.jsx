@@ -43,9 +43,9 @@ const SmartnodesDashboard = ({ contract, multisig }) => {
   const isDarkTheme = theme === "dark"; // White for dark, black for light
 
   // Constants for time/block limits
-  const BLOCKS_PER_DAY = 7200; // Approximate blocks per day (12s per block)
-  const DAYS_TO_FETCH = 60; // Fetch last 90 days of data
-  const CHUNK_SIZE = 5000; // Number of blocks per request
+  const BLOCKS_PER_DAY = 43200; // Approximate blocks per day (12s per block)
+  const DAYS_TO_FETCH = 20; // Fetch last 90 days of data
+  const CHUNK_SIZE = 10000; // Number of blocks per request
 
   const fetchBlockTimestamps = async (events, provider) => {
     const blockPromises = events.map(event => provider.getBlock(event.blockNumber));
@@ -57,6 +57,197 @@ const SmartnodesDashboard = ({ contract, multisig }) => {
     }));
   };
 
+  const applyMovingAverage = (data, windowSize = 5) => {
+    if (data.length === 0) return [];
+    
+    const result = [];
+    
+    // For each data point
+    for (let i = 0; i < data.length; i++) {
+      const newPoint = { ...data[i] };
+      
+      // For each numeric property that we want to smooth
+      Object.keys(data[i]).forEach(key => {
+        if (key.startsWith('capacity') || key.startsWith('workers')) {
+          let sum = 0;
+          let count = 0;
+          let hasPositiveValue = false;
+          
+          // Calculate the moving average and check for positive values
+          for (let j = Math.max(0, i - Math.floor(windowSize/2)); 
+              j <= Math.min(data.length - 1, i + Math.floor(windowSize/2)); 
+              j++) {
+            if (data[j][key] !== undefined) {
+              sum += Number(data[j][key]);
+              count++;
+              if (key.startsWith('workers') && Number(data[j][key]) > 0) {
+                hasPositiveValue = true;
+              }
+            }
+          }
+          
+          if (count > 0) {
+            if (key.startsWith('workers')) {
+              const avgValue = sum / count;
+              
+              // For workers: ensure small spikes are preserved
+              if (hasPositiveValue && avgValue > 0 && avgValue < 0.5) {
+                newPoint[key] = 1; // Preserve spike with at least a value of 1
+              } else {
+                newPoint[key] = Math.round(avgValue);
+              }
+            } else {
+              // For capacity: keep the decimal values for smooth curve
+              newPoint[key] = sum / count;
+              
+              // Update formatted capacity
+              if (key.startsWith('capacity')) {
+                const networkIndex = key.replace('capacity', '');
+                newPoint[`formattedCapacity${networkIndex}`] = formatCapacity(newPoint[key]);
+              }
+            }
+          }
+        }
+      });
+      
+      result.push(newPoint);
+    }
+    
+    return result;
+  };
+
+  const aggregateData = (data, intervalHours = 8) => {
+    if (data.length === 0) return [];
+    
+    // Sort by timestamp first to ensure chronological order
+    const sortedData = [...data].sort((a, b) => a.timestamp - b.timestamp);
+    
+    const result = [];
+    let currentBucket = {
+      timestamp: sortedData[0].timestamp,
+      count: 0
+    };
+    
+    // Additional tracking of worker presence per bucket
+    const workerPresence = {};
+    
+    // Initialize with first data point's properties
+    const firstItem = sortedData[0];
+    Object.keys(firstItem).forEach(key => {
+      if (key !== 'timestamp' && key !== 'blockNumber') {
+        if (key.startsWith('capacity') || key.startsWith('workers')) {
+          currentBucket[key] = 0;
+          if (key.startsWith('workers')) {
+            workerPresence[key] = false; // Initialize worker presence tracking
+          }
+        } else {
+          currentBucket[key] = firstItem[key];
+        }
+      }
+    });
+    
+    // Group data points by time intervals
+    sortedData.forEach(item => {
+      const itemTime = new Date(item.timestamp);
+      const bucketTime = new Date(currentBucket.timestamp);
+      
+      // If this item is within the current time bucket
+      if ((itemTime - bucketTime) < intervalHours * 60 * 60 * 1000) {
+        // Add values to the bucket
+        Object.keys(item).forEach(key => {
+          if (key.startsWith('capacity') || key.startsWith('workers')) {
+            currentBucket[key] = (currentBucket[key] || 0) + Number(item[key]);
+            
+            // Track if we ever had a positive worker value in this bucket
+            if (key.startsWith('workers') && Number(item[key]) > 0) {
+              workerPresence[key] = true;
+            }
+          }
+        });
+        currentBucket.count++;
+      } else {
+        // Finalize current bucket by calculating averages
+        if (currentBucket.count > 0) {
+          Object.keys(currentBucket).forEach(key => {
+            if (key.startsWith('capacity') || key.startsWith('workers')) {
+              if (key.startsWith('workers')) {
+                // Preserve spikes: If workers were present but avg < 0.5, set to 1
+                const avgWorkers = currentBucket[key] / currentBucket.count;
+                if (workerPresence[key] && avgWorkers > 0 && avgWorkers < 0.5) {
+                    currentBucket[key] = 1; 
+                } else {
+                    currentBucket[key] = Math.ceil(avgWorkers); // Round up workers
+                }
+              } else {
+                  // For capacity, keep decimal values
+                  currentBucket[key] = currentBucket[key] / currentBucket.count;
+              }
+            }
+          });
+        }
+        
+        // Add current bucket to results
+        result.push({...currentBucket});
+        
+        // Start a new bucket
+        currentBucket = {
+          timestamp: item.timestamp,
+          count: 1
+        };
+        
+        // Reset worker presence tracking for new bucket
+        Object.keys(workerPresence).forEach(key => {
+          workerPresence[key] = false;
+        });
+        
+        // Initialize with this item's properties
+        Object.keys(item).forEach(key => {
+          if (key !== 'timestamp' && key !== 'blockNumber') {
+            if (key.startsWith('capacity') || key.startsWith('workers')) {
+              currentBucket[key] = Number(item[key]);
+              // Track worker presence in the new bucket
+              if (key.startsWith('workers') && Number(item[key]) > 0) {
+                workerPresence[key] = true;
+              }
+            } else {
+              currentBucket[key] = item[key];
+            }
+          }
+        });
+      }
+    });
+    
+    // Add the last bucket if it has data
+    if (currentBucket.count > 0) {
+      Object.keys(currentBucket).forEach(key => {
+        if (key.startsWith('capacity') || key.startsWith('workers')) {
+          if (key.startsWith('workers')) {
+            // For workers, preserve small spikes
+            const avgValue = currentBucket[key] / currentBucket.count;
+            if (workerPresence[key] && avgValue > 0 && avgValue < 0.5) {
+              currentBucket[key] = 1; // Ensure at least 1 worker is shown if there was any worker activity
+            } else {
+              currentBucket[key] = Math.round(avgValue);
+            }
+          } else {
+            // For capacity, keep decimal values
+            currentBucket[key] = currentBucket[key] / currentBucket.count;
+            
+            // Update formatted capacity
+            if (key.startsWith('capacity')) {
+              const networkIndex = key.replace('capacity', '');
+              currentBucket[`formattedCapacity${networkIndex}`] = formatCapacity(currentBucket[key]);
+            }
+          }
+        }
+      });
+      result.push({...currentBucket});
+    }
+    
+    return result;
+  };
+  
+  // Update the fetchContractEvents function to include the smoothing steps
   const fetchContractEvents = async (contract, multisig) => {
     if (!contract) return;
     
@@ -121,7 +312,14 @@ const SmartnodesDashboard = ({ contract, multisig }) => {
       // Sort events by timestamp
       enrichedData.sort((a, b) => a.timestamp - b.timestamp);
       
-      setChartData(enrichedData);
+      // Apply data smoothing steps:
+      // 1. First, aggregate the data to reduce the number of points (6-hour intervals)
+      const aggregatedData = aggregateData(enrichedData, 4);
+      
+      // 2. Then, apply a moving average to smooth out the remaining noise
+      const smoothedData = applyMovingAverage(aggregatedData, 1);
+      
+      setChartData(smoothedData);
       setLoading(false);
       
     } catch (error) {
@@ -129,7 +327,7 @@ const SmartnodesDashboard = ({ contract, multisig }) => {
       setError(`Error fetching events: ${error.message}`);
       setLoading(false);
     }
-  };  
+  };
 
   useEffect(() => {
     fetchContractEvents(contract, multisig);
@@ -147,8 +345,8 @@ const SmartnodesDashboard = ({ contract, multisig }) => {
   }, [theme])
 
   // Different colors for capacities and workers
-  const capacityColors = ['#2563eb', '#16a34a', '#d97706', '#7c3aed', '#0ea5e9'];
-  const workerColors = ['#dc2626', '#ef4444', '#f97316', '#ec4899', '#8b5cf6'];
+  const capacityColors = ['#16a34a', '#d97706', '#7c3aed', '#7c3aed', '#0ea5e9'];
+  const workerColors = ['#ef4444', '#f97316', '#ec4899', '#ec4899', '#8b5cf6'];
 
   // Count how many networks we have data for
   const getNetworkCount = () => {
@@ -176,6 +374,7 @@ const SmartnodesDashboard = ({ contract, multisig }) => {
         label: `${networkTitles[i] || `Network ${i + 1}`}`,
         color: workerColors[i % workerColors.length],
         showMark: false,
+        area: 'rgba(75, 192, 192, 0.2)' // Or use rgba with alpha channel
       });
     }
 
@@ -358,15 +557,22 @@ const SmartnodesDashboard = ({ contract, multisig }) => {
 
   return (
     <Box p={2}
-      className="-mr-7 -ml-2 xs:-mr-0 xs:-ml-0"
+      className="-mr-14 -ml-8 md:-mr-7 md:-ml-2 xs:-mr-0 xs:-ml-0"
     >
       {/* Workers chart for all networks */}
       <ChartContainer title="Active Workers">
         <LineChart
           height={320}
           series={workersChartData.series}
+          grid={{ 
+            vertical: true,                    // Show vertical grid lines
+            horizontal: true,                  // Show horizontal grid lines
+            strokeDasharray: '3 3',            // Dashed lines for grid
+            color: 'rgba(128, 128, 128, 0.2)'  // Grid line color
+          }}
           xAxis={workersChartData.xAxis}
-          curve="catmullRom" // Makes the line curvy
+          curve="natural" // Makes the line curvy
+          margin={{ left: 65, right: -5 }}
           slotProps={{
             legend: {
               position: {
@@ -381,7 +587,7 @@ const SmartnodesDashboard = ({ contract, multisig }) => {
       </ChartContainer>
 
       {/* Spacer for better separation */}
-      <div className="py-4" />
+      <div className="xs:py-4" />
 
       {/* Capacity chart for all networks */}
       <ChartContainer title="Network Capacities">
@@ -394,7 +600,7 @@ const SmartnodesDashboard = ({ contract, multisig }) => {
               valueFormatter: (value) => formatCapacity(value),
             }
           ]}
-          curve="catmullRom" // Makes the line curvy
+          curve="natural" // Makes the line curvy
           margin={{ left: 65, right: -5 }}
           slotProps={{
             legend: {
@@ -406,6 +612,12 @@ const SmartnodesDashboard = ({ contract, multisig }) => {
               itemMarkHeight: 2,
               className: "text-sm text-gray-300",
             },
+          }}
+          grid={{ 
+            vertical: true,                    // Show vertical grid lines
+            horizontal: true,                  // Show horizontal grid lines
+            strokeDasharray: '3 3',            // Dashed lines for grid
+            color: 'rgba(128, 128, 128, 0.2)'  // Grid line color
           }}
         />
       </ChartContainer>

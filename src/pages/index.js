@@ -11,5 +11,5 @@ export {
     SmartnodesLanding,
     SmartnodesApp,
     Smartnodes,
-    TensorLinkLanding,
+    TensorLinkLanding
 }

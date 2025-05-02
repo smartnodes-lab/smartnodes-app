@@ -1,37 +1,86 @@
+
+// FeedbackCard Component
+import { useState } from "react";
 import AnimatedLottie from "./animations/AnimatedLottie";
 
-const FeedbackCard = ({ content, name, title, img, blur, link }) => (
-  <a href={link} className="no-underline mr-5 relative"> {/* Add relative positioning here */}
-    <div className={`flex flex-col px-10 mx-5 py-12 rounded-[20px] sm:h-[400px] md:h-[500px] xl:h-[550px] max-w-[500px] lg:max-w-[390px] md:max-w-[320px] my-5 feedback-card ${blur ? 'blur' : ''}`}>
-      <div className="flex flex-row items-center">
-        <div className="max-w-[100px] min-w-[30px] ss:block hidden">
-          <AnimatedLottie
-            animationData={img}
-            alt={name}
-            loop={true}
-          />
+const FeedbackCard = ({ content, name, title, img, blur, link }) => {
+  const [isHovered, setIsHovered] = useState(false);
+  
+  // Determine background color based on title (to create variety like in WhyTensorlink)
+  const getBackgroundColor = () => {
+    if (title.toLowerCase().includes("tensor") || title.toLowerCase().includes("train")) {
+      return isHovered ? "bg-purple-800" : "bg-pink-700";
+    } else if (title.toLowerCase().includes("data") || title.toLowerCase().includes("smart")) {
+      return isHovered ? "bg-red-500" : "bg-red-400";
+    } else {
+      return isHovered ? "bg-blue-600" : "bg-blue-500";
+    }
+  };
+  
+  return (
+    <a 
+      href={link} 
+      className="no-underline block w-full"
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+    > 
+      <div 
+        className={`relative rounded-lg p-3 xs:p-5 transition-all duration-300 border border-gray-200 dark:border-gray-700 h-full 
+          ${blur ? 'opacity-50' : ''} 
+          ${isHovered ? 'shadow-lg transform -translate-y-1' : 'bg-zinc-100 dark:bg-gray-800 hover:shadow-md'}
+          ${blur ? 'bg-gray-200 dark:bg-gray-700' : isHovered ? getBackgroundColor() : 'bg-white dark:bg-gray-800'}
+        `}
+      >
+        <div className="flex items-center">
+          {/* Smaller icon container for mobile */}
+          <div className={`flex items-center justify-center rounded-lg w-10 h-10 sm:w-12 sm:h-12 ${isHovered ? 'bg-zinc-100 bg-opacity-20' : getBackgroundColor()}`}>
+            {/* Animation container that fills its parent */}
+            <div className="w-full h-full flex items-center justify-center p-1">
+              <AnimatedLottie
+                animationData={img}
+                alt={name}
+                loop={true}
+              />
+            </div>
+          </div>
+          <div className="ml-2 sm:ml-3 flex-1 min-w-0">
+            <h3 className={`text-base sm:text-lg font-bold ${isHovered ? 'text-white' : 'text-gray-900 dark:text-white'} truncate`}>
+              {title}
+            </h3>
+            <p className={`text-sm ${isHovered ? 'text-white text-opacity-80' : 'text-gray-600 dark:text-gray-400'}`}>
+              {name}
+            </p>
+          </div>
         </div>
-        <div className="flex flex-col ml-4">
-          <h4 className="font-poppins font-semibold text-xl leading-[32px] text-white mb-1">
-            {title}
-          </h4>
-          <h4 className="font-poppins text-xl leading-[24px] text-gray-200">
-            {name}
-          </h4>
+        
+        <p className={`mt-3 px-2 sm:mt-4 ${isHovered ? 'text-white' : 'text-gray-700 dark:text-gray-300'} text-md leading-relaxed line-clamp-4 sm:line-clamp-5`}>
+          {content}
+        </p>
+        
+        {/* Call to action button */}
+        <div className="mt-3 sm:mt-4">
+          <button 
+            className={`px-2 sm:px-3 py-1 rounded-lg transition-all text-xs font-medium 
+              ${isHovered 
+                ? 'bg-white text-gray-900 hover:bg-gray-100' 
+                : 'bg-gradient-to-r from-purple-500 to-blue-500 hover:from-purple-600 hover:to-blue-600 text-white'
+              }`}
+          >
+            Learn More
+          </button>
         </div>
+        
+        {/* Overlay text for coming soon items */}
+        {blur && (
+          <div className="absolute inset-0 flex items-center justify-center">
+            <span className="bg-gradient-to-r from-purple-500 to-blue-500 text-transparent bg-clip-text text-lg sm:text-xl font-bold">
+              Coming Soon
+            </span>
+          </div>
+        )}
       </div>
-      <p className="font-poppins font-normal sm:text-[16px] md:text-[14px] lg:text-[16px] leading-[32.4px] text-white my-10">
-        {content}
-      </p>
-    </div>
-    
-    {/* Overlay text */}
-    {blur && (
-      <div className="absolute inset-0 flex items-center justify-center text-white font-bold text-2xl">
-        Coming soon...
-      </div>
-    )}
-  </a>
-);
+    </a>
+  );
+};
 
 export default FeedbackCard;
