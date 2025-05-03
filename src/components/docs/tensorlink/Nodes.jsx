@@ -1,8 +1,8 @@
 import React from "react";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { vscDarkPlus } from "react-syntax-highlighter/dist/esm/styles/prism";
-import styles, { layout } from "../../style";
-import { NavButton } from "..";
+import styles, { layout } from "../../../style";
+import { NavButton } from "../..";
 
 const privateNetworkExample = `from tensorlink import UserNode, ValidatorNode, WorkerNode, DistributedModel
 import torch, logging, time
@@ -108,8 +108,8 @@ const Nodes = () => (
     </div>
 
     <div className="flex mt-10 mb-10 justify-between max-w-[1300px] w-full">
-      <NavButton title="Model Setup" subtitle="Previous" page="docs/model-setup" />
-      <NavButton title="Mining" subtitle="Next" page="docs/mining" />
+      <NavButton title="Inference APIs" subtitle="Previous" page="tensorlink/docs/api" />
+      <NavButton title="Mining" subtitle="Next" page="tensorlink/docs/mining" />
     </div>
   </section>
 );

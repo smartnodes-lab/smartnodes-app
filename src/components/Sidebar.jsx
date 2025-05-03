@@ -9,7 +9,7 @@ import { sideLinks } from "../constants";
 
 const Sidebar = ({ open, close }) => {
     const { activeMenu, setActiveMenu } = useStateContext();
-    const [openMenuId, setOpenMenuId] = useState("docs");  // Track which menu is open
+    const [openMenuId, setOpenMenuId] = useState("tensorlink/docs");  // Track which menu is open
     const navigate = useNavigate();
 
     const toggleMenu = (id) => {
@@ -74,7 +74,7 @@ const Sidebar = ({ open, close }) => {
                                         {link.sublinks.map((subLink) => (
                                             <Link
                                                 key={subLink.id}
-                                                to={`docs/${subLink.id}`}
+                                                to={`${link.id}/${subLink.id}`}
                                                 className="block mt-5"
                                             >
                                                 <span className="ml-5 font-poppins font-xl dark:text-gray-400 text-gray-900">

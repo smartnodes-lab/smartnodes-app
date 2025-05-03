@@ -18,17 +18,21 @@ import Button from "./Button";
 import TensorlinkDashboard from "./dashboard/TensorlinkDashboard";
 import SmartnodesDashboard from "./dashboard/SmartnodesDashboard";
 import SupplyStatsCard from "./dashboard/SupplyStatsCard";
-import ModelExample from "./docs/ModelExample";
-import WalletSetup from "./docs/WalletSetup";
-import GettingStarted from "./docs/GettingStarted";
-import Overview from "./docs/Overview";
-import Nodes from "./docs/Nodes";
+import ModelExample from "./docs/tensorlink/ModelExample";
+import ApiExample from "./docs/tensorlink/ApiExample";
+import WalletSetup from "./docs/tensorlink/WalletSetup";
+import GettingStarted from "./docs/tensorlink/GettingStarted";
+import Overview from "./docs/tensorlink/Overview";
+import Nodes from "./docs/tensorlink/Nodes";
 import ConnectWalletButton from "./dashboard/ConnectWallet";
 import LocalhostGPT from "./LocalhostGPT";
-import Mining from "./docs/Mining";
-import Community from "./docs/Community";
+import Mining from "./docs/tensorlink/Mining";
+import Community from "./docs/tensorlink/Community";
+import SmartnodesOverview from "./docs/smartnodes/SmartnodesOverview"
 
 export {
+  SmartnodesOverview,
+  ApiExample,
   Mining,
   LocalhostGPT,
   Button,

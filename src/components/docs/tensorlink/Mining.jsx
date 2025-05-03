@@ -1,7 +1,7 @@
-import styles, { layout } from "../../style";
+import styles, { layout } from "../../../style";
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { vscDarkPlus } from 'react-syntax-highlighter/dist/esm/styles/prism';
-import { NavButton } from "..";
+import { NavButton } from "../..";
 
 
 const Mining = () => (
@@ -16,10 +16,10 @@ const Mining = () => (
         </p>
         
         <h3 className={`${styles.landingText2} mt-10 text-xl font-semibold text-gray-800 dark:text-gray-200`}>1. Download the Node Binary</h3>
-        <p className={`${styles.landingText} sm:px-5 md:px-10 dark:text-gray-300 text-black mb-5 mt-5 text-base leading-relaxed`}>
+        <p className={`${styles.landingText2} sm:px-5 md:px-10 dark:text-gray-300 text-black mb-5 mt-5 text-base leading-relaxed`}>
             Visit the <a href="https://github.com/smartnodes-lab/tensorlink/releases" className="text-blue-500 underline hover:text-blue-700 transition-colors">Tensorlink GitHub Releases </a>
-            to download the latest <code className="bg-gray-100 dark:bg-gray-800 px-1.5 py-0.5 rounded text-sm font-mono">tensorlink-miner</code> binary for your operating system. Ensure you have <strong>Python 3</strong> and a 
-            <strong> CUDA-enabled GPU </strong> installed. <br /><em className="text-gray-600 dark:text-gray-400">Note:</em> Multi-GPU utilization and Windows support are not yet available.
+            to download the latest <code className="bg-gray-100 dark:bg-gray-800 px-1.5 py-0.5 rounded text-sm font-mono">tensorlink-miner</code> binary for your operating system. Ensure you have Python 3 and a 
+            CUDA-enabled GPU installed. <em className="text-gray-600 dark:text-gray-400"> Note:</em> Multi-GPU utilization and Windows support are not yet available.
         </p>
 
         <h3 className={`${styles.landingText2} mt-10 text-xl font-semibold text-gray-800 dark:text-gray-200`}>2. Node Configuration</h3>
@@ -28,8 +28,8 @@ const Mining = () => (
         </p>
         <ul className={`${styles.landingText2} sm:px-5 md:px-10 dark:text-gray-300 text-black mb-5 mt-5 list-disc ml-5 text-base leading-relaxed`}>
             <li className="mb-2"><strong className="font-medium">Your Base Wallet Address:</strong> Used to receive rewards.</li>
-            <li className="mb-2"><strong className="font-medium">Optional Idle Script Path:</strong> Specify a GPU mining script or other process to run while the worker is idle.</li>
-            <li>Set <code className="bg-gray-100 dark:bg-gray-800 px-1.5 py-0.5 rounded text-sm font-mono">"mining": "true"</code> to enable mining mode if desired.</li>
+            <li className="mb-2"><strong className="font-medium">Optional Idle Script Path:</strong> Specify a GPU mining script or other process to run while the worker is idle. (TBD)</li>
+            <li>Set <code className="bg-gray-100 dark:bg-gray-800 px-1.5 py-0.5 rounded text-sm font-mono">"mining": "true"</code> to enable mining mode if desired. (TBD)</li>
         </ul>
 
         <h3 className={`${styles.landingText2} mt-10 text-xl font-semibold text-gray-800 dark:text-gray-200`}>3. Run the Worker Node</h3>
@@ -48,8 +48,8 @@ const Mining = () => (
         </p>
         </div>
         <div className="flex mt-10 mb-10 justify-between max-w-[1300px] w-full">
-            <NavButton className="text-left" title="Nodes" subtitle="Previous" page="docs/nodes" />
-            <NavButton title="Community" subtitle="Next" page="docs/community" />
+            <NavButton className="text-left" title="Nodes" subtitle="Previous" page="tensorlink/docs/nodes" />
+            <NavButton title="Community" subtitle="Next" page="tensorlink/docs/community" />
         </div>
     </section>
 );

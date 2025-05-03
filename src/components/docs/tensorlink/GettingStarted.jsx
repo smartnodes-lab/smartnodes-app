@@ -1,8 +1,8 @@
 import React from "react";
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { vscDarkPlus } from 'react-syntax-highlighter/dist/esm/styles/prism';
-import styles, { layout } from "../../style";
-import { NavButton } from "..";
+import styles, { layout } from "../../../style";
+import { NavButton } from "../..";
 
 const codeString = `from tensorlink.roles import User
 
@@ -27,12 +27,12 @@ const GettingStarted = () => (
       </p>
       <ul className="sm:px-10 text-lg dark:text-gray-300 text-black mb-5 ml-10 list-disc">
         <li className="mt-2">
-          <a href="/mining" className="text-blue-400 hover:underline">
+          <a href="mining" className="text-blue-400 hover:underline">
             Contributing Resources (Mining)
           </a>
         </li>
         <li className="mt-2">
-          <a href="/inference" className="text-blue-400 hover:underline">
+          <a href="inference" className="text-blue-400 hover:underline">
             Inference APIs
           </a>
         </li>
@@ -67,8 +67,8 @@ const GettingStarted = () => (
     </div>
 
     <div className="flex mt-10 mb-10 justify-between max-w-[1300px] w-full">
-      <NavButton className="text-left" title="Overview" subtitle="Previous" page="docs/overview" />
-      <NavButton className="text-right" title="Model Setup" subtitle="Next" page="docs/model-setup" />
+      <NavButton className="text-left" title="Overview" subtitle="Previous" page="tensorlink/docs/overview" />
+      <NavButton className="text-right" title="Model Setup" subtitle="Next" page="tensorlink/docs/model" />
     </div>
   </section>
 );

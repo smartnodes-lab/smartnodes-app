@@ -1,12 +1,14 @@
-import Home from "./Home";
+import TensorlinkDocs from "./TensorlinkDocs";
 import Login from "./Login";
 import Smartnodes from "./Smartnodes";
 import SmartnodesLanding from "./SmartnodesLanding";
 import SmartnodesApp from "./SmartnodesApp";
 import TensorLinkLanding from "./TensorLinkLanding";
+import SmartnodesDocs from "./SmartnodesDocs";
 
 export {
-    Home,
+    SmartnodesDocs,
+    TensorlinkDocs,
     Login,
     SmartnodesLanding,
     SmartnodesApp,

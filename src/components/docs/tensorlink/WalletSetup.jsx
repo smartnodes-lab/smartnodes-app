@@ -1,8 +1,8 @@
 import React from "react";
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { vscDarkPlus } from 'react-syntax-highlighter/dist/esm/styles/prism';
-import styles, { layout } from "../../style";
-import { NavButton } from "../../components";
+import styles, { layout } from "../../../style";
+import { NavButton } from "../..";
 import { Link } from "react-router-dom";
 
 const WalletSetup = () => (
@@ -38,8 +38,8 @@ const WalletSetup = () => (
     </div>
 
     <div className="flex mt-10 mb-10 justify-between max-w-[1300px] w-full">
-      <NavButton className="text-left" title="Node Setup" subtitle="Previous" page="docs/nodes" />
-      <NavButton className="text-right" title="Runnig a Model" subtitle="Next" page="docs/model-example" />
+      <NavButton className="text-left" title="Node Setup" subtitle="Previous" page="tensorlink/docs/nodes" />
+      <NavButton className="text-right" title="Runnig a Model" subtitle="Next" page="tensorlink/docs/model-example" />
     </div>
   </section>
 );

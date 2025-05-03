@@ -8,12 +8,12 @@ export const overview = {
 export const portals = [
   {
     title: "Tensorlink Docs",
-    link: "docs",
+    link: "tensorlink/docs",
     img: blocks,
   },
   {
     title: "Running a Node (mining)",
-    link: "docs/mining",
+    link: "tensorlink/docs/mining",
     img: ai,
   },
   // {
@@ -23,7 +23,7 @@ export const portals = [
   // },
   {
     title: "Join the Community",
-    link: "docs/community",
+    link: "tensorlink/docs/community",
     img: community,
   }
 ]
@@ -40,7 +40,15 @@ export const sideLinks = [
       {
         name: "Dashboard",
         id: "app",
-      }
+      },
+      // {
+      //   name: "Documentation",
+      //   id: "docs",
+      //   icon: MdHome,
+      //   sublinks: [
+      //     { id: "overview", name: "Overview"}
+      //   ]
+      // }
     ]
   },
   {
@@ -53,17 +61,18 @@ export const sideLinks = [
       },
       {
         name: "localhostGPT",
-        id: "localhostGPT",
+        id: "tensorlink/localhostGPT",
         icon: MdHome
       },
       {
         name: "Documentation",
-        id: "docs",
+        id: "tensorlink/docs",
         icon: MdHome,
         sublinks: [
           { id: "overview", name: "Overview"},
           { id: "install", name: "Installation"},
-          { id: "model-example", name: "Models & APIs"},
+          { id: "model", name: "Distributed Models"},
+          { id: "api", name: "Inference APIs"},
           { id: "nodes", name: "Nodes"},
           { id: "mining", name: "Mining"},
           // { id: "wallet", name: "Wallet Config"},
@@ -119,7 +128,7 @@ export const features = [
   {
     id: "1",
     title: "Plug-and-Play Integration",
-    content: "Easily tap into distributed computational resources for training and inference in PyTorch. Tensorlink provides wrappers that integrate with existing workflows, along with APIs to connect your applications to advanced AI models."
+    content: "Easily tap into distributed computational resources for training and inference in PyTorch. Tensorlink provides wrappers that integrate with existing torch workflows, along with APIs to connect your applications to advanced AI models."
   },
   {
     id: "2",
@@ -222,10 +231,10 @@ export const footerLinks = [
         name: "Home",
         link: "/",
       },
-      {
-        name: "Litepaper",
-        link: "https://github.com/smartnodes-lab/smartnodes",
-      },
+      // {
+      //   name: "Litepaper",
+      //   link: "https://github.com/smartnodes-lab/smartnodes",
+      // },
       {
         name: "GitHub",
         icon: linkedin,
@@ -289,7 +298,7 @@ export const footerLinks = [
 
 export const socialMedia = [
   {
-    id: "social-media-4",
+    id: "social-media-2",
     icon: discord,
     link: "https://discord.gg/aCW2kTNzJ2",
   },

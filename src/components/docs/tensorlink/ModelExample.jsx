@@ -1,8 +1,8 @@
 import React from "react";
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { vscDarkPlus } from 'react-syntax-highlighter/dist/esm/styles/prism';
-import styles, { layout } from "../../style";
-import { NavButton } from "..";
+import styles, { layout } from "../../../style";
+import { NavButton } from "../..";
 
 
 const codeStringDistributedModel = `from tensorlink import DistributedModel
@@ -80,23 +80,23 @@ print(generated_text)`;
 const ModelExample = () => (
   <section className="px-6 md:px-10 flex flex-col border-t dark:border-t-white border-t-black items-center">
     <div className="xs:ml-10 lg:ml-0 ml-3 text-left mt-12 max-w-[1280px] justify-center items-center">
-      <div className="flex items-center ml-1 mb-6 mt-5">
+      <div className="flex items-center ml-3 mb-6 mt-5 xs:px-0 px-10">
         <div className="bg-red-600 h-8 w-2 mr-4 rounded-lg"></div>
         <h1 className="text-xl sm:text-3xl dark:text-zinc-100 font-bold">Training and Inference with Tensorlink</h1>
       </div>
       
-      <p className={`${styles.landingText2} sm:px-10 px-6 text-lg dark:text-gray-300 text-black mb-5 mt-5`}>
+      <p className={`${styles.landingText2} sm:px-5 md:px-10 dark:text-gray-300 text-black mb-5 mt-5 px-24 list-disc pl-16`}>
         A <code className="bg-gray-200 dark:bg-gray-800 px-1 py-0.5 rounded">DistributedModel</code> is a wrapper that automatically connects your machine to the Tensorlink network and offloads your
         model to available Workers. It behaves like a standard PyTorch model and supports three ways to define the model:
       </p>
       
-      <ul className={`list-disc pl-10 mb-8 space-y-2 xs:ml-8 px-6 ${styles.landingText2} sm:px-10 text-lg dark:text-gray-300 text-black mb-5 mt-5`}>
+      <ul className={`${styles.landingText2} sm:px-5 md:px-10 dark:text-gray-300 text-black mb-5 mt-5 px-24 list-disc pl-20`}>
         <li>A Hugging Face model name (e.g. <code className="bg-gray-200 dark:bg-gray-800 px-1 py-0.5 rounded">"Qwen/Qwen2.5-7B-Instruct"</code>)</li>
         <li>A custom <code className="bg-gray-200 dark:bg-gray-800 px-1 py-0.5 rounded">torch.nn.Module</code> object</li>
         <li>A local file path to saved model parameters (<code className="bg-gray-200 dark:bg-gray-800 px-1 py-0.5 rounded">.pt</code> or <code className="bg-gray-200 dark:bg-gray-800 px-1 py-0.5 rounded">.bin</code>)</li>
       </ul>
 
-      <p className={`${styles.landingText2} sm:px-10 px-6 text-lg dark:text-gray-300 text-black mb-5 mt-5`}>
+      <p className={`${styles.landingText2} px-14 xs:px-20`}>
         You can also use the distributed model to spawn an optimizer using <code className="bg-gray-200 dark:bg-gray-800 px-1 py-0.5 rounded">DistributedModel.create_optimizer</code>, 
         which handles remote synchronization automatically.
       </p>
@@ -111,7 +111,7 @@ const ModelExample = () => (
         <div className="bg-blue-600 h-8 w-2 mr-4 rounded-lg"></div>
         <h2 className="text-xl sm:text-3xl dark:text-zinc-100 font-bold">Inference Example</h2>
       </div>
-      <p className={`${styles.landingText2} px-10 text-lg dark:text-gray-300 text-black mb-5 mt-5`}>
+      <p className={`${styles.landingText2} sm:px-5 md:px-10 dark:text-gray-300 text-black mb-5 mt-5 px-24 list-disc pl-16`}>
         For inference, initialize your distributed model with <code className="bg-gray-200 dark:bg-gray-800 px-1 py-0.5 rounded">training=False</code> (default).
         This optimizes the model for inference workloads.
       </p>
@@ -125,7 +125,7 @@ const ModelExample = () => (
         <div className="bg-blue-600 h-8 w-2 mr-4 rounded-lg"></div>
         <h2 className="text-xl sm:text-3xl dark:text-zinc-100 font-bold">Training Example</h2>
       </div>
-      <p className={`${styles.landingText2} px-10 text-lg dark:text-gray-300 text-black mb-5 mt-5`}>
+      <p className={`${styles.landingText2} sm:px-5 md:px-10 dark:text-gray-300 text-black mb-5 mt-5 px-24 list-disc pl-16`}>
         If you've initialized your distributed model with <code className="bg-gray-200 dark:bg-gray-800 px-1 py-0.5 rounded">training=True</code>, 
         you can train it like any PyTorch model. The optimizer created with <code className="bg-gray-200 dark:bg-gray-800 px-1 py-0.5 rounded">create_optimizer</code> 
         method will handle the synchronization of gradients across workers. By default, Tensorlink uses Adam, however you can specify
@@ -145,8 +145,8 @@ const ModelExample = () => (
     </div>
 
     <div className="flex mt-10 mb-10 justify-between max-w-[1300px] w-full">
-      <NavButton className="text-left" title="Getting Started" subtitle="Previous" page="docs/install" />
-      <NavButton title="Nodes" subtitle="Next" page="docs/nodes" />
+      <NavButton className="text-left" title="Getting Started" subtitle="Previous" page="tensorlink/docs/install" />
+      <NavButton title="Inference APIs" subtitle="Next" page="tensorlink/docs/api" />
     </div>
   </section>
 )

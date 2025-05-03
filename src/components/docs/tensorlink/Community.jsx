@@ -1,5 +1,5 @@
-import styles, { layout } from "../../style";
-import { NavButton } from "..";
+import styles, { layout } from "../../../style";
+import { NavButton } from "../..";
 
 const Community = () => (
   <section className="px-6 md:px-10 flex flex-col border-t dark:border-t-white border-t-black items-center">
@@ -58,7 +58,7 @@ const Community = () => (
     </div>
 
     <div className="flex mt-10 mb-10 justify-between max-w-[1300px] w-full">
-      <NavButton className="text-left" title="Mining" subtitle="Previous" page="docs/mining" />
+      <NavButton className="text-left" title="Mining" subtitle="Previous" page="tensorlink/docs/mining" />
     </div>
   </section>
 );

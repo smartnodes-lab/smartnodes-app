@@ -44,35 +44,34 @@ const Example = () => {
           </h2>
 
           {/* Subtitle */}
-          <div className="mt-6 max-w-lg">
+          <div className="mt-6 max-w-2xl">
             <p className={`${styles.landingText} text-gray-700 dark:text-gray-300 text-center xs:text-left text-lg`}>
               Empowering users with cutting-edge tools for rapid, scalable, distributed model deployment in PyTorch. Unleash the potential 
               of larger, more powerful AI models with Tensorlink.
             </p>
             
-            <div className="mt-8 flex flex-col xs:flex-row items-center gap-4">
-              <a href="#get-started">
-                <button 
-                  className="px-8 py-3 bg-purple-600 hover:bg-blue-700 text-white font-medium rounded-lg transition-colors w-full sm:w-auto"
-                >
+            <div className="mt-8 flex flex-wrap items-center gap-4">
+              <a href="#get-started" className="w-full sm:w-auto">
+                <button className="px-8 py-3 bg-purple-600 hover:bg-blue-700 text-white font-medium rounded-lg transition-colors w-full h-12 flex items-center justify-center">
                   Get Started
                 </button>
               </a>
-              <a href="https://github.com/smartnodes-lab/tensorlink/blob/main/README.md">
-                <button className="px-8 py-3 border border-gray-300 dark:border-gray-700 hover:bg-gray-100 dark:hover:bg-gray-800 text-gray-800 dark:text-gray-200 font-medium rounded-lg transition-colors w-full sm:w-auto">
+              <a href="tensorlink/docs" className="w-full sm:w-auto">
+                <button className="px-8 py-3 border border-gray-300 dark:border-gray-700 hover:bg-gray-100 dark:hover:bg-gray-800 text-gray-800 dark:text-gray-200 font-medium rounded-lg transition-colors w-full h-12 flex items-center justify-center">
                   Documentation
                 </button>
               </a>
-              <a href="localhostGPT">
-                <div className="relative rounded-lg p-0.5 overflow-hidden bg-gradient-to-r from-blue-500 to-purple-600 w-full sm:w-auto">
-                <button
-                  className="relative rounded-lg p-0.5 overflow-hidden bg-gradient-to-r from-blue-500 to-purple-600 w-full sm:w-auto"
-                >
-                  <div className="px-5 py-3 bg-black text-white font-medium rounded-md transition-colors w-full relative z-10">
+              <a href="tensorlink/localhostGPT" className="w-full sm:w-auto">
+                <div className="relative rounded-lg overflow-hidden bg-gradient-to-r from-blue-500 to-purple-600 w-full h-12 flex items-center justify-center">
+                  <div className="bg-black text-white font-medium w-full h-full px-8 flex items-center justify-center">
                     Demo
                   </div>
-                </button>
                 </div>
+              </a>
+              <a href="https://discord.com/invite/aCW2kTNzJ2" target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto">
+                <button className="px-8 py-3 border-2 border-black dark:border-gray-300 bg-indigo-700 hover:bg-blue-700 text-white font-medium rounded-lg transition-colors w-full h-12 flex items-center justify-center">
+                  Discord
+                </button>
               </a>
             </div>
           </div>
@@ -81,19 +80,19 @@ const Example = () => {
         {/* Features Section */}
         <div className="w-full items-center mt-8">
           <div className="flex justify-center min-w-full">
-            <div className="mb-10 z-10 flex max-w-6xl flex-col md:flex-row md:items-start justify-center items-center w-full gap-6 lg:gap-8">
+            <div className="mb-10 z-10 flex max-w-6xl flex-col md:flex-row md:items-stretch justify-center items-center w-full gap-6 lg:gap-8">
               {features.map((feature, index) => (
                 <div 
                   key={index} 
                   className={`p-6 rounded-xl bg-gray-100 dark:bg-gray-800 shadow-sm hover:shadow-md transition-all flex-1 
-                              border border-gray-200 dark:border-gray-700`}
+                              border border-gray-200 dark:border-gray-700 flex flex-col`}
                 >
                   <div className="flex items-center mb-4">
                     {feature.icon && <feature.icon className="w-6 h-6 mr-3 text-blue-600" />}
                     <p className="text-xl font-bold text-gray-900 dark:text-white">{feature.title}</p>
                   </div>
                   <div className="w-16 h-1 bg-blue-600 mb-4"></div>
-                  <p className="text-gray-700 mb-3 dark:text-gray-300 text-base">{feature.content}</p>
+                  <p className="text-gray-700 dark:text-gray-300 text-base flex-grow">{feature.content}</p>
                 </div>
               ))}
             </div>

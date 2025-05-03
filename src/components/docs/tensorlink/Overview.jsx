@@ -1,6 +1,6 @@
 import React from "react";
-import styles, { layout } from "../../style";
-import { NavButton } from "..";
+import styles, { layout } from "../../../style";
+import { NavButton } from "../..";
 
 
 const Overview = () => (
@@ -25,7 +25,10 @@ const Overview = () => (
         the need for costly, centralized infrastructure.
       </p>
 
-      <h2 className="text-2xl dark:text-slate-50 font-semibold mt-12 mb-6">Key Features</h2>
+      <div className="flex items-center mb-6 mt-10">
+        <div className="bg-red-500 h-8 w-2 mr-4 rounded-lg"></div>
+        <h2 className="text-lg sm:text-2xl dark:text-zinc-100 font-bold">Key Features</h2>
+      </div>
       <p className={`${styles.landingText2} sm:px-5 md:px-10 text-lg dark:text-gray-300 text-black mb-5 mt-5`}>
         Tensorlink integrates directly into PyTorch codebases through lightweight wrappers around core PyTorch objects such as modules and optimizers. This allows developers 
         to maintain familiar workflows while scaling models dynamically across a distributed compute network. By enabling collaboration and resource-sharing between users, 
@@ -73,10 +76,10 @@ const Overview = () => (
       <p className={`${styles.landingText2} sm:px-5 md:px-10 text-lg dark:text-gray-300 text-black mb-5 mt-5`}>
         Tensorlink offers specialized workflows for privacy-preserving training, safeguarding sensitive data by obfuscating input data and fragmenting models. Future advancements like homomorphic encryption could provide additional security layers.
       </p> */}
-    </div>
-    <h3 className={`${styles.subheading2} mt-10 pt-5 pl-4`}>
-      Current Limitations
-    </h3>      
+      <div className="flex items-center mb-6 mt-10">
+      <div className="bg-purple-500 h-8 w-2 mr-4 rounded-lg"></div>
+      <h2 className="text-lg sm:text-2xl dark:text-zinc-100 font-bold">Current Limitations</h2>
+    </div>  
     <p className={`${styles.landingText2} sm:px-5 md:px-10 text-lg dark:text-gray-300 text-black mb-5 mt-5`}>
       As Tensorlink is still in its early release phase, users may encounter bugs, performance inconsistencies, and limited
       network availability. As the network matures, these limitations are expected to be progressively addressed.
@@ -94,9 +97,11 @@ const Overview = () => (
       are relatively unaffected. This may pose challenges for latency-sensitive or high-throughput training and inference scenarios in Python.
       Fibre internet and over ethernet is recommended for the best performance.
     </p>
+  </div>
+    
     <div className="flex mt-16 mb-10 justify-between max-w-[1300px] w-full">
-      <NavButton className="text-left" title="Home" subtitle="Previous" page="" />
-      <NavButton className="text-right" title="Getting Started" subtitle="Next" page="docs/install" />
+      <NavButton className="text-left" title="Home" subtitle="Previous" page="tensorlink" />
+      <NavButton className="text-right" title="Getting Started" subtitle="Next" page="tensorlink/docs/install" />
     </div>
   </section>
 

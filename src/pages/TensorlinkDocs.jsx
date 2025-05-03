@@ -1,9 +1,9 @@
 import React, { useEffect } from "react";
-import { Routes, Route } from "react-router-dom";
-import { Overview, WalletSetup, Community, Mining, GettingStarted, ModelExample, Nodes } from "../components";
+import { Routes, Outlet, Route } from "react-router-dom";
+import { Overview, WalletSetup, ApiExample, Community, Mining, GettingStarted, ModelExample, Nodes } from "../components";
 import { useStateContext } from "../contexts/contextProvider";
 
-const Home = () => {
+const TensorlinkDocs = () => {
   const { setActiveMenu } = useStateContext();
 
   useEffect(() => {
@@ -25,14 +25,16 @@ const Home = () => {
         <Route index element={<Overview />} />
         <Route path="overview" element={<Overview />} />
         <Route path="install" element={<GettingStarted />} />
-        <Route path="model-setup" element={<ModelExample />} />
+        <Route path="model" element={<ModelExample />} />
+        <Route path="api" element={<ApiExample />} />
         <Route path="nodes" element={<Nodes />} />
         <Route path="mining" element={<Mining />} />
         <Route path="community" element={<Community />} />
         <Route path="wallet" element={<WalletSetup />} />
       </Routes>
+      {/* <Outlet /> */}
     </div>
   );
 };
 
-export default Home;
+export default TensorlinkDocs;

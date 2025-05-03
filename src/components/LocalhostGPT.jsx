@@ -68,20 +68,26 @@ const LocalhostGPT = () => {
     }
   }, [messages]);
 
-  // Add this to prevent scroll issues when focusing the input on mobile
   const handleInputFocus = () => {
-    // Small delay to let the keyboard appear first
     setTimeout(() => {
-      window.scrollTo(0, 0);
-      document.body.scrollTop = 0; // For Safari
-      
-      // Prevent automatic scrolling to the input
+      // Scroll to top to avoid keyboard pushing things around
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+  
+      // Handle Safari's scroll behavior
+      document.body.scrollTop = 0;
+      document.documentElement.scrollTop = 0;
+  
+      // Refocus input to ensure it's ready for typing
       if (inputRef.current) {
-        inputRef.current.blur();
-        inputRef.current.focus();
+        const input = inputRef.current;
+        // Only refocus if not already focused
+        if (document.activeElement !== input) {
+          input.blur(); // temporarily blur
+          input.focus(); // re-focus
+        }
       }
-    }, 50);
-  };
+    }, 100); // 100ms often works better across iOS/Android
+  };  
 
   // Save model parameters when changed
   useEffect(() => {
@@ -271,7 +277,7 @@ const LocalhostGPT = () => {
       ref={containerRef}
     >
       {/* Header - Always visible */}
-      <header className="flex justify-between items-center p-3 border-b border-gray-300 dark:border-gray-700 bg-zinc-200 dark:bg-gray-800 shadow-sm">
+      <header className="flex justify-between items-center p-3 border-b border-gray-300 dark:border-gray-700 bg-zinc-200 dark:bg-zinc-800 shadow-sm">
         <div className="flex items-center">
           <button 
             onClick={toggleInfo}
@@ -308,51 +314,53 @@ const LocalhostGPT = () => {
       {/* Main content - Responsive layout */}
       <div className="flex flex-1 overflow-hidden">
         {/* Info sidebar - Conditional render based on screen size and toggle state */}
-        <div 
-          className={`${
-            infoVisible ? 'block' : 'hidden'
-          } sm:w-80 md:w-96 bg-zinc-200 dark:bg-gray-800 border-r border-gray-300 dark:border-gray-700 flex-shrink-0 overflow-auto z-10 fixed sm:relative h-full sm:h-auto top-12 sm:top-0 left-0 shadow-lg sm:shadow-none ${
-            infoVisible ? 'w-full sm:block' : 'sm:hidden'
-          }`}
-        >
-          <div className="p-4">
-            <h2 className="text-xl font-bold text-gray-900 dark:text-white mb-3">
-              About localhostGPT
-            </h2>
-            <p className="text-sm text-gray-700 dark:text-gray-300 mb-4">
-              Experience Tensorlink with a model hosted on our peer-to-peer network. 
-              This demo features <strong>localhostGPT</strong>—a desktop app for
-              running private, local chatbots and other AI tools.
-            </p>
-            <div className="flex flex-col space-y-3">
-              <a 
-                href="https://github.com/mattjhawken/localhostgpt" 
-                className="px-4 py-2 bg-gradient-to-r from-purple-500 to-blue-500 hover:from-purple-600 hover:to-blue-600 text-white font-medium rounded-lg text-sm flex items-center gap-2 shadow-md"
-                target="_blank" 
-                rel="noopener noreferrer"
-              >
-                <Github size={16} />
-                <span>GitHub Repository</span>
-              </a>
-              <a 
-                href="tensorlink" 
-                className="px-4 py-2 bg-gray-600 hover:bg-gray-700 text-white font-medium rounded-lg text-sm flex items-center gap-2 shadow-md"
-              >
-                <ArrowLeft size={16} />
-                <span>Back to Home</span>
-              </a>
+        {infoVisible && (
+          <div className="sm:w-80 md:w-96 bg-zinc-200 dark:bg-zinc-700 border-r border-gray-300 dark:border-zinc-700 flex-shrink-0 overflow-auto z-10 sm:relative">
+            {/* On mobile: full screen overlay with proper positioning */}
+            <div className="static xs:max-w-full max-w-[250px] inset-0 sm:inset-auto bg-zinc-200 dark:bg-zinc-700 sm:bg-transparent sm:dark:bg-transparent pt-16 sm:pt-0">
+              <div className="p-4">
+                <h2 className="text-xl font-bold text-gray-900 dark:text-white mb-3">
+                  About localhostGPT
+                </h2>
+                <p className="text-sm text-gray-700 dark:text-gray-300 mb-4">
+                  This demo features <strong>localhostGPT</strong>, a desktop and mobile app designed for running chatbots and other AI tools. 
+                  By leveraging Tensorlink to offload compute across peers, localhostGPT combines cloud-level performance while giving you more control of your models and data.
+                </p>
+                <p className="text-sm text-gray-700 dark:text-gray-300 mb-4">
+                  <strong>Note:</strong> This website feature is a demonstration of the app, and many of the features you might expect from a chatbot are not available in this website format.
+                  If you're interested in learning more or getting involved, feel free to explore the GitHub link below.
+                </p>
+                <div className="flex flex-col space-y-3">
+                  <a 
+                    href="https://github.com/mattjhawken/localhostgpt" 
+                    className="px-4 py-2 bg-gradient-to-r from-purple-500 to-blue-500 hover:from-purple-600 hover:to-blue-600 text-white font-medium rounded-lg text-sm flex items-center gap-2 shadow-md"
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                  >
+                    <Github size={16} />
+                    <span>GitHub Repository</span>
+                  </a>
+                  <a 
+                    href="tensorlink" 
+                    className="px-4 py-2 bg-gray-600 hover:bg-gray-700 text-white font-medium rounded-lg text-sm flex items-center gap-2 shadow-md"
+                  >
+                    <ArrowLeft size={16} />
+                    <span>Back to Home</span>
+                  </a>
+                </div>
+                
+                {/* Mobile-only close button */}
+                <button 
+                  onClick={toggleInfo}
+                  className="mt-6 sm:hidden w-full px-4 py-2 bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-white font-medium rounded-lg text-sm flex items-center justify-center gap-2"
+                >
+                  <X size={16} />
+                  <span>Close panel</span>
+                </button>
+              </div>
             </div>
-            
-            {/* Mobile-only close button */}
-            <button 
-              onClick={toggleInfo}
-              className="mt-6 sm:hidden w-full px-4 py-2 bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-white font-medium rounded-lg text-sm flex items-center justify-center gap-2"
-            >
-              <X size={16} />
-              <span>Close panel</span>
-            </button>
           </div>
-        </div>
+        )}
 
         {/* Settings modal - conditionally rendered */}
         {showSettings && (
@@ -457,7 +465,7 @@ const LocalhostGPT = () => {
           {/* Messages area - Scrollable */}
           <div 
             ref={chatContainerRef}
-            className="flex-1 overflow-y-auto p-4 bg-gray-200 dark:bg-gray-900"
+            className="flex-1 overflow-y-auto p-4 bg-gray-200 dark:bg-zinc-900"
           >
             {messages.length === 0 ? (
               <div className="h-full flex items-center justify-center">
@@ -554,7 +562,7 @@ const LocalhostGPT = () => {
           </div>
           
           {/* Input form - Fixed at bottom */}
-          <div className="p-3 py-5 border-t border-gray-300 dark:border-gray-700 bg-zinc-200 dark:bg-gray-800">
+          <div className="p-3 py-5 border-t border-gray-300 dark:border-gray-700 bg-zinc-200 dark:bg-zinc-800">
             <form onSubmit={handleSendMessage} className="flex gap-2 max-w-3xl mx-auto">
               <input
                 ref={inputRef}
