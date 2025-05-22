@@ -21,7 +21,7 @@ const SmartnodesLanding = () => {
         <MainHero2 />
         <Opportunity />
         <Testimonials style={{ zIndex: 0 }} />
-        <LaunchApp />
+        {/* <LaunchApp /> */}
       </div>
     </div>
   )

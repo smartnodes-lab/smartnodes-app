@@ -62,7 +62,7 @@ const MainHero = () => {
   }, []);
 
   return (
-    <section className={`${styles.section}`} style={{ zIndex: 100000 }}>
+    <section className={`${styles.section}`}>
       <div className={`items-center lg:px-0 px-20 rounded-md mt-10 ${styles.content}`}>
         <div className={`${styles.contentBox} flex-row mt-2 mb-2`}>
           <div className="min-w-[305px] mr-10 hidden md:block">

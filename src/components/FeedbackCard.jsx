@@ -58,17 +58,19 @@ const FeedbackCard = ({ content, name, title, img, blur, link }) => {
         </p>
         
         {/* Call to action button */}
-        <div className="mt-3 sm:mt-4">
-          <button 
-            className={`px-2 sm:px-3 py-1 rounded-lg transition-all text-xs font-medium 
-              ${isHovered 
-                ? 'bg-white text-gray-900 hover:bg-gray-100' 
-                : 'bg-gradient-to-r from-purple-500 to-blue-500 hover:from-purple-600 hover:to-blue-600 text-white'
-              }`}
-          >
-            Learn More
-          </button>
-        </div>
+        {!blur && (
+          <div className="mt-3 sm:mt-4">
+            <button 
+              className={`px-2 sm:px-3 py-1 rounded-lg transition-all text-xs font-medium 
+                ${isHovered 
+                  ? 'bg-white text-gray-900 hover:bg-gray-100' 
+                  : 'bg-gradient-to-r from-purple-500 to-blue-500 hover:from-purple-600 hover:to-blue-600 text-white'
+                }`}
+            >
+              Learn More
+            </button>
+          </div>
+        )}
         
         {/* Overlay text for coming soon items */}
         {blur && (

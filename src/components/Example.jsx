@@ -39,7 +39,6 @@ const Example = () => {
             Distributed<br />
             <span className="text-blue-600 dark:text-blue-400">Neural Networks</span><br />
             for <span className="text-red-500">PyTorch</span>
-            <img className="inline bg-transparent h-9 mb-7" src="https://pytorch.org/assets/images/pytorch-logo.png" alt="PyTorch Logo" />
             <br />
           </h2>
 

@@ -16,7 +16,7 @@ Existing PyTorch code...
 
 const GettingStarted = () => (
   <section path="/docs/install" className="px-5 md:px-10 flex flex-col border-t dark:border-t-white border-t-black items-center h-full w-full">
-    <div className="text-left px-5 xs:px-0 mt-20 max-w-[1280px] justify-center items-center">
+    <div className="text-left px-5 xs:px-0 mt-10 max-w-[1280px] justify-center items-center">
       <div className="flex items-center mb-6 mt-5">
         <div className="bg-purple-600 h-8 w-2 mr-4 rounded-lg"></div>
         <h1 className="text-xl sm:text-3xl dark:text-zinc-100 font-bold">Getting Started with Tensorlink</h1>

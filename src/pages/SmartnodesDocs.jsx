@@ -12,7 +12,7 @@ const SmartnodesDocs = () => {
   }, []); 
 
   const Disclaimer = () => (
-    <div className="bg-yellow-100 mt-7 p-4 rounded-lg border-l-4 border-yellow-500">
+    <div className="bg-yellow-100 mt-7 p-4 border-l-4 border-yellow-500">
       <p className="text-yellow-800 dark:text-black font-medium">
         ⚠️ <strong>Smartnodes is under development,</strong> and is not recommended for production environments.
       </p>

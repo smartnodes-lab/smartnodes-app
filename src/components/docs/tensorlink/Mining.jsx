@@ -12,7 +12,11 @@ const Mining = () => (
           <h1 className="text-xl sm:text-3xl dark:text-zinc-100 font-bold">Running a Node (Mining)</h1>
         </div>
         <p className={`${styles.landingText2} sm:px-5 md:px-10 dark:text-gray-300 text-black mb-5 mt-5`}>
-          Contributing compute to Tensorlink is as simple as running a node. Whether you're a hobbyist with a spare GPU or managing a cluster of machines, your hardware can help power real-world machine learning workflows across the network. By mining with Tensorlink, you join a decentralized ecosystem that rewards contributors for supporting distributed inference and training jobs, no special setup required.
+            Contributing compute to Tensorlink is as simple as running a node. Whether you're a hobbyist with a spare GPU or managing a cluster of machines, your hardware can help power real-world machine learning workflows across the network. By mining with Tensorlink, you join a decentralized ecosystem that rewards contributors for supporting distributed inference and training jobs, no special setup required.
+        </p>
+
+        <p className={`${styles.landingText2} sm:px-5 md:px-10 dark:text-gray-300 text-black mb-5 mt-2`}>
+            <strong>Minimum requirements:</strong> a modern NVIDIA GPU with CUDA support (e.g., RTX 30xx or better), at least 16 GB of RAM (32+ GB recommended), and a Linux environment: Ubuntu 20.04+ is strongly preferred for compatibility and performance. Multi-GPU support and Windows compatibility are still in development.
         </p>
         
         <h3 className={`${styles.landingText2} mt-10 text-xl font-semibold text-gray-800 dark:text-gray-200`}>1. Download the Node Binary</h3>

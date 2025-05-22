@@ -33,10 +33,10 @@ const MainHero = () => {
           {/* Subtitle */}
           <div className="mt-4">
             <p className="text-gray-700 dark:text-gray-200 text-lg leading-relaxed max-w-lg">
-            Smartnodes is a platform designed to power and incentivize peer-to-peer resource sharing in Python: 
-            a leading programming language for data science and machine learning. By leveraging existing and dedicated hardware 
-            across the globe, it establishes a diverse web of tools and compute infrastructure that enable scalable data processing 
-            and scientific computation via APIs and packages.
+              Smartnodes is a platform designed to power and incentivize peer-to-peer resource sharing in Python. 
+              By leveraging existing and dedicated hardware across the globe, it establishes a diverse web of tools 
+              and compute infrastructure that enable scalable data processing and scientific computation via APIs and 
+              programming libraries.
             </p>
           </div>
         </div>

@@ -23,7 +23,7 @@ const App = () => {
 
   // Set activeMenu to true for desktop on initial load
   useEffect(() => {
-    if (window.innerWidth >= 1124) {
+    if (window.innerWidth >= 824) {
       setActiveMenu(true); // Show menu by default on large screens
     }
   }, [setActiveMenu]);

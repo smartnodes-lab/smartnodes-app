@@ -12,7 +12,7 @@ export const portals = [
     img: blocks,
   },
   {
-    title: "Running a Node (mining)",
+    title: "Running a Node",
     link: "tensorlink/docs/mining",
     img: ai,
   },
@@ -307,11 +307,11 @@ export const socialMedia = [
     icon: twitter,
     link: "https://www.twitter.com/smartnodes_lab",
   },
-  {
-    id: "social-media-4",
-    icon: linkedin,
-    link: "https://www.linkedin.com/company/smartnodes-lab",
-  }
+  // {
+  //   id: "social-media-4",
+  //   icon: linkedin,
+  //   link: "https://www.linkedin.com/company/smartnodes-lab",
+  // }
 ];
 
 export const clients = [
