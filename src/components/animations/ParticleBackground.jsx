@@ -46,7 +46,7 @@ const ParticleBackground = () => {
                     opacity: {
                         value: {
                             min: 0.3,
-                            max: 0.7
+                            max: 0.8
                         },
                         random: true
                     },
@@ -84,7 +84,7 @@ const ParticleBackground = () => {
                     },
                     links: {
                         color: "#555555",
-                        distance: 220,
+                        distance: 230,
                         enable: true,
                         opacity: 0.7,
                         width: 0.5,
@@ -105,9 +105,9 @@ const ParticleBackground = () => {
                     number: {
                         density: {
                             enable: true,
-                            area: 400,   
+                            area: 500,   
                         },
-                        value: 8,        
+                        value: 30,        
                     },
                     shape: {
                         type: "circle",
@@ -118,7 +118,7 @@ const ParticleBackground = () => {
                 },
                 detectRetina: true,
                 fullScreen: {
-                    enable: true,
+                    enable: false,
                     zIndex: -1
                 },
             }}

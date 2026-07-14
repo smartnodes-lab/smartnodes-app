@@ -9,8 +9,8 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        light: "rgba(0, 60, 255, 0.15)",
-        dark: "rgba(5, 5, 5, 1)",
+        light: "[#0A0D13]",
+        dark: "rgb(5, 5, 5)",
         secondary: "rgba(26, 82, 255, 0.91)",
         dimWhite: "rgba(255, 255, 255, 0.7)",
         dimBlue: "rgba(9, 151, 124, 0.1)",

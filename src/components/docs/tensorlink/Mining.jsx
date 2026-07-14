@@ -161,7 +161,7 @@ nvidia-smi`}
       "mining": false,
       "mining_script": "path/to/mining.executable",
       "seed_validators": [
-        ["smartnodes.ddns.net", 38751, "58ef79797cd451e19df4a73fbd9871797f9c6a2995783c7f6fd2406978a2ba2e"]
+        ["tensorlink.ddns.net", 38752, "58ef79797cd451e19df4a73fbd9871797f9c6a2995783c7f6fd2406978a2ba2e"]
       ]
     },
     "ml": {

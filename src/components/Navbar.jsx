@@ -11,18 +11,14 @@ import { motion } from "framer-motion";
 const Navbar = () => {
   const [active, setActive] = useState(false);
   const [toggle, setToggle] = useState(false);
-  const [theme, setTheme] = useState(localStorage.getItem("theme") || "dark");
+  const [theme, setTheme] = useState("dark");
   const [networksOpen, setNetworksOpen] = useState(false);
   const { activeMenu, setActiveMenu } = useStateContext();
 
   useEffect(() => {
-    const handleThemeChange = () => {
-      setTheme(localStorage.getItem("theme") || "dark");
-    };
-    window.addEventListener("storage", handleThemeChange);
-    return () => {
-      window.removeEventListener("storage", handleThemeChange);
-    };
+    localStorage.removeItem("theme");
+    setTheme("dark");
+    document.documentElement.classList.add("dark");
   }, []);
 
   const logoSrc = logo;
@@ -116,13 +112,13 @@ const Navbar = () => {
             )}
           </li>
         ))}
-        <div className="ml-5" style={{ zIndex: 100000 }}>
+        {/* <div className="ml-5" style={{ zIndex: 100000 }}>
           <ThemeButton className="px-20" />
-        </div>
+        </div> */}
       </ul>
 
       {/* Mobile menu */}
-      <div className="md:hidden flex flex-1 px-5 justify-end items-center" style={{ zIndex: 1000000 }}>
+      <div className="md:hidden flex flex-1 px-5 justify-end items-center" style={{ zIndex: 100000000 }}>
         <img
           src={toggle ? close : menu}
           alt="menu"
@@ -139,10 +135,6 @@ const Navbar = () => {
           `}
         >
           <ul className="list-none flex flex-col items-start">
-            <div className="mb-3" style={{ zIndex: 100000 }}>
-              <ThemeButton className="px-20" />
-            </div>
-
             {navLinks.map((nav) => (
               <li
                 key={nav.id}

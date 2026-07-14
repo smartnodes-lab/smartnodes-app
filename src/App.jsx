@@ -57,7 +57,7 @@ const App = () => {
   useWindowSizeHandler(setActiveMenu);
 
   return (
-    <div className="relative flex-row min-h-screen bg-zinc-100 dark:bg-zinc-900">
+    <div className="relative flex-row min-h-screen bg-zinc-100 dark:bg-[#0A0D13]">
       <BrowserRouter>
         {/* Sidebar - now properly fixed */}
         {activeMenu && <Sidebar />}

@@ -1,6 +1,6 @@
 import Navbar from "./Navbar";
 import Example from "./Example";
-import WhyTensorlink from "./WhyTensorlink";
+import TensorlinkApplications from "./TensorlinkApplications";
 import Footer from "./Footer";
 import Testimonials from "./Toolbox";
 import MainHero from "./MainHero";
@@ -41,10 +41,12 @@ import ToPortal from "./ToPortal";
 import ClaimRewardsComponent from "./dashboard/Rewards";
 import { ProposalsTable, ProposalsBarChart } from "./dashboard/ProposalsChart";
 import NotFound from "./NotFound";
-import UseCases from "./TensorlinkUseCases";
 import ChatMessage from "./ChatMessage";
+import Hero from "./Hero";
 
 export {
+  TensorlinkApplications,
+  Hero,
   ChatMessage,
   Installation,
   NotFound,
@@ -81,7 +83,6 @@ export {
   Navbar,
   Opportunity,
   Example,
-  WhyTensorlink,
   Framework,
   Footer,
   Testimonials,
@@ -90,5 +91,4 @@ export {
   ConnectWalletButton,
   SupplyStatsCard,
   Community,
-  UseCases,
 };

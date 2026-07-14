@@ -290,7 +290,7 @@ const SmartnodesDashboard = ({
         }
     };
 
-    const API_BASE_URL = "https://smartnodes.ddns.net/tensorlink-api";
+    const API_BASE_URL = "https://tensorlink.ddns.net/tensorlink";
     // const API_BASE_URL = "http://192.168.2.54:64747";
     
     const fetchNetworkData = async () => {
@@ -313,7 +313,7 @@ const SmartnodesDashboard = ({
             const [statsResponse, historyResponse, models] = await Promise.all([
                 fetch(`${API_BASE_URL}/stats`),
                 fetch(`${API_BASE_URL}/network-history?days=90`),
-                fetch(`${API_BASE_URL}/model-demand`)
+                fetch(`${API_BASE_URL}/v1/models/demand`)
             ]);
 
             if (!statsResponse.ok || !historyResponse.ok) {

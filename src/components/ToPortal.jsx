@@ -1,6 +1,7 @@
-import React from "react";
+import { useState } from "react";
 import { Book, Server, Users } from "lucide-react";
 import AnimatedLottie from "./animations/AnimatedLottie";
+import useReveal from "../hooks/useReveal";
 
 const portals = [
   {
@@ -8,79 +9,109 @@ const portals = [
     link: "/tensorlink/docs",
     img: null, // Your lottie animation
     icon: Book,
-    description: "Complete guides, API references, and tutorials"
+    accent: "#4FD8C4",
+    description: "Complete guides, API references, and tutorials.",
   },
   {
     title: "Running a Node",
     link: "/tensorlink/node-setup",
     img: null, // Your lottie animation
     icon: Server,
-    description: "Set up your GPU to earn rewards or create private AI"
+    accent: "#A78BFA",
+    description: "Set up your GPU to earn rewards or run private AI.",
   },
   {
     title: "Join the Community",
     link: "https://discord.gg/aCW2kTNzJ2",
     img: null, // Your lottie animation
     icon: Users,
-    description: "Connect with developers and get support"
-  }
+    accent: "#F2A65A",
+    description: "Connect with developers and get support.",
+  },
 ];
 
-const GetStarted = () => (
-  <section 
-    className="relative z-20 w-full overflow-hidden py-16 mb-20 bg-zinc-200 dark:bg-neutral-900"
-    id="get-started"
-  >
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20">
-      <div className="w-full text-center mb-12">
-        <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900 dark:text-white leading-tight mb-4">
-          Get Started 
-        </h2>
-        <p className="text-lg text-gray-700 dark:text-gray-300 max-w-2xl mx-auto">
-          Explore our tools and resources to start leveraging distributed computing for your AI workloads
-        </p>
-      </div>
-      
-      <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
-        {portals.map((portal, index) => (
-          <PortalCard key={index} {...portal} />
-        ))}
-      </div>
-    </div>
-  </section>
-);
+const GetStarted = () => {
+  const [activeId, setActiveId] = useState(null);
+  const [ref, visible] = useReveal(0.15);
 
-const PortalCard = ({ title, link, img, icon: Icon, description }) => (
-  <a href={link} className="no-underline group">
-    <div className="feedback-card rounded-2xl p-6 flex flex-col items-center text-center h-full transition-all duration-300 hover:scale-105 hover:shadow-2xl border-2 border-transparent hover:border-purple-500/50">
-      {/* Icon with animation */}
-      <div className="mb-4 p-4 rounded-full bg-gradient-to-br from-purple-500 to-blue-500 group-hover:from-purple-600 group-hover:to-blue-600 transition-all">
-        <Icon className="w-8 h-8 text-white" />
-      </div>
-      
-      {/* Title */}
-      <h4 className="font-semibold text-xl text-white mb-2 group-hover:text-purple-300 transition-colors">
-        {title}
-      </h4>
-      
-      {/* Description */}
-      <p className="text-sm text-gray-300 mb-4">
-        {description}
-      </p>
-      
-      {/* Lottie Animation */}
-      {img && (
-        <div className="w-32 h-32 mt-auto">
-          <AnimatedLottie animationData={img} loop={true}/>
+  return (
+    <section
+      className="relative w-full py-16 sm:py-32"
+      id="get-started"
+    >
+      <div
+        ref={ref}
+        className={`max-w-6xl mx-auto px-4 sm:px-8 transition-all duration-700 ${
+          visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
+        }`}
+      >
+        <div className="max-w-2xl mx-auto text-center mb-14">
+          <span className="font-['JetBrains_Mono'] text-xs tracking-[0.25em] uppercase text-[#4FD8C4]">
+            Get Started
+          </span>
+          <h2 className="font-['Space_Grotesk'] font-bold text-4xl sm:text-5xl text-[#EDEFF4] leading-tight mt-3">
+            Pick your path
+          </h2>
+          <p className="mt-6 text-[#9AA2B4] text-base leading-relaxed">
+            Read the docs, spin up a node, or drop into the community —
+            everything you need to start using distributed compute.
+          </p>
         </div>
-      )}
-      
-      {/* Arrow indicator on hover */}
-      <div className="mt-4 text-purple-400 group-hover:text-purple-300 transition-all group-hover:translate-x-1">
-        <span className="text-sm font-medium">Learn more →</span>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-36">
+          {portals.map((portal) => {
+            const isActive = activeId === portal.title;
+            const isExternal = portal.link.startsWith("http");
+            const Icon = portal.icon;
+
+            return (
+              <a
+                key={portal.title}
+                href={portal.link}
+                target={isExternal ? "_blank" : undefined}
+                rel={isExternal ? "noopener noreferrer" : undefined}
+                onMouseEnter={() => setActiveId(portal.title)}
+                onMouseLeave={() => setActiveId(null)}
+                className="group rounded-xl px-6 py-6 flex flex-col h-full border transition-all duration-300 no-underline"
+                style={{
+                  borderColor: isActive ? `${portal.accent}55` : "rgba(255,255,255,0.08)",
+                  background: isActive ? `${portal.accent}14` : "rgba(255,255,255,0.02)",
+                }}
+              >
+                <div
+                  className="inline-flex p-2.5 rounded-lg w-fit"
+                  style={{ backgroundColor: `${portal.accent}22` }}
+                >
+                  <Icon className="w-5 h-5" style={{ color: portal.accent }} />
+                </div>
+
+                <h3 className="font-['Space_Grotesk'] font-semibold text-lg text-[#EDEFF4] mt-4">
+                  {portal.title}
+                </h3>
+                <p className="mt-2 text-sm leading-relaxed text-[#9AA2B4]">
+                  {portal.description}
+                </p>
+
+                {portal.img && (
+                  <div className="w-24 h-24 mt-4 mx-auto">
+                    <AnimatedLottie animationData={portal.img} loop={true} />
+                  </div>
+                )}
+
+                <div
+                  className="mt-4 pt-4 border-t border-white/5 flex items-center gap-1.5 text-sm font-medium transition-transform group-hover:translate-x-1"
+                  style={{ color: portal.accent }}
+                >
+                  Learn more
+                  <span aria-hidden="true">&rarr;</span>
+                </div>
+              </a>
+            );
+          })}
+        </div>
       </div>
-    </div>
-  </a>
-);
+    </section>
+  );
+};
 
 export default GetStarted;
