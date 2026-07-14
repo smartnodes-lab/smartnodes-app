@@ -1,79 +1,87 @@
-import React from "react";
+import { Layers, ShieldCheck, Coins } from "lucide-react";
+import useReveal from "../hooks/useReveal";
+
+const features = [
+  {
+    icon: Layers,
+    accent: "#4FD8C4",
+    title: "Modular Architecture",
+    description: "Build flexible resource-sharing applications with customizable node types.",
+  },
+  {
+    icon: ShieldCheck,
+    accent: "#A78BFA",
+    title: "Secure Network",
+    description: "Validator staking and identity verification ensure trusted interactions across the peer-to-peer network.",
+  },
+  {
+    icon: Coins,
+    accent: "#F2A65A",
+    title: "Unified Economy",
+    description: "All interactions, rewards, and governance operate under a single smart contract and token system, ensuring transparency, interoperability, and long-term sustainability.",
+  },
+];
 
 const Framework = () => {
-  const features = [
-    {
-      icon: (
-        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2-2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
-        </svg>
-      ),
-      title: "Modular Architecture",
-      description: "Build flexible resource-sharing applications with customizable node types."
-    },
-    {
-      icon: (
-        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.031 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
-        </svg>
-      ),
-      title: "Secure Network",
-      description: "Validator staking and identity verification ensure trusted interactions across the peer-to-peer network."
-    },
-    {
-      icon: (
-        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-        </svg>
-      ),
-      title: "Unified Economy",
-      description: "All interactions, rewards, and governance operate under a single smart contract and token system—ensuring transparency, interoperability, and long-term sustainability."
-    }
-  ];
+  const [ref, visible] = useReveal(0.15);
 
   return (
-    <section id="framework" className="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto" style={{ zIndex: 100 }}>
-      <div className="grid md:grid-cols-2 gap-12 lg:gap-16 items-start">
-        
-        {/* Left Column - Header */}
-        <div className="space-y-6">
-          <h2 className="font-bold text-3xl sm:text-4xl lg:text-5xl text-slate-900 dark:text-slate-100 leading-tight">
-            A Modular{" "}
-            <span className="bg-gradient-to-r from-blue-600 to-blue-700 dark:from-blue-500 dark:to-blue-600 bg-clip-text text-transparent">
-              Node Framework
-            </span>
-            {" "}for{" "}
-            <span className="bg-gradient-to-r from-yellow-600 to-yellow-500 dark:from-yellow-500 dark:to-yellow-400 bg-clip-text text-transparent">
-              Python
-            </span>
-          </h2>
-          <p className="text-slate-600 dark:text-slate-400 text-md lg:text-lg leading-relaxed max-w-xl">
-            Transform any device into a network participant with our powerful, extensible Python framework.
-          </p>
-        </div>
+    <section id="framework" className="relative w-full bg-[#0A0D13] py-20 sm:py-24 border-t border-b">
+      <div
+        ref={ref}
+        className={`max-w-6xl mx-auto px-4 sm:px-8 transition-all duration-700 ${
+          visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
+        }`}
+      >
+        <div className="grid md:grid-cols-2 gap-12 lg:gap-16 items-start">
+          {/* Left column - Header */}
+          <div>
+            <h2 className="font-bold text-3xl sm:text-4xl lg:text-5xl text-[#EDEFF4] leading-tight mt-3">
+              A Modular{" "}
+              <span className="bg-gradient-to-r from-[#4FD8C4] to-[#A78BFA] bg-clip-text text-transparent">
+                Node Framework
+              </span>{" "}
+              for <span className="text-[#F2A65A]">Python</span>
+            </h2>
+            <p className="text-[#9AA2B4] text-base lg:text-lg leading-relaxed max-w-xl mt-6">
+              Transform any device into a network participant with our
+              powerful, extensible Python framework.
+            </p>
+          </div>
 
-        {/* Right Column - Features */}
-        <div className="space-y-3">
-          {features.map((feature, index) => (
-            <div 
-              key={index}
-              className="group p-3 rounded-md bg-white dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700 hover:border-blue-400 dark:hover:border-blue-500 transition-all duration-300 hover:shadow-lg backdrop-blur-sm"
-            >
-              <div className="flex items-start space-x-4">
-                <div className="flex-shrink-0 p-2.5 rounded-lg bg-blue-50 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 group-hover:scale-110 transition-transform duration-300">
-                  {feature.icon}
-                </div>
-                <div className="flex-1 min-w-0">
-                  <h3 className="font-semibold text-md text-slate-900 dark:text-slate-100 mb-2">
-                    {feature.title}
-                  </h3>
-                  <p className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
-                    {feature.description}
-                  </p>
+          {/* Right column - Features */}
+          <div className="space-y-4">
+            {features.map((feature) => (
+              <div
+                key={feature.title}
+                className="rounded-xl px-5 py-5 border border-white/10 bg-white/[0.02] hover:bg-white/[0.04] transition-all duration-300"
+                style={{ borderColor: "rgba(255,255,255,0.08)" }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.borderColor = `${feature.accent}55`;
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.borderColor = "rgba(255,255,255,0.08)";
+                }}
+              >
+                <div className="flex items-start gap-4">
+                  <div
+                    className="shrink-0 p-2.5 rounded-lg"
+                    style={{ backgroundColor: `${feature.accent}22` }}
+                  >
+                    <feature.icon className="w-5 h-5" style={{ color: feature.accent }} />
+                  </div>
+                  <div>
+                    <h3 className="font-semibold text-lg text-[#EDEFF4]">
+                      {feature.title}
+                    </h3>
+                    <p className="mt-2 text-sm leading-relaxed text-[#9AA2B4]">
+                      {feature.description}
+                    </p>
+                  </div>
                 </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </div>
     </section>

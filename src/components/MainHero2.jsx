@@ -1,8 +1,6 @@
-import styles from "../style";
 import React, { useState, useEffect } from "react";
-import { data } from "../assets";
 import { overview } from "../constants";
-import AnimatedLottie from "./animations/AnimatedLottie";
+import useReveal from "../hooks/useReveal";
 
 const MainHero2 = () => {
   const words = ["Resource Sharing", "Global Collaboration", "Idle Hardware", "Edge Computing", "IoT Devices"];
@@ -10,6 +8,7 @@ const MainHero2 = () => {
   const [currentWord, setCurrentWord] = useState(" ");
   const [isTyping, setIsTyping] = useState(false);
   const [isDeleting, setIsDeleting] = useState(false);
+  const [sectionRef, visible] = useReveal(0.15);
 
   useEffect(() => {
     let currentIndex = 0;
@@ -62,30 +61,32 @@ const MainHero2 = () => {
   }, []);
 
   return (
-    <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-20">
+    <section
+      ref={sectionRef}
+      className={`max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-20 transition-all duration-700 ${
+        visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
+      }`}
+    >
       <div className="grid gap-8 lg:gap-16 items-center">
-        
         {/* Left Column - Spacer */}
         <div className="hidden lg:block" />
 
-
         {/* Right Column - Content */}
         <div className="space-y-4">
+
           {/* Title */}
-          <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 dark:text-slate-100 leading-tight">
+          <h2 className="text-3xl sm:text-4xl font-bold text-[#EDEFF4] leading-tight">
             Unlocking Value From
           </h2>
 
           {/* Typing Animation */}
           <div className="text-3xl sm:text-4xl font-bold min-h-[1.2em]">
-            <span className="bg-gradient-to-r from-blue-600 to-blue-500 dark:from-blue-500 dark:to-blue-400 bg-clip-text text-transparent">
-              {currentWord}
-            </span>
-            <span className="animate-pulse text-blue-400 dark:text-blue-500 ml-1">|</span>
+            <span className="text-[#4FD8C4]">{currentWord}</span>
+            <span className="animate-pulse text-[#4FD8C4] ml-1">|</span>
           </div>
 
           {/* Description */}
-          <p className="text-slate-600 dark:text-slate-400 text-md lg:text-lg leading-relaxed max-w-2xl">
+          <p className="text-[#9AA2B4] text-md lg:text-lg leading-relaxed max-w-2xl">
             {overview.info}
           </p>
 
@@ -93,7 +94,7 @@ const MainHero2 = () => {
           <div className="pt-4">
             <a
               href="/app"
-              className="inline-flex items-center px-6 py-3.5 text-white bg-slate-900 dark:bg-slate-100 dark:text-slate-900 hover:bg-slate-800 dark:hover:bg-white rounded-lg font-semibold transition-all duration-200 hover:shadow-lg hover:scale-105"
+              className="inline-flex items-center px-6 py-3.5 text-[#0D1117] bg-[#4FD8C4] hover:bg-[#6FE8D6] rounded-lg font-semibold transition-all duration-200 hover:shadow-[0_0_30px_-8px_rgba(79,216,196,0.6)] hover:scale-105"
             >
               Network Dashboard
               <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">

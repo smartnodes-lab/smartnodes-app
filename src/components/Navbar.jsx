@@ -128,7 +128,7 @@ const Navbar = () => {
         <div
           className={`
             absolute top-16 right-0 mx-4 mt-4 min-w-[140px]
-            border border-gray-300 p-6 dark:bg-slate-600 bg-slate-200
+            border border-gray-300 p-6 dark:bg-zinc-700 bg-slate-200
             rounded-xl shadow-xl z-30
             transform origin-top transition-all duration-300 ease-out
             ${toggle ? "scale-y-100 opacity-100 pointer-events-auto" : "scale-y-0 opacity-0 pointer-events-none"}
